@@ -20,6 +20,7 @@ def main():
     else:
         model.get_items_raw()
 
+    model.filter_items(['kid', 'men', 'women', 'shelf', 'artwork', 'scratch', 'cat', 'shoe', 'shelv', 'gaming chair', 'desk', 'table', 'costume', 'baby'])
     time.sleep(5)
 
     model.dispose()

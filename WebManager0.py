@@ -109,8 +109,19 @@ class WebManager0(ManagerBase.ManagerBase):
             self.listings = pk.load(f)
         f.close()
 
-    def filter_items(self):
+    def filter_items(self, keywords_to_filter: list[str]):
         super().filter_items()
+        remove = []
+        for i in self.listings:
+            for j in keywords_to_filter:
+                print("Checking for '{loc}' in ({listing})".format(loc=j, listing=i.name))
+                if j.lower() in i.name.lower():
+                    print("\033[91mRemoving {name} from list\033[0m".format(name=i.name))
+                    remove.append(i)
+        for i in remove:
+            if i in self.listings:
+                self.listings.remove(i)
+        print("Keeping {num} listings. ".format(num=len(self.listings)))
 
     def refresh_items(self):
         super().refresh_items()
