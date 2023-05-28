@@ -1,5 +1,5 @@
 import time
-
+import pickle as pk
 from attr import dataclass
 from selenium.webdriver import Keys
 
@@ -13,6 +13,8 @@ class Listing:
     name: str
     url: str
     img_url: list[str]
+    end_date: str
+    last_price: int
 
 
 class WebManager0(ManagerBase.ManagerBase):
@@ -22,20 +24,20 @@ class WebManager0(ManagerBase.ManagerBase):
         super().__init__()
         self.auctions = []
         self.listings = []
-        self.driver = webdriver.Firefox()
 
     def dispose(self):
         super().dispose()
-        self.driver.close()
+        # self.driver.close()
 
     def get_auctions(self):
         super().get_auctions()
-        self.driver.get("https://www.onlineliquidationauction.com/")
+        driver = webdriver.Firefox()
+        driver.get("https://www.onlineliquidationauction.com/")
         # row blog margin-bottom-40 //*[@id="main-content-top"]/div/div[1]/div[1]
-        auction_elements = self.driver.find_elements(By.XPATH, './html/body/div[2]/div[5]/div/div[1]/div')
+        auction_elements = driver.find_elements(By.XPATH, './html/body/div[2]/div[5]/div/div[1]/div')
         print("\nFound {num} auctions: ".format(num=len(auction_elements)))
         for i in auction_elements:
-            listing: Listing = Listing("", "", [])
+            listing: Listing = Listing("", "", [], None, None)
             listing.name = i.find_element(By.XPATH, "./div[2]/h2/a").text
             print(listing.name)
             bad_url = 'https://www.onlineliquidationauction.com/auctions/detail/bw'
@@ -45,20 +47,22 @@ class WebManager0(ManagerBase.ManagerBase):
             listing.img_url = [i.find_element(By.XPATH, "./div[1]/div/div/div/div/div/a/img").get_attribute('src')]
             print(listing.img_url)
             self.auctions.append(listing)
+        driver.close()
         print()
 
     def filter_auctions(self, auctions_to_remove: list[str]):
         super().filter_auctions(auctions_to_remove)
-        new = []
+        remove = []
         for i in self.auctions:
             for j in auctions_to_remove:
                 print("Checking for '{loc}' in ({auction})".format(loc=j, auction=i.name))
-                if j not in i.name:
-                    new.append(i)
-                else:
+                if j in i.name:
                     print("\033[91mRemoving {name} from list\033[0m".format(name=i.name))
-        self.auctions = new
-        print(len(self.auctions))
+                    remove.append(i)
+        for i in remove:
+            if i in self.auctions:
+                self.auctions.remove(i)
+        print("Keeping {num} auctions. ".format(num=len(self.auctions)))
 
     def get_items_raw(self):
         super().get_items_raw()
@@ -80,7 +84,8 @@ class WebManager0(ManagerBase.ManagerBase):
                 for i in live_items:
                     name = i.find_element(By.XPATH, "./div/div/div/div/div/a").text
                     if name not in names:
-                        listing: Listing = Listing("", "", [])
+                        # TODO: fill out pricing and end date
+                        listing: Listing = Listing("", "", [], None, None)
                         listing.name = name
                         print(listing.name)
                         listing.url = i.find_element(By.XPATH, "./div/div/div/div/div/a").get_attribute("href")
@@ -95,7 +100,14 @@ class WebManager0(ManagerBase.ManagerBase):
                 print("There are {count} total listings. ".format(count=len(self.listings)))
             print("{count} items found. ".format(count=len(names)))
             auction_driver.close()
-            break
+            file = open('listings', 'wb')
+            pk.dump(self.listings, file)
+            file.close()
+
+    def load_from_file(self):
+        with open('listings', 'rb') as f:
+            self.listings = pk.load(f)
+        f.close()
 
     def filter_items(self):
         super().filter_items()

@@ -1,3 +1,5 @@
+import os
+
 import DesktopUI0
 import ManagerBase
 import WebManager0
@@ -11,9 +13,12 @@ def main():
     view: UIBase = DesktopUI0.DesktopUI0()
 
     model.get_auctions()
-    model.filter_auctions(["Brookpark Rd","N Royalton"])
+    model.filter_auctions(["Brookpark Rd", "N Royalton"])
 
-    model.get_items_raw()
+    if os.path.isfile('listings'):
+        model.load_from_file()
+    else:
+        model.get_items_raw()
 
     time.sleep(5)
 

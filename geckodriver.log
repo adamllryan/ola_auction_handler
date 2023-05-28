@@ -4289,3 +4289,733 @@ JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_Gi
 
 [GFX1-]: Unrecognized feature VIDEO_OVERLAY
 [GFX1-]: Unrecognized feature VIDEO_OVERLAY
+1685256649918	Marionette	INFO	Stopped listening on port 59033
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685256652162	Marionette	INFO	Stopped listening on port 58920
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 7583 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+1685294052423	geckodriver	INFO	Listening on 127.0.0.1:61841
+1685294052938	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "61842" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileVqGo2p"
+1685294055287	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileVqGo2p/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:61842/devtools/browser/5a29ed80-5b2b-4e17-b072-17b4e8222e06
+1685294056254	Marionette	INFO	Listening on port 61851
+1685294056273	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 6217 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685294058569	geckodriver	INFO	Listening on 127.0.0.1:61986
+1685294059077	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "61987" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilebdLMj5"
+1685294059351	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilebdLMj5/search.json.mozlz4", (void 0)))
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:61987/devtools/browser/e3c1cf87-5b97-49f4-bcd1-2a5b26a58c48
+1685294060137	Marionette	INFO	Listening on port 61998
+1685294060228	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685294079848	Marionette	INFO	Stopped listening on port 61998
+1685294085269	Marionette	INFO	Stopped listening on port 61851
+JavaScript error: resource://gre/modules/PromiseWorker.jsm, line 106: Error: IOUtils: Shutting down and refusing additional I/O tasks
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 5042 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+1685294445120	geckodriver	INFO	Listening on 127.0.0.1:63908
+1685294445128	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63909" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile5QNoJI"
+1685294445411	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile5QNoJI/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:63909/devtools/browser/9a40cdca-5997-44e0-b4ff-feb3e062a9cb
+1685294446178	Marionette	INFO	Listening on port 63912
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685294446282	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 2432 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685294493446	geckodriver	INFO	Listening on 127.0.0.1:64222
+1685294493959	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64223" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile0DnkHz"
+1685294494233	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile0DnkHz/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+DevTools listening on ws://localhost:64223/devtools/browser/2b8be0db-1bb6-40a8-8b8b-f959b2597704
+1685294495073	Marionette	INFO	Listening on port 64228
+1685294495113	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 805 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685294498612	geckodriver	INFO	Listening on 127.0.0.1:64344
+1685294499124	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64345" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilevlTa2J"
+1685294499414	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilevlTa2J/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+DevTools listening on ws://localhost:64345/devtools/browser/e7f2dfc4-c361-4639-b78a-83b776d5161a
+1685294500267	Marionette	INFO	Listening on port 64350
+1685294500276	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685294520103	Marionette	INFO	Stopped listening on port 64350
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685294525507	Marionette	INFO	Stopped listening on port 64228
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 2673 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685294577688	geckodriver	INFO	Listening on 127.0.0.1:64791
+1685294577697	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64792" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilemFyCMH"
+1685294577997	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilemFyCMH/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:64792/devtools/browser/66ff2280-1979-44c7-b91a-d7e4e19f94db
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685294578797	Marionette	INFO	Listening on port 64795
+1685294578852	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 4687 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685294581209	geckodriver	INFO	Listening on 127.0.0.1:64901
+1685294581718	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64902" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileBdqhDU"
+1685294581988	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileBdqhDU/search.json.mozlz4", (void 0)))
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:64902/devtools/browser/e70e9e37-a7be-4d08-87f5-faa4d1de1740
+1685294582780	Marionette	INFO	Listening on port 64911
+1685294582877	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685294602592	Marionette	INFO	Stopped listening on port 64911
+1685294607996	Marionette	INFO	Stopped listening on port 64795
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 6494 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685294624084	geckodriver	INFO	Listening on 127.0.0.1:65163
+1685294624091	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "65164" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilerCj8T7"
+1685294624374	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilerCj8T7/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:65164/devtools/browser/9378b235-76bf-4864-83d2-fe9b70d23bd5
+1685294625193	Marionette	INFO	Listening on port 65167
+1685294625248	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 2938 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685294633409	Marionette	INFO	Stopped listening on port 65167
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 1875 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+1685294637827	geckodriver	INFO	Listening on 127.0.0.1:65328
+1685294637834	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "65329" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileOgm66A"
+1685294638102	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileOgm66A/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+DevTools listening on ws://localhost:65329/devtools/browser/2ff92b73-da79-4f1f-bdb7-1024a7349f1f
+1685294638923	Marionette	INFO	Listening on port 65332
+1685294638984	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 5117 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685294641051	geckodriver	INFO	Listening on 127.0.0.1:65425
+1685294641559	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "65426" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilef8DTCF"
+1685294641834	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilef8DTCF/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:65426/devtools/browser/21442c14-aa1c-46d0-96fd-4a3d35898ff1
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685294642621	Marionette	INFO	Listening on port 65437
+1685294642712	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685294746056	geckodriver	INFO	Listening on 127.0.0.1:49569
+1685294746063	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "49570" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilewL31g2"
+1685294746338	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilewL31g2/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:49570/devtools/browser/201dd8dd-5388-481e-80dd-149416862a0c
+1685294747110	Marionette	INFO	Listening on port 49573
+1685294747117	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 148 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685294749427	geckodriver	INFO	Listening on 127.0.0.1:49679
+1685294749935	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "49680" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileMGFUqP"
+1685294750201	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileMGFUqP/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:49680/devtools/browser/5194f6a4-38ba-4f60-81f1-22bf4e3ccbea
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685294751057	Marionette	INFO	Listening on port 49688
+1685294751079	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685294768278	geckodriver	INFO	Listening on 127.0.0.1:49855
+1685294768284	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "49856" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilebQoII0"
+1685294768568	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilebQoII0/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:49856/devtools/browser/e37fd320-3d35-4f9c-9ce6-f3ddf782f16c
+1685294769400	Marionette	INFO	Listening on port 49859
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685294769445	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685294771708	geckodriver	INFO	Listening on 127.0.0.1:49971
+1685294772218	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "49972" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofiletaKGwD"
+1685294772494	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofiletaKGwD/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:49972/devtools/browser/c43943e0-ca6e-45c2-94f2-5a81dc4584d4
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685294773247	Marionette	INFO	Listening on port 49982
+1685294773262	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+[GFX1-]: Unrecognized feature VIDEO_OVERLAY
+1685294986367	geckodriver	INFO	Listening on 127.0.0.1:51018
+1685294986373	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "51019" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileXdFgPx"
+1685294986642	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileXdFgPx/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:51019/devtools/browser/40ef50c6-2693-4074-9c24-3df25d84c016
+1685294987402	Marionette	INFO	Listening on port 51022
+1685294987422	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 3162 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685294989856	geckodriver	INFO	Listening on 127.0.0.1:51126
+1685294990368	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "51127" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileSLKUac"
+1685294990641	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileSLKUac/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+DevTools listening on ws://localhost:51127/devtools/browser/fc4bb4f8-f126-41bc-8705-4f63b066eeb3
+1685294991444	Marionette	INFO	Listening on port 51140
+1685294991509	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685295008289	geckodriver	INFO	Listening on 127.0.0.1:51295
+1685295008297	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "51296" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileoRye5h"
+1685295008574	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileoRye5h/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:51296/devtools/browser/ca6dd9b3-3568-4f02-841c-27dd6a39a4e3
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685295009320	Marionette	INFO	Listening on port 51299
+1685295009333	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685295016700	Marionette	INFO	Stopped listening on port 51299
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 3678 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PBrowser::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileoRye5h/protections.sqlite
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685295206673	geckodriver	INFO	Listening on 127.0.0.1:52537
+1685295206682	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "52538" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileWmrnUH"
+1685295206944	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileWmrnUH/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:52538/devtools/browser/bb1fa551-28ec-416c-91bc-baaa1bb7cc2b
+1685295207664	Marionette	INFO	Listening on port 52541
+1685295207725	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 3657 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685295215005	Marionette	INFO	Stopped listening on port 52541
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 3313 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileWmrnUH/protections.sqlite
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685295299852	geckodriver	INFO	Listening on 127.0.0.1:53019
+1685295299859	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "53020" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileyeMVID"
+1685295300122	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileyeMVID/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:53020/devtools/browser/09bcb417-29c1-49ec-a788-718862b9da0c
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685295300895	Marionette	INFO	Listening on port 53023
+1685295301007	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685295333570	geckodriver	INFO	Listening on 127.0.0.1:53268
+1685295333577	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "53269" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile4A9Izl"
+1685295333852	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile4A9Izl/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:53269/devtools/browser/5d66a038-e892-4706-910b-add880e5c40c
+1685295334673	Marionette	INFO	Listening on port 53272
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685295334729	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 1078 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685295405000	geckodriver	INFO	Listening on 127.0.0.1:53676
+1685295405517	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "53677" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileoz5aIh"
+1685295405811	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileoz5aIh/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:53677/devtools/browser/01fec0c2-1171-45b4-9ac5-e82d6ca92ed6
+1685295406742	Marionette	INFO	Listening on port 53686
+1685295406783	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 4186 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685295414067	Marionette	INFO	Stopped listening on port 53686
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 4833 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileoz5aIh/protections.sqlite
+1685295431175	geckodriver	INFO	Listening on 127.0.0.1:53888
+1685295431183	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "53889" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile6AbpPG"
+1685295431467	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile6AbpPG/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:53889/devtools/browser/e1961e6b-bdea-4ec5-9c8a-e43a0ad7670c
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685295432252	Marionette	INFO	Listening on port 53892
+1685295432332	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685295439729	Marionette	INFO	Stopped listening on port 53892
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 2524 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+1685295447439	geckodriver	INFO	Listening on 127.0.0.1:54051
+1685295447447	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "54052" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile5tqr4s"
+1685295447733	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile5tqr4s/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+DevTools listening on ws://localhost:54052/devtools/browser/324fd43f-8ba3-41f7-9e35-4fe1707925fb
+1685295448509	Marionette	INFO	Listening on port 54055
+1685295448594	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685295450555	geckodriver	INFO	Listening on 127.0.0.1:54160
+1685295451062	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "54161" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilezyLZ8r"
+1685295451366	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilezyLZ8r/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+DevTools listening on ws://localhost:54161/devtools/browser/93999578-ca1d-4fc2-9810-6a4315b34d79
+1685295452242	Marionette	INFO	Listening on port 54174
+1685295452323	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685295557743	Marionette	INFO	Stopped listening on port 54174
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685295563334	Marionette	INFO	Stopped listening on port 54055
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 3688 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+[GFX1-]: Unrecognized feature VIDEO_OVERLAY
+[GFX1-]: Unrecognized feature VIDEO_OVERLAY
+1685299944732	Marionette	INFO	Stopped listening on port 53272
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 5147 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PBrowser::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+1685299945685	Marionette	INFO	Stopped listening on port 53023
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 5022 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685300470698	geckodriver	INFO	Listening on 127.0.0.1:56742
+1685300471217	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "56743" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileERuKEu"
+1685300471497	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileERuKEu/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:56743/devtools/browser/7d8af996-5e5a-42ee-ba7a-d9049b45109a
+1685300472289	Marionette	INFO	Listening on port 56748
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685300472367	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 3892 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685300474633	geckodriver	INFO	Listening on 127.0.0.1:56843
+1685300475143	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "56844" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileY4jMHD"
+1685300475405	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileY4jMHD/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:56844/devtools/browser/7590f8f8-d099-4d4b-9c40-3d35a22613ff
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685300476151	Marionette	INFO	Listening on port 56853
+1685300476176	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685300578063	Marionette	INFO	Stopped listening on port 56853
+1685300583647	Marionette	INFO	Stopped listening on port 56748
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 1820 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+1685300704240	geckodriver	INFO	Listening on 127.0.0.1:56994
+1685300704758	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "56995" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile9p1yhp"
+1685300705054	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile9p1yhp/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:56995/devtools/browser/770ac47e-5f22-40eb-b051-5a4e26856a76
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685300705872	Marionette	INFO	Listening on port 57000
+1685300705909	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 5813 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685300708246	Marionette	INFO	Stopped listening on port 57000
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile9p1yhp/protections.sqlite
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685300743756	geckodriver	INFO	Listening on 127.0.0.1:57099
+1685300743766	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57100" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileW94d1A"
+1685300744031	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileW94d1A/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:57100/devtools/browser/cc6f62c4-453f-4dda-b3d3-7a1a3b52dece
+1685300744796	Marionette	INFO	Listening on port 57103
+1685300744813	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 4421 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685300747277	Marionette	INFO	Stopped listening on port 57103
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileW94d1A/protections.sqlite
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685300903090	geckodriver	INFO	Listening on 127.0.0.1:57208
+1685300903098	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57209" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile1IDngR"
+1685300903397	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile1IDngR/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:57209/devtools/browser/d4e06fb6-353e-4a0d-bec6-86b7f83edfd7
+1685300904181	Marionette	INFO	Listening on port 57212
+1685300904245	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 681 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685300906438	Marionette	INFO	Stopped listening on port 57212
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile1IDngR/protections.sqlite
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685300916490	geckodriver	INFO	Listening on 127.0.0.1:57305
+1685300916499	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57306" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilepYbCAQ"
+1685300916765	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilepYbCAQ/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:57306/devtools/browser/d970b7b4-9dcf-44ba-abd8-76763b207365
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685300917554	Marionette	INFO	Listening on port 57309
+1685300917646	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 6650 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685300920936	Marionette	INFO	Stopped listening on port 57309
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 715 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PHttpChannel::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilepYbCAQ/protections.sqlite
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685300921333	geckodriver	INFO	Listening on 127.0.0.1:57405
+1685300921849	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57406" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileEdJ1i4"
+1685300922144	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileEdJ1i4/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:57406/devtools/browser/31b8ce51-7397-4b7c-b24c-38515a0425cc
+1685300922947	Marionette	INFO	Listening on port 57411
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685300923009	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685301029948	Marionette	INFO	Stopped listening on port 57411
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685301139409	geckodriver	INFO	Listening on 127.0.0.1:57529
+1685301139418	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "57530" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileTyKDGR"
+1685301139725	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileTyKDGR/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:57530/devtools/browser/7b4cb806-26b9-409a-bf28-0a8a3e5b6f28
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685301140508	Marionette	INFO	Listening on port 57533
+1685301140565	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685301143837	Marionette	INFO	Stopped listening on port 57533
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileTyKDGR/protections.sqlite
