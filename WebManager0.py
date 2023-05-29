@@ -185,7 +185,7 @@ class WebManager0(ManagerBase.ManagerBase):
         f.close()
 
     def filter_items(self, keywords_to_filter: list[str]):
-        super().filter_items()
+        super().filter_items(keywords_to_filter)
         remove = []
         for i in self.listings:
             for j in keywords_to_filter:
