@@ -14,8 +14,8 @@ def main():
 
     model.get_auctions()
     model.filter_auctions(["Brookpark Rd", "N Royalton"])
-
-    if os.path.isfile('listings'):
+    reload = True
+    if os.path.isfile('listings') and not reload:
         model.load_from_file()
     else:
         model.get_items_raw()

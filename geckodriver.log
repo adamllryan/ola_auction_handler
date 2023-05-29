@@ -5439,3 +5439,966 @@ JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.js
 
 ###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
 
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 3603 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+2023-05-28 20:54:38.024 firefox-bin[45504:3592532] NSVisualEffectView subclass says YES to allowsVibrancy. NSVisualEffectView does not support being vibrantly blended *itself*. This may break in the future.
+1685321700616	Marionette	INFO	Stopped listening on port 63912
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685329953499	geckodriver	INFO	Listening on 127.0.0.1:62851
+1685329953939	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62852" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilexZGBGC"
+1685329956206	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilexZGBGC/search.json.mozlz4", (void 0)))
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:62852/devtools/browser/c8dee080-2446-4416-8aef-c954163ace5e
+1685329957186	Marionette	INFO	Listening on port 62857
+1685329957276	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google.com/js/th/JF2eii1kyhF9uLrjdHdlzksnpph7hdM6Lhf1MY88MeI.js line 2 > eval line 2206 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685329959628	Marionette	INFO	Stopped listening on port 62857
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685341287824	geckodriver	INFO	Listening on 127.0.0.1:52464
+1685341288329	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "52465" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileSqp4Dt"
+1685341290634	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileSqp4Dt/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:52465/devtools/browser/6e390281-109b-4875-8dd7-86f6db693193
+1685341291629	Marionette	INFO	Listening on port 52470
+1685341291678	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 4559 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685341294107	Marionette	INFO	Stopped listening on port 52470
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileSqp4Dt/protections.sqlite
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685341294495	geckodriver	INFO	Listening on 127.0.0.1:52615
+1685341295006	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "52616" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileDrBKbf"
+1685341295279	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileDrBKbf/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:52616/devtools/browser/65510e94-2010-4a8b-bb99-6a663ff6d841
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685341296044	Marionette	INFO	Listening on port 52621
+1685341296053	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.programiz.com/sites/all/themes/programiz/lib/mautic/mautic-form.js, line 40: unreachable code after return statement
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 4936 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 2509 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 307 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 232 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 6561 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 149 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 3036 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1685341572351	geckodriver	INFO	Listening on 127.0.0.1:54343
+1685341572800	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "54344" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileKGsBYs"
+1685341573138	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileKGsBYs/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:54344/devtools/browser/72bc152d-e233-4969-a776-205bb484da44
+1685341573924	Marionette	INFO	Listening on port 54353
+1685341573951	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685341576241	Marionette	INFO	Stopped listening on port 54353
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685341576627	geckodriver	INFO	Listening on 127.0.0.1:54457
+1685341576634	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "54458" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilebTtqdz"
+1685341576901	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilebTtqdz/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:54458/devtools/browser/ae07eed9-5507-4f0f-a893-47973095017a
+1685341577605	Marionette	INFO	Listening on port 54461
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685341577692	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685341636237	geckodriver	INFO	Listening on 127.0.0.1:54785
+1685341636754	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "54786" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileqekXTO"
+1685341637035	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileqekXTO/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:54786/devtools/browser/a2108701-4990-49cc-9008-35b7de788f9b
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685341637899	Marionette	INFO	Listening on port 54791
+1685341638006	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685341639915	Marionette	INFO	Stopped listening on port 54791
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileqekXTO/protections.sqlite
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685341640300	geckodriver	INFO	Listening on 127.0.0.1:54896
+1685341640815	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "54897" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileDN8usH"
+1685341641088	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileDN8usH/search.json.mozlz4", (void 0)))
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:54897/devtools/browser/257eae27-2d40-41f0-8e3c-9af85481c2f6
+1685341641863	Marionette	INFO	Listening on port 54902
+1685341641968	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+[GFX1-]: Unrecognized feature VIDEO_OVERLAY
+[Child 49494, MediaDecoderStateMachine #1] WARNING: 11c44e620 Could not set cubeb stream name.: file /builds/worker/checkouts/gecko/dom/media/AudioStream.cpp:330
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript error: https://favtutor.com/resources/js/custom-script.js, line 1: TypeError: $(...).offset() is undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5053 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 7588 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 3413 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5297 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 516 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 2111 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 2267 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5244 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 4397 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/quantcastv2691176990399/moatad.js#moatClientLevel1=p-tTB93UFC5vepM&moatClientLevel2=qfm&moatClientLevel3=c5a0cf40-fcc6-4cc4-a173-e41e041971b3&moatClientLevel4=ce32df63-a454-4380-9c1e-b00b5d1a4add&uid=cBud0wIWndAca-jUAwOd0XAWhKAFHerPB2zv03UY7NsAa5qhDH1wlA==, line 283: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[GFX1-]: Unrecognized feature VIDEO_OVERLAY
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 7227 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 2873 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5674 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 616 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 3381 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 452 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5217 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5247 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 7100 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 2591 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+[GFX1-]: Unrecognized feature VIDEO_OVERLAY
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 7514 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5092 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 7642 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 6450 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5767 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5543 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 1537 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 7022 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 7024 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 7526 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 3590 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 4062 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 726 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5105 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 3536 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685342219751	geckodriver	INFO	Listening on 127.0.0.1:58077
+1685342220268	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "58078" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilekCWryX"
+1685342220562	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilekCWryX/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:58078/devtools/browser/f661cc25-819d-455f-8980-12cc4f5179cc
+1685342221447	Marionette	INFO	Listening on port 58087
+1685342221524	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 1655 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685342224102	Marionette	INFO	Stopped listening on port 58087
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685342224418	geckodriver	INFO	Listening on 127.0.0.1:58195
+1685342224941	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "58196" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileH5N9aO"
+1685342225218	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileH5N9aO/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+DevTools listening on ws://localhost:58196/devtools/browser/3dc3c4e0-ec7e-41ed-aa26-1d77c226cde8
+1685342226030	Marionette	INFO	Listening on port 58201
+1685342226103	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5519 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://a.teads.tv/media/format/v3/teads-format.min.js, line 1: TypeError: this.vpaidAd is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 1773 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://z.moatads.com/crossmediaadvdcm491634115592/moatad.js#moatClientLevel1=6219544&moatClientLevel2=28975896&moatClientLevel3=352598959&moatClientLevel4=183228403&moatClientSlicer1=3330315&zMoatG=ct=US&st=OH&city=16657&dma=12&zp=44236&bw=4&zMoatENV=%pENV!, line 285: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 3024 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 4657 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 3661 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 6805 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 2320 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 898 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[GFX1-]: Unrecognized feature VIDEO_OVERLAY
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 926 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://z.moatads.com/quantcastv2691176990399/moatad.js#moatClientLevel1=p-2awN7f8bC7X8c&moatClientLevel2=qfm&moatClientLevel3=685aa1cd-6de8-4979-b17c-2fc4f9d59653&moatClientLevel4=7cfd8084-d092-4537-b86e-186c89f1b43a&uid=jqu2AYn84FKXrONRj-LmVNv3_wWJ_-VJgv7gBYuqtFON_7RVCLbong==, line 283: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://z.moatads.com/quantcastv2691176990399/moatad.js#moatClientLevel1=p-2awN7f8bC7X8c&moatClientLevel2=qfm&moatClientLevel3=685aa1cd-6de8-4979-b17c-2fc4f9d59653&moatClientLevel4=7cfd8084-d092-4537-b86e-186c89f1b43a&uid=jqu2AYn84FKXrONRj-LmVNv3_wWJ_-VJgv7gBYuqtFON_7RVCLbong==, line 283: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://media.adcanvas.com/ij8tndTvQ3Zg/adcanvas.min.js, line 2: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://media.adcanvas.com/ij8tndTvQ3Zg/adcanvas.min.js, line 2: WebGL context was lost.
+JavaScript warning: , line 0: WebGL warning: tex(Sub)Image[23]D: Resource has no data (yet?). Uploading zeros.
+JavaScript warning: , line 0: WebGL warning: drawArraysInstanced: TEXTURE_2D at unit 0 is incomplete: The dimensions of `level_base` are not all positive.
+JavaScript warning: , line 0: WebGL warning: tex(Sub)Image[23]D: Resource has no data (yet?). Uploading zeros.
+JavaScript warning: , line 0: WebGL warning: drawArraysInstanced: TEXTURE_2D at unit 0 is incomplete: The dimensions of `level_base` are not all positive.
+JavaScript warning: , line 0: WebGL warning: tex(Sub)Image[23]D: Resource has no data (yet?). Uploading zeros.
+JavaScript warning: , line 0: WebGL warning: drawArraysInstanced: TEXTURE_2D at unit 0 is incomplete: The dimensions of `level_base` are not all positive.
+JavaScript warning: , line 0: WebGL warning: tex(Sub)Image[23]D: Resource has no data (yet?). Uploading zeros.
+JavaScript warning: , line 0: WebGL warning: drawArraysInstanced: TEXTURE_2D at unit 0 is incomplete: The dimensions of `level_base` are not all positive.
+JavaScript warning: , line 0: WebGL warning: tex(Sub)Image[23]D: Resource has no data (yet?). Uploading zeros.
+JavaScript warning: , line 0: WebGL warning: drawArraysInstanced: TEXTURE_2D at unit 0 is incomplete: The dimensions of `level_base` are not all positive.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: , line 0: WebGL warning: tex(Sub)Image[23]D: Resource has no data (yet?). Uploading zeros.
+JavaScript warning: , line 0: WebGL warning: drawArraysInstanced: TEXTURE_2D at unit 0 is incomplete: The dimensions of `level_base` are not all positive.
+JavaScript warning: , line 0: WebGL warning: tex(Sub)Image[23]D: Resource has no data (yet?). Uploading zeros.
+JavaScript warning: , line 0: WebGL warning: drawArraysInstanced: TEXTURE_2D at unit 0 is incomplete: The dimensions of `level_base` are not all positive.
+JavaScript warning: , line 0: WebGL warning: tex(Sub)Image[23]D: Resource has no data (yet?). Uploading zeros.
+JavaScript warning: , line 0: WebGL warning: drawArraysInstanced: TEXTURE_2D at unit 0 is incomplete: The dimensions of `level_base` are not all positive.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 3775 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 82 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 1242 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://a.teads.tv/media/format/v3/teads-format.min.js, line 1: TypeError: (destructured parameter) is not iterable
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 227 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 3060 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://s0.2mdn.net/879366/express_html_inpage_rendering_lib_200_276.js, line 133: TypeError: e.g is not a function
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://z.moatads.com/quantcastv2691176990399/moatad.js#moatClientLevel1=p-2awN7f8bC7X8c&moatClientLevel2=qfm&moatClientLevel3=685aa1cd-6de8-4979-b17c-2fc4f9d59653&moatClientLevel4=7cfd8084-d092-4537-b86e-186c89f1b43a&uid=jqu2AYn84FKXrONRj-LmVNv3_wWJ_-VJgv7gBYuqtFON_7RVCLbong==, line 283: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 3981 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://s0.2mdn.net/879366/express_html_inpage_rendering_lib_200_276.js, line 133: TypeError: e.g is not a function
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 7352 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://s0.2mdn.net/879366/express_html_inpage_rendering_lib_200_276.js, line 133: TypeError: e.g is not a function
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1685342972832	geckodriver	INFO	Listening on 127.0.0.1:61939
+1685342973357	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "61940" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilewOniAN"
+1685342973689	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilewOniAN/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:61940/devtools/browser/113895de-1aaf-41a5-95ec-cbd2c8303c1b
+1685342974596	Marionette	INFO	Listening on port 61945
+1685342974616	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 60 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685342977051	Marionette	INFO	Stopped listening on port 61945
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685342977430	geckodriver	INFO	Listening on 127.0.0.1:62056
+1685342977947	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62057" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilewT51QF"
+1685342978225	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilewT51QF/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+DevTools listening on ws://localhost:62057/devtools/browser/f3cf5fb6-dc3d-4487-9a6f-e2e71774ce5c
+1685342979024	Marionette	INFO	Listening on port 62066
+1685342979104	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5790 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1685343014352	geckodriver	INFO	Listening on 127.0.0.1:62319
+1685343014865	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62320" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilecMux2o"
+1685343015173	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilecMux2o/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:62320/devtools/browser/1a39f41f-289c-4ae4-bf97-352ae091b673
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685343016036	Marionette	INFO	Listening on port 62325
+1685343016121	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685343018408	Marionette	INFO	Stopped listening on port 62325
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685343018793	geckodriver	INFO	Listening on 127.0.0.1:62435
+1685343019302	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62436" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileOmfzFw"
+1685343019578	Marionette	INFO	Marionette enabled
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileOmfzFw/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:62436/devtools/browser/33211bf3-0fe2-444d-8aef-d9c4360753a5
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685343020387	Marionette	INFO	Listening on port 62445
+1685343020449	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://d2q8xv8xf7whrd.cloudfront.net/script.js line 1 > eval, line 1: TypeError: ez.D.wb is not a function
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 6317 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://a.teads.tv/media/format/v3/teads-format.min.js, line 1: TypeError: this.vpaidAd is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685343101258	geckodriver	INFO	Listening on 127.0.0.1:62948
+1685343101267	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "62949" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilehRWPyH"
+1685343101566	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilehRWPyH/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:62949/devtools/browser/91f09998-b76b-41ce-80d0-da079916f52c
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685343102373	Marionette	INFO	Listening on port 62952
+1685343102424	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1685343104750	Marionette	INFO	Stopped listening on port 62952
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/AsyncShutdown.jsm, line 718: Error: Phase "Sqlite.jsm: wait until all connections are closed" is finished, it is too late to register completion condition "protections.sqlite#0: waiting for shutdown"
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685343105130	geckodriver	INFO	Listening on 127.0.0.1:63058
+1685343105643	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63059" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileE9FpM2"
+1685343105918	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileE9FpM2/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+DevTools listening on ws://localhost:63059/devtools/browser/9dbd159d-f034-421c-9be7-9503c3cbce2c
+1685343106717	Marionette	INFO	Listening on port 63064
+1685343106801	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5683 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5218 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1685343206377	geckodriver	INFO	Listening on 127.0.0.1:63677
+1685343206385	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63678" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileuTIooK"
+1685343206688	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileuTIooK/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:63678/devtools/browser/03ecaced-2450-4ab9-9522-12839b2d040f
+1685343207568	Marionette	INFO	Listening on port 63681
+1685343207639	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 7788 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685343209862	Marionette	INFO	Stopped listening on port 63681
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1685343210250	geckodriver	INFO	Listening on 127.0.0.1:63789
+1685343210760	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "63790" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileuWE32F"
+1685343211031	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileuWE32F/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:63790/devtools/browser/dca02e4a-a09d-46f2-bc02-e59f6f82dcf6
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685343211820	Marionette	INFO	Listening on port 63799
+1685343211915	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 4423 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://z.moatads.com/quantcastv2691176990399/moatad.js#moatClientLevel1=p-2awN7f8bC7X8c&moatClientLevel2=qfm&moatClientLevel3=685aa1cd-6de8-4979-b17c-2fc4f9d59653&moatClientLevel4=7cfd8084-d092-4537-b86e-186c89f1b43a&uid=jqu2AYn84FKXrONRj-LmVNv3_wWJ_-VJgv7gBYuqtFON_7RVCLbong==, line 283: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 6839 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685343264711	geckodriver	INFO	Listening on 127.0.0.1:64180
+1685343264719	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64181" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileEWf1ih"
+1685343265014	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileEWf1ih/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:64181/devtools/browser/a6389c64-dc81-45a9-a177-644c3e778af6
+1685343265836	Marionette	INFO	Listening on port 64184
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685343265865	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google.com/js/th/eee_KjLo8HjJC2kczPWeD_UvQFOi_GikGCFFwzkCqeE.js line 2 > eval line 2598 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685343267963	Marionette	INFO	Stopped listening on port 64184
+JavaScript error: resource://devtools/client/jsonview/Sniffer.jsm, line 56: NS_ERROR_NOT_AVAILABLE: Component returned failure code: 0x80040111 (NS_ERROR_NOT_AVAILABLE) [nsIChannel.contentType]
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685343268343	geckodriver	INFO	Listening on 127.0.0.1:64287
+1685343268856	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "64288" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileN4glZL"
+1685343269122	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileN4glZL/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:64288/devtools/browser/af157fa3-701f-4633-9a94-441047e82445
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685343269922	Marionette	INFO	Listening on port 64293
+1685343270010	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 7643 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://s0.2mdn.net/879366/express_html_inpage_rendering_lib_200_276.js, line 133: TypeError: e.g is not a function
+JavaScript error: https://a.teads.tv/media/vpaid-display/teads-vpaid-display.js, line 1: SecurityError: Permission denied to access property Symbol.toPrimitive on cross-origin object
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 5116 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+[GFX1-]: Unrecognized feature VIDEO_OVERLAY
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 3047 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 6832 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 6433 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 381 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 7141 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 3520 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 1798 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pix.adrta.com/cdnf.js?v=22.120, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://z.moatads.com/quantcastv2691176990399/moatad.js#moatClientLevel1=p-2awN7f8bC7X8c&moatClientLevel2=qfm&moatClientLevel3=685aa1cd-6de8-4979-b17c-2fc4f9d59653&moatClientLevel4=7cfd8084-d092-4537-b86e-186c89f1b43a&uid=jqu2AYn84FKXrONRj-LmVNv3_wWJ_-VJgv7gBYuqtFON_7RVCLbong==, line 283: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/WucCaKvgDQ9fmljOI_WvgP1fjZ6LWmR4VZAfUyHL0jo.js line 2 > eval line 6106 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://z.moatads.com/px2/client.js, line 44: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/px2/client.js, line 56: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1T19pN000MhJQqu5MM1VUGhWn1rY_cLvECS5p9l14sM.js line 2 > eval line 4067 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/px2/client.js, line 44: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/px2/client.js, line 56: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/px2/client.js, line 44: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/px2/client.js, line 56: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://z.moatads.com/px2/client.js, line 44: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/px2/client.js, line 56: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript warning: https://z.moatads.com/px2/client.js, line 44: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://z.moatads.com/px2/client.js, line 56: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1T19pN000MhJQqu5MM1VUGhWn1rY_cLvECS5p9l14sM.js line 2 > eval line 7034 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1T19pN000MhJQqu5MM1VUGhWn1rY_cLvECS5p9l14sM.js line 2 > eval line 5647 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1T19pN000MhJQqu5MM1VUGhWn1rY_cLvECS5p9l14sM.js line 2 > eval line 1920 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1T19pN000MhJQqu5MM1VUGhWn1rY_cLvECS5p9l14sM.js line 2 > eval line 4493 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1T19pN000MhJQqu5MM1VUGhWn1rY_cLvECS5p9l14sM.js line 2 > eval line 3208 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1T19pN000MhJQqu5MM1VUGhWn1rY_cLvECS5p9l14sM.js line 2 > eval line 7715 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://z.moatads.com/quantcastv2691176990399/moatad.js#moatClientLevel1=p-2awN7f8bC7X8c&moatClientLevel2=qfm&moatClientLevel3=685aa1cd-6de8-4979-b17c-2fc4f9d59653&moatClientLevel4=7cfd8084-d092-4537-b86e-186c89f1b43a&uid=jqu2AYn84FKXrONRj-LmVNv3_wWJ_-VJgv7gBYuqtFON_7RVCLbong==, line 283: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1T19pN000MhJQqu5MM1VUGhWn1rY_cLvECS5p9l14sM.js line 2 > eval line 5552 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: uncaught exception: 7
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1T19pN000MhJQqu5MM1VUGhWn1rY_cLvECS5p9l14sM.js line 2 > eval line 2275 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript warning: https://z.moatads.com/quantcastv2691176990399/moatad.js#moatClientLevel1=p-2awN7f8bC7X8c&moatClientLevel2=qfm&moatClientLevel3=685aa1cd-6de8-4979-b17c-2fc4f9d59653&moatClientLevel4=7cfd8084-d092-4537-b86e-186c89f1b43a&uid=jqu2AYn84FKXrONRj-LmVNv3_wWJ_-VJgv7gBYuqtFON_7RVCLbong==, line 283: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript warning: https://pagead2.googlesyndication.com/bg/1T19pN000MhJQqu5MM1VUGhWn1rY_cLvECS5p9l14sM.js line 2 > eval line 2335 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685344118800	geckodriver	INFO	Listening on 127.0.0.1:52057
+1685344118826	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "52058" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileQ1YMFh"
+1685344119123	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileQ1YMFh/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:52058/devtools/browser/5e5ece33-f78e-415a-bb51-559db106f146
+1685344120087	Marionette	INFO	Listening on port 52061
+1685344120191	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+JavaScript warning: https://www.google.com/js/th/M2d1Z2wfQxbrgbfhnRYAKyzYx2IZVTqQoYmEaYL0pMI.js line 2 > eval line 1430 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685344123703	Marionette	INFO	Stopped listening on port 52061
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PNecko::Msg_PredLearn) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PNecko::Msg_PredLearn) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_SetPriority) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_FailedAsyncOpen) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PContent::Msg_ScriptError) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileQ1YMFh/protections.sqlite
+1685344124096	geckodriver	INFO	Listening on 127.0.0.1:52182
+1685344124612	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "52183" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilejgshGz"
+1685344124890	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilejgshGz/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:52183/devtools/browser/b883dc76-5bd8-4074-b851-dcc29584d0e2
+1685344125711	Marionette	INFO	Listening on port 52188
+1685344125768	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: can't convert undefined to object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+1685344179618	Marionette	INFO	Stopped listening on port 52188
+JavaScript error: https://www.geeksforgeeks.org/wp-content/themes/iconic-one/js/prebid.js?ver=1.6, line 22: TypeError: e.body.ext is undefined
+1685344182678	Marionette	INFO	Stopped listening on port 62066
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685344183842	Marionette	INFO	Stopped listening on port 58201
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+JavaScript warning: https://cdn.js7k.com/rq/iv/inside.js, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685344184956	Marionette	INFO	Stopped listening on port 54902
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1685344186080	Marionette	INFO	Stopped listening on port 54461
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685344187214	Marionette	INFO	Stopped listening on port 52621
+1685344188419	geckodriver	INFO	Listening on 127.0.0.1:52556
+1685344188426	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "52557" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileNgbzBS"
+1685344188719	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileNgbzBS/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:52557/devtools/browser/ec6a29e6-367c-45b6-9ce7-0aa277893271
+1685344189561	Marionette	INFO	Listening on port 52560
+1685344189588	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/M2d1Z2wfQxbrgbfhnRYAKyzYx2IZVTqQoYmEaYL0pMI.js line 2 > eval line 7404 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1685344192542	Marionette	INFO	Stopped listening on port 52560
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1685344192917	geckodriver	INFO	Listening on 127.0.0.1:52660
+1685344192924	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox-bin" "--marionette" "--remote-debugging-port" "52661" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile4HTpVP"
+1685344193198	Marionette	INFO	Marionette enabled
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile4HTpVP/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:52661/devtools/browser/99ddfef3-0bf7-4a96-a06e-1a92730809a4
+1685344193990	Marionette	INFO	Listening on port 52664
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1685344194078	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.

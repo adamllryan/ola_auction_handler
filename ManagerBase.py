@@ -21,7 +21,7 @@ class ManagerBase:
         print("Getting all items for ({name})".format(name=self.manager_name))
         pass
 
-    def filter_items(self):
+    def filter_items(self, keywords_to_filter: list[str]):
         print("Filtering items for ({name})".format(name=self.manager_name))
         pass
 
