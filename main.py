@@ -2,14 +2,14 @@ import os
 
 import DesktopUI0
 import ManagerBase
-import WebManager0
+import SeleniumManager0
 import UIBase
 import time
 
 
 def main():
     # use MVC design pattern
-    model: ManagerBase = WebManager0.WebManager0()
+    model: ManagerBase = SeleniumManager0.SeleniumManager0()
     view: UIBase = DesktopUI0.DesktopUI0()
 
     reload = False

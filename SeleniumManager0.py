@@ -30,8 +30,7 @@ def try_load_element(driver: selenium.webdriver.firefox.webdriver.WebDriver, xpa
     return element
 
 
-
-class WebManager0(ManagerBase.ManagerBase):
+class SeleniumManager0(ManagerBase.ManagerBase):
 
     def __init__(self):
         self.manager_name = "WebManager0"
@@ -40,46 +39,84 @@ class WebManager0(ManagerBase.ManagerBase):
         self.listings = []
 
     def dispose(self):
+
+        # Base class console output/inheritance
+
         super().dispose()
         # self.driver.close()
 
     def get_auctions(self):
+
+        # Base class console output/inheritance
+
         super().get_auctions()
+
+        # Create driver
+
         driver = webdriver.Firefox()
         driver.get("https://www.onlineliquidationauction.com/")
-        # row blog margin-bottom-40 //*[@id="main-content-top"]/div/div[1]/div[1]
-        auction_elements = driver.find_elements(By.XPATH, './html/body/div[2]/div[5]/div/div[1]/div')
+
+        # Grab all auction elements
+
+        auction_elements = try_load_element(driver, './html/body/div[2]/div[5]/div/div[1]/div')
         print("\nFound {num} auctions: ".format(num=len(auction_elements)))
+
+        # Get data into Listing class from each auction
+
         for i in auction_elements:
+
+            # Grab name
+
             name = i.find_element(By.XPATH, "./div[2]/h2/a").text
             print(name)
+
+            # Get url and swap domain with bidding page url, keep ID
+
             bad_url = 'https://www.onlineliquidationauction.com/auctions/detail/bw'
             good_url = 'https://bid.onlineliquidationauction.com/bid/'
             url = i.find_element(By.XPATH, "./div[2]/h2/a").get_attribute("href").replace(bad_url, good_url)
             print(url)
+
+            # Get image src url and save, not really needed
+
             img_url = [i.find_element(By.XPATH, "./div[1]/div/div/div/div/div/a/img").get_attribute('src')]
             print(img_url)
+
+            # Add to auctions list
+
             self.auctions.append(Listing(name, url, img_url, None, None, None))
+
+        # Cleanup
+
         driver.close()
         print()
 
     def filter_auctions(self, auctions_to_remove: list[str]):
+
+        # Base class console output/inheritance
+
         super().filter_auctions(auctions_to_remove)
+
+        # Iterate through every auction and check for filter terms in name
+
         remove = []
         for i in self.auctions:
             for j in auctions_to_remove:
-                # print("Checking for '{loc}' in ({auction})".format(loc=j, auction=i.name))
                 if j in i.name:
                     print("\033[91mRemoving {name} from list\033[0m".format(name=i.name))
                     remove.append(i)
+
+        # Remove every item chosen to be removed
+
         for i in remove:
             if i in self.auctions:
                 self.auctions.remove(i)
+
         print("Keeping {num} auctions. ".format(num=len(self.auctions)))
 
     def get_items_raw(self, is_my_items: bool):
 
-        # top level console output
+        # base class console output/inheritance
 
         super().get_items_raw(is_my_items)
 
@@ -108,14 +145,14 @@ class WebManager0(ManagerBase.ManagerBase):
 
             # Get body element so we can scroll
 
-            try_load_element(auction_driver, '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a')
+            try_load_element(auction_driver, '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div['
+                                             '2]/item-result/div/div[1]/div/div/div/a')
             body = try_load_element(auction_driver, '//*[@id="all-items"]')
 
             # Get number of total items to search for, first load call try_load
 
-            count = int(
-                try_load_element(auction_driver, '//*[@id="many-items"]/div[3]/select/optgroup[2]/option[2]').text.replace(
-                    "All > Active (", "").replace(")", ""))
+            count = int(try_load_element(auction_driver, '//*[@id="many-items"]/div[3]/select/optgroup[2]/option[2]'). \
+                        text.replace("All > Active (", "").replace(")", ""))
             print("There are {count} items.".format(count=count))
             while len(names) < count:
 
@@ -153,7 +190,8 @@ class WebManager0(ManagerBase.ManagerBase):
 
                         # Set date by splitting formatted date into elements it could be; a unit with 0 left is hidden.
 
-                        date_text = try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[1]/b/span').text.split(' ')
+                        date_text = try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[1]/b/span').text. \
+                            split(' ')
                         if 'Ends' in date_text:
                             date_text.remove('Ends')
                             time_left = datetime.now()
@@ -173,13 +211,15 @@ class WebManager0(ManagerBase.ManagerBase):
 
                         # Set last price
 
-                        last_price = float(try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[2]/b').text.replace('[$', '').replace(']', ''))
+                        last_price = float(try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[2]/b').
+                                           text.replace('[$', '').replace(']', ''))
                         print("Last price is {price}".format(price=last_price))
 
                         # Set retail price
 
                         # TODO: FINISH THIS
-                        retail_price = float(try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[2]/b').text.replace('[$', '').replace(']', ''))
+                        retail_price = float(try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[2]/b').
+                                             text.replace('[$', '').replace(']', ''))
                         print("Last price is {price}".format(price=last_price))
 
                         # Add names to found list
@@ -207,6 +247,9 @@ class WebManager0(ManagerBase.ManagerBase):
             f.close()
 
     def load_from_file(self):
+
+        # Base class console output/inheritance
+
         super().load_from_file()
 
         with open('listings.csv', "r") as f:
@@ -216,18 +259,29 @@ class WebManager0(ManagerBase.ManagerBase):
         f.close()
 
     def filter_items(self, keywords_to_filter: list[str]):
+
+        # Base class console output/inheritance
+
         super().filter_items(keywords_to_filter)
+
+        # Find each listing that matches a keyword
+
         remove = []
         for i in self.listings:
             for j in keywords_to_filter:
-                # print("Checking for '{loc}' in ({listing})".format(loc=j, listing=i.name))
                 if j.lower() in i.name.lower():
                     print("\033[91mRemoving {name} from list\033[0m".format(name=i.name))
                     remove.append(i)
+
+        # Remove items that match keywords
+
         for i in remove:
             if i in self.listings:
                 self.listings.remove(i)
         print("Keeping {num} listings. ".format(num=len(self.listings)))
 
     def refresh_items(self):
+
+        # Base class console output/inheritance
+
         super().refresh_items()
