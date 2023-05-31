@@ -1,10 +1,7 @@
 from datetime import datetime, timedelta
 import time
-import pickle as pk
-
 import selenium.webdriver.firefox.webdriver
 from attr import dataclass
-from selenium.common import TimeoutException
 from selenium.webdriver import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
