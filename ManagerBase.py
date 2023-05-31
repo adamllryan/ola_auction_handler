@@ -17,10 +17,11 @@ class ManagerBase:
         print("Filtering auctions for Manager -> ({name})".format(name=self.manager_name))
         pass
 
-    def get_items_raw(self):
+    def get_items_raw(self, is_my_items: bool):
         print("Getting all items for ({name})".format(name=self.manager_name))
         pass
-
+    def load_from_file(self):
+        print("Loading all items on file for ({name})".format(name=self.manager_name))
     def filter_items(self, keywords_to_filter: list[str]):
         print("Filtering items for ({name})".format(name=self.manager_name))
         pass

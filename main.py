@@ -12,13 +12,13 @@ def main():
     model: ManagerBase = WebManager0.WebManager0()
     view: UIBase = DesktopUI0.DesktopUI0()
 
-    model.get_auctions()
-    model.filter_auctions(["Brookpark Rd", "N Royalton"])
-    reload = True
-    if os.path.isfile('listings') and not reload:
+    reload = False
+    if os.path.isfile('listings.csv') and not reload:
         model.load_from_file()
     else:
-        model.get_items_raw()
+        model.get_auctions()
+        model.filter_auctions(["Brookpark Rd", "N Royalton"])
+        model.get_items_raw(False)
 
     model.filter_items(['kid', 'men', 'women', 'shelf', 'artwork', 'scratch', 'cat', 'shoe', 'shelv', 'gaming chair', 'desk', 'table', 'costume', 'baby'])
     time.sleep(5)
