@@ -1,6 +1,4 @@
-import DesktopUI
-import sys
-import time
+from Views import DesktopUI
 
 
 class DesktopUI0(DesktopUI.DesktopUI):

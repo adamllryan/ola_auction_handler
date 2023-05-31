@@ -1,12 +1,14 @@
+from collections.abc import Iterable
 from datetime import datetime, timedelta
 import time
+
 import selenium.webdriver.firefox.webdriver
 from attr import dataclass
 from selenium.webdriver import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 import csv
-import ManagerBase
+from Models import ManagerBase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import os
@@ -53,11 +55,15 @@ class SeleniumManager0(ManagerBase.ManagerBase):
     def __init__(self, is_debug: bool):
         if is_debug:
             os.environ['MOZ_HEADLESS'] = '1'
-        self.driver = webdriver.Firefox()
+        self.driver = None
         self.manager_name = "WebManager0"
         super().__init__()
         self.auctions = []
         self.listings = []
+
+    def create_driver(self):
+        print("Creating driver :)")
+        self.driver = webdriver.Firefox()
 
     def dispose(self):
 
@@ -269,22 +275,24 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
         # Save data to file, so we don't need to reload
 
-        with open('listings.csv', 'w') as f:
+        with open('Model/Data/listings.csv', 'w') as f:
             w = csv.writer(f)
             for row in self.listings:
-                w.writerow([row.name, row.url, row.img_url, row.end_time, row.last_price, row.retail_price, row.condition])
+                w.writerow([row.name, row.url, "*".join(row.img_url), row.end_time.strftime("%m/%d/%Y, %H:%M:%S"),
+                            str(row.last_price), str(row.retail_price), row.condition])
         f.close()
 
-    def load_from_file(self):
+    def load_from_file(self, f: Iterable[str]):
 
         # Base class console output/inheritance
 
-        super().load_from_file()
+        super().load_from_file(f)
 
-        with open('listings.csv', "r") as f:
-            r = csv.reader(f, delimiter=',')
-            for row in r:
-                self.listings.append(Listing(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
+        r = csv.reader(f, delimiter=',')
+        for row in r:
+            self.listings.append(Listing(row[0], row[1], row[2].split("*"),
+                                         datetime.strptime(row[3], "%m/%d/%Y, %H:%M:%S"),
+                                         float(row[4]), float(row[5]), row[6]))
         f.close()
 
     def filter_items(self, keywords_to_filter: list[str]):

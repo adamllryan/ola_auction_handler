@@ -1,4 +1,4 @@
-from PySide6.QtCore import QTimer, QRunnable, Slot, QThreadPool
+from PySide6.QtCore import QTimer
 
 import DesktopUI
 from PySide6.QtWidgets import QMainWindow, QApplication, QPushButton, QVBoxLayout, QLabel, QWidget

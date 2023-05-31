@@ -1,9 +1,7 @@
 import os
 
-import DesktopUI0
-import ManagerBase
-import SeleniumManager0
-import UIBase
+from Views import DesktopUI0, UIBase
+from Models import SeleniumManager0, ManagerBase
 import time
 
 
@@ -18,12 +16,17 @@ def main():
 
     reload = False
     if os.path.isfile('listings.csv') and not reload:
-        model.load_from_file()
+        f = open('listings.csv', "r")
+        model.load_from_file(f)
+        f.close()
     else:
+        print(type(model))
+        if isinstance(model, SeleniumManager0.SeleniumManager0):
+            model.create_driver()
         model.get_auctions()
         model.filter_auctions(["Brookpark Rd", "N Royalton"])
         model.get_items_raw(False)
-        if model is SeleniumManager0:
+        if isinstance(model, SeleniumManager0.SeleniumManager0):
             model.close_driver()
 
     # Data filtering
