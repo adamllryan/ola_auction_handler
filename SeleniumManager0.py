@@ -9,6 +9,9 @@ import csv
 import ManagerBase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import os
+
+timeout = 10
 
 
 @dataclass
@@ -19,20 +22,38 @@ class Listing:
     end_time: datetime
     last_price: float
     retail_price: float
+    condition: str
 
 
 def try_load_element(driver: selenium.webdriver.firefox.webdriver.WebDriver, xpath: str):
     # Load element with timeout set to x seconds
-    timeout = 10
-    element = WebDriverWait(driver, timeout).until(
-        ec.presence_of_element_located((By.XPATH, xpath))
-    )
-    return element
+    element = None
+    try:
+        element = WebDriverWait(driver, timeout).until(
+            ec.presence_of_element_located((By.XPATH, xpath))
+        )
+    finally:
+        return element if element is not None else None
+
+
+def try_load_elements(driver: selenium.webdriver.firefox.webdriver.WebDriver, xpath: str):
+    # Load element with timeout set to x seconds
+    elements = []
+    try:
+        WebDriverWait(driver, timeout).until(
+            ec.presence_of_element_located((By.XPATH, xpath))
+        )
+        elements = driver.find_elements(By.XPATH, xpath)
+    finally:
+        return elements
 
 
 class SeleniumManager0(ManagerBase.ManagerBase):
 
-    def __init__(self):
+    def __init__(self, is_debug: bool):
+        if is_debug:
+            os.environ['MOZ_HEADLESS'] = '1'
+        self.driver = webdriver.Firefox()
         self.manager_name = "WebManager0"
         super().__init__()
         self.auctions = []
@@ -51,14 +72,14 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
         super().get_auctions()
 
-        # Create driver
+        # Get url
 
-        driver = webdriver.Firefox()
-        driver.get("https://www.onlineliquidationauction.com/")
+        # self.driver = webdriver.Firefox()
+        self.driver.get("https://www.onlineliquidationauction.com/")
 
         # Grab all auction elements
 
-        auction_elements = try_load_element(driver, './html/body/div[2]/div[5]/div/div[1]/div')
+        auction_elements = try_load_elements(self.driver, './html/body/div[2]/div[5]/div/div[1]/div')
         print("\nFound {num} auctions: ".format(num=len(auction_elements)))
 
         # Get data into Listing class from each auction
@@ -84,11 +105,10 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
             # Add to auctions list
 
-            self.auctions.append(Listing(name, url, img_url, None, None, None))
+            self.auctions.append(Listing(name, url, img_url, None, None, None, None))
 
         # Cleanup
 
-        driver.close()
         print()
 
     def filter_auctions(self, auctions_to_remove: list[str]):
@@ -124,10 +144,9 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
         for auction in self.auctions:
 
-            # Create new Selenium driver per auction at its url
+            # Get url
 
-            auction_driver = webdriver.Firefox()
-            auction_driver.get(auction.url)
+            self.driver.get(auction.url)
 
             # Set page up and scroll until elements are found
 
@@ -136,115 +155,125 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
             # TODO: fix this, execute_script does not work
 
-            auction_driver.execute_script("document.body.style.zoom='50%'")
+            #self.driver.execute_script("document.body.style.zoom='50%'")
 
             # need to set to active items only, first load use try_load
 
-            select = try_load_element(auction_driver, '/html/body/div[3]/div[3]/div/div/div[2]/div[3]/select')
+            select = try_load_element(self.driver, '/html/body/div[3]/div[3]/div/div/div[2]/div[3]/select')
             select.find_element(By.XPATH, './optgroup[2]/option[2]').click()
-
-            # Get body element so we can scroll
-
-            try_load_element(auction_driver, '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div['
-                                             '2]/item-result/div/div[1]/div/div/div/a')
-            body = try_load_element(auction_driver, '//*[@id="all-items"]')
 
             # Get number of total items to search for, first load call try_load
 
-            count = int(try_load_element(auction_driver, '//*[@id="many-items"]/div[3]/select/optgroup[2]/option[2]'). \
+            count = int(try_load_element(self.driver, '//*[@id="many-items"]/div[3]/select/optgroup[2]/option[2]'). \
                         text.replace("All > Active (", "").replace(")", ""))
-            print("There are {count} items.".format(count=count))
-            while len(names) < count:
 
-                # Find current active items
+            if count > 0:
 
-                live_items = auction_driver.find_elements(By.TAG_NAME, 'item-result')
+                # Get body element so we can scroll
 
-                for i in live_items:
+                try_load_element(self.driver, '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div['
+                                                 '2]/item-result/div/div[1]/div/div/div/a')
+                body = try_load_element(self.driver, '//*[@id="all-items"]')
 
-                    # Get item name text
 
-                    name = try_load_element(i, "./div/div/div/div/div/a").text
+                print("There are {count} items.".format(count=count))
+                while len(names) < count:
 
-                    # If we have not already added this item to our item list
+                    # Find current active items
 
-                    if name not in names:
+                    live_items = self.driver.find_elements(By.TAG_NAME, 'item-result')
 
-                        # TODO: fill out pricing and end date
-                        # Set name
+                    for i in live_items:
 
-                        # name = name
-                        print(name)
+                        # Get item name text
 
-                        # Set listing url
+                        name = try_load_element(i, "./div/div/div/div/div/a").text
 
-                        url = try_load_element(i, "./div/div/div/div/div/a").get_attribute("href")
-                        print(url)
+                        # If we have not already added this item to our item list
 
-                        # Set src image urls
+                        if name not in names:
 
-                        img_url = []
-                        img_elements = i.find_elements(By.XPATH, "./div/div[2]/div/owl-carousel/div/div/div/div")
-                        for element in img_elements:
-                            img_url.append(element.get_attribute('src'))
+                            # TODO: fill out pricing and end date
+                            # Set name
 
-                        # Set date by splitting formatted date into elements it could be; a unit with 0 left is hidden.
+                            # name = name
+                            print(name)
 
-                        date_text = try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[1]/b/span').text. \
-                            split(' ')
-                        if 'Ends' in date_text:
-                            date_text.remove('Ends')
-                            time_left = datetime.now()
-                            for segment in date_text:
-                                if 'd' in segment:
-                                    time_left += timedelta(days=datetime.strptime(segment, '%dd').day)
-                                elif 'h' in segment:
-                                    time_left += timedelta(hours=datetime.strptime(segment, '%Hh').hour)
-                                elif 'm' in segment:
-                                    time_left += timedelta(minutes=datetime.strptime(segment, '%Mm').minute)
-                                elif 's' in segment:
-                                    time_left += timedelta(seconds=datetime.strptime(segment, '%Ss').second)
-                            end_time = time_left
-                        else:
-                            end_time = datetime.now()
-                        print("End Date is {date}".format(date=end_time))
+                            # Set listing url
 
-                        # Set last price
+                            url = try_load_element(i, "./div/div/div/div/div/a").get_attribute("href")
+                            print(url)
 
-                        last_price = float(try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[2]/b').
-                                           text.replace('[$', '').replace(']', ''))
-                        print("Last price is {price}".format(price=last_price))
+                            # Set src image urls
 
-                        # Set retail price
+                            img_url = []
+                            img_elements = try_load_elements(i, "./div/div[2]/div/owl-carousel/div/div/div/div")
+                            for element in img_elements:
+                                img_url.append(element.get_attribute('src'))
 
-                        # TODO: FINISH THIS
-                        retail_price = float(try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[2]/b').
-                                             text.replace('[$', '').replace(']', ''))
-                        print("Last price is {price}".format(price=last_price))
+                            # Set date by splitting formatted date into elements it could be; a unit with 0 left is hidden.
 
-                        # Add names to found list
+                            date_text = try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[1]/b/span').text. \
+                                split(' ')
+                            if 'Ends' in date_text:
+                                date_text.remove('Ends')
+                                time_left = datetime.now()
+                                for segment in date_text:
+                                    if 'd' in segment:
+                                        time_left += timedelta(days=datetime.strptime(segment, '%dd').day)
+                                    elif 'h' in segment:
+                                        time_left += timedelta(hours=datetime.strptime(segment, '%Hh').hour)
+                                    elif 'm' in segment:
+                                        time_left += timedelta(minutes=datetime.strptime(segment, '%Mm').minute)
+                                    elif 's' in segment:
+                                        time_left += timedelta(seconds=datetime.strptime(segment, '%Ss').second)
+                                end_time = time_left
+                            else:
+                                end_time = datetime.now()
+                            print("End Date is {date}".format(date=end_time))
 
-                        self.listings.append(Listing(name, url, img_url, end_time, last_price, retail_price))
-                        names.append(name)
+                            # Set last price
 
-                # Send page down and delay for a bit
+                            last_price = float(try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[2]/b').
+                                               text.replace('[$', '').replace(']', ''))
+                            print("Last price is {price}".format(price=last_price))
 
-                body.send_keys(Keys.PAGE_DOWN)
-                time.sleep(.2)
-                print("Found {l_count}/{t_count} listings. ".format(l_count=len(self.listings), t_count=len(names)))
+                            # Set retail price and condition text
 
-            # Cleanup driver
+                            # TODO: FINISH THIS
 
-            print("{count} items found. ".format(count=len(names)))
-            auction_driver.close()
+                            price_condition_text = try_load_element(i, './div/div[2]/div[2]/div').text
+                            words = price_condition_text.replace("Retail Price: ", "").split(" ")
+                            if 'Unknown' not in words[0]:
+                                retail_price = float(words[0].replace(',', '').replace('$', ''))
+                            else:
+                                retail_price = None
+                            condition = ' '.join(words[1::])
+                            print("Retail price is {price}".format(price=retail_price))
+                            print("Condition is {condition}".format(condition=condition))
 
-            # Save data to file, so we don't need to reload
+                            # Add names to found list
 
-            with open('listings.csv', 'w') as f:
-                w = csv.writer(f)
-                for row in self.listings:
-                    w.writerow([row.name, row.url, row.img_url, row.end_time, row.last_price, row.retail_price])
-            f.close()
+                            self.listings.append(Listing(name, url, img_url, end_time, last_price, retail_price, condition))
+                            names.append(name)
+
+                    # Send page down and delay for a bit
+
+                    body.send_keys(Keys.PAGE_DOWN)
+                    time.sleep(.3)
+                    print("Found {l_count}/{t_count} listings. ".format(l_count=len(names), t_count=count))
+
+        # Cleanup driver
+
+        print("{count} items found. ".format(count=len(names)))
+
+        # Save data to file, so we don't need to reload
+
+        with open('listings.csv', 'w') as f:
+            w = csv.writer(f)
+            for row in self.listings:
+                w.writerow([row.name, row.url, row.img_url, row.end_time, row.last_price, row.retail_price, row.condition])
+        f.close()
 
     def load_from_file(self):
 
@@ -255,7 +284,7 @@ class SeleniumManager0(ManagerBase.ManagerBase):
         with open('listings.csv', "r") as f:
             r = csv.reader(f, delimiter=',')
             for row in r:
-                self.listings.append(Listing(row[0], row[1], row[2], row[3], row[4], row[5]))
+                self.listings.append(Listing(row[0], row[1], row[2], row[3], row[4], row[5], row[6]))
         f.close()
 
     def filter_items(self, keywords_to_filter: list[str]):
@@ -285,3 +314,7 @@ class SeleniumManager0(ManagerBase.ManagerBase):
         # Base class console output/inheritance
 
         super().refresh_items()
+
+    def close_driver(self):
+        if self.driver is not None:
+            self.driver.close()
