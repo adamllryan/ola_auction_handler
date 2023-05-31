@@ -1,4 +1,4 @@
-from typing import Iterable
+from collections.abc import Iterable
 
 
 class ManagerBase:
@@ -19,7 +19,7 @@ class ManagerBase:
         print("Filtering auctions for Manager -> ({name})".format(name=self.manager_name))
         pass
 
-    def get_items_raw(self, is_my_items: bool):
+    def get_items_raw(self, is_my_items: bool, f: Iterable[str]):
         print("Getting all items for ({name})".format(name=self.manager_name))
         pass
 
