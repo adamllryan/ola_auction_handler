@@ -140,11 +140,11 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
         print("Keeping {num} auctions. ".format(num=len(self.auctions)))
 
-    def get_items_raw(self, is_my_items: bool):
+    def get_items_raw(self, is_my_items: bool, f: Iterable[str]):
 
         # base class console output/inheritance
 
-        super().get_items_raw(is_my_items)
+        super().get_items_raw(is_my_items, f)
 
         # For each auction, does not care if filtered or not
 
@@ -275,12 +275,10 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
         # Save data to file, so we don't need to reload
 
-        with open('Model/Data/listings.csv', 'w') as f:
-            w = csv.writer(f)
-            for row in self.listings:
-                w.writerow([row.name, row.url, "*".join(row.img_url), row.end_time.strftime("%m/%d/%Y, %H:%M:%S"),
-                            str(row.last_price), str(row.retail_price), row.condition])
-        f.close()
+        w = csv.writer(f)
+        for row in self.listings:
+            w.writerow([row.name, row.url, "*".join(row.img_url), row.end_time.strftime("%m/%d/%Y, %H:%M:%S"),
+                        str(row.last_price), str(row.retail_price), row.condition])
 
     def load_from_file(self, f: Iterable[str]):
 
