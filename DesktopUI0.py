@@ -9,6 +9,7 @@ class DesktopUI0(DesktopUI.DesktopUI):
         self.ui_name = "DesktopUI0 - CLI"
         super().__init__()
 
+
     def dispose(self):
         super().dispose()
 
