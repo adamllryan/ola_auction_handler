@@ -1,3 +1,4 @@
+import os
 from collections.abc import Iterable
 from datetime import datetime, timedelta
 import time
@@ -11,7 +12,6 @@ import csv
 from Models import ManagerBase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import os
 
 timeout = 10
 
@@ -28,7 +28,9 @@ class Listing:
 
 
 def try_load_element(driver: selenium.webdriver.firefox.webdriver.WebDriver, xpath: str):
+
     # Load element with timeout set to x seconds
+
     element = None
     try:
         element = WebDriverWait(driver, timeout).until(
@@ -39,7 +41,9 @@ def try_load_element(driver: selenium.webdriver.firefox.webdriver.WebDriver, xpa
 
 
 def try_load_elements(driver: selenium.webdriver.firefox.webdriver.WebDriver, xpath: str):
+
     # Load element with timeout set to x seconds
+
     elements = []
     try:
         WebDriverWait(driver, timeout).until(
@@ -52,25 +56,34 @@ def try_load_elements(driver: selenium.webdriver.firefox.webdriver.WebDriver, xp
 
 class SeleniumManager0(ManagerBase.ManagerBase):
 
+    auctions: list[Listing]
+    listings: list[Listing]
+    filtered_listings: list[Listing]
+    my_listings: list[Listing]
+    driver: webdriver.firefox.webdriver.WebDriver
+    debug: bool
+    auction_filters: list[str]
+    item_filters: list[str]
+
     def __init__(self, is_debug: bool):
-        if is_debug:
-            os.environ['MOZ_HEADLESS'] = '1'
-        self.driver = None
-        self.manager_name = "WebManager0"
-        super().__init__()
+
+        # Init ancestor
+
+        super().__init__("WebManager0")
+
+        # Init variables
+
         self.auctions = []
         self.listings = []
+        self.filtered_listings = []
+        self.my_listings = []
+        self.debug = is_debug
+        self.auction_filters = []
+        self.item_filters = []
 
     def create_driver(self):
         print("Creating driver :)")
         self.driver = webdriver.Firefox()
-
-    def dispose(self):
-
-        # Base class console output/inheritance
-
-        super().dispose()
-        # self.driver.close()
 
     def get_auctions(self):
 
@@ -79,8 +92,9 @@ class SeleniumManager0(ManagerBase.ManagerBase):
         super().get_auctions()
 
         # Get url
+        if not hasattr(self, 'driver'):
+            self.create_driver()
 
-        # self.driver = webdriver.Firefox()
         self.driver.get("https://www.onlineliquidationauction.com/")
 
         # Grab all auction elements
@@ -117,17 +131,17 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
         print()
 
-    def filter_auctions(self, auctions_to_remove: list[str]):
+    def filter_auctions(self):
 
         # Base class console output/inheritance
 
-        super().filter_auctions(auctions_to_remove)
+        super().filter_auctions()
 
         # Iterate through every auction and check for filter terms in name
 
         remove = []
         for i in self.auctions:
-            for j in auctions_to_remove:
+            for j in self.auction_filters:
                 if j in i.name:
                     print("\033[91mRemoving {name} from list\033[0m".format(name=i.name))
                     remove.append(i)
@@ -140,11 +154,11 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
         print("Keeping {num} auctions. ".format(num=len(self.auctions)))
 
-    def get_items_raw(self, is_my_items: bool, f: Iterable[str]):
+    def get_items_raw(self, is_my_items: bool):
 
         # base class console output/inheritance
 
-        super().get_items_raw(is_my_items, f)
+        super().get_items_raw(is_my_items)
 
         # For each auction, does not care if filtered or not
 
@@ -161,7 +175,7 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
             # TODO: fix this, execute_script does not work
 
-            #self.driver.execute_script("document.body.style.zoom='50%'")
+            # self.driver.execute_script("document.body.style.zoom='50%'")
 
             # need to set to active items only, first load use try_load
 
@@ -170,7 +184,7 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
             # Get number of total items to search for, first load call try_load
 
-            count = int(try_load_element(self.driver, '//*[@id="many-items"]/div[3]/select/optgroup[2]/option[2]'). \
+            count = int(try_load_element(self.driver, '//*[@id="many-items"]/div[3]/select/optgroup[2]/option[2]').
                         text.replace("All > Active (", "").replace(")", ""))
 
             if count > 0:
@@ -268,58 +282,91 @@ class SeleniumManager0(ManagerBase.ManagerBase):
                     body.send_keys(Keys.PAGE_DOWN)
                     time.sleep(.3)
                     print("Found {l_count}/{t_count} listings. ".format(l_count=len(names), t_count=count))
+            break
 
-        # Cleanup driver
-
-        print("{count} items found. ".format(count=len(names)))
+            print("{count} items found. ".format(count=len(names)))
 
         # Save data to file, so we don't need to reload
 
+        f = open('listings.csv', 'w')
         w = csv.writer(f)
         for row in self.listings:
             w.writerow([row.name, row.url, "*".join(row.img_url), row.end_time.strftime("%m/%d/%Y, %H:%M:%S"),
                         str(row.last_price), str(row.retail_price), row.condition])
 
-    def load_from_file(self, f: Iterable[str]):
+    def read_listings(self, f: Iterable[str]):
 
         # Base class console output/inheritance
 
-        super().load_from_file(f)
+        super().read_listings(f)
 
-        r = csv.reader(f, delimiter=',')
-        for row in r:
-            self.listings.append(Listing(row[0], row[1], row[2].split("*"),
-                                         datetime.strptime(row[3], "%m/%d/%Y, %H:%M:%S"),
-                                         float(row[4]), float(row[5]), row[6]))
-        f.close()
-
-    def filter_items(self, keywords_to_filter: list[str]):
+        if os.path.isfile('listings.csv'):
+            f = open('listings.csv', 'r')
+            r = csv.reader(f, delimiter=',')
+            for row in r:
+                self.listings.append(Listing(row[0], row[1], row[2].split("*"),
+                                             datetime.strptime(row[3], "%m/%d/%Y, %H:%M:%S"),
+                                             float(row[4]), float(row[5]), row[6]))
+            f.close()
+    def read_my_listings(self, f: Iterable[str]):
 
         # Base class console output/inheritance
 
-        super().filter_items(keywords_to_filter)
+        super().read_my_listings(f)
+        if os.path.isfile('mylistings.csv'):
+            f = open('mylistings.csv', 'r')
+            r = csv.reader(f, delimiter=',')
+            for row in r:
+                self.listings.append(Listing(row[0], row[1], row[2].split("*"),
+                                             datetime.strptime(row[3], "%m/%d/%Y, %H:%M:%S"),
+                                             float(row[4]), float(row[5]), row[6]))
+            f.close()
+
+    def filter_items(self):
+
+        # Base class console output/inheritance
+
+        super().filter_items()
 
         # Find each listing that matches a keyword
 
         remove = []
         for i in self.listings:
-            for j in keywords_to_filter:
+            for j in self.item_filters:
                 if j.lower() in i.name.lower():
                     print("\033[91mRemoving {name} from list\033[0m".format(name=i.name))
                     remove.append(i)
 
         # Remove items that match keywords
 
+        self.filtered_listings = self.listings.copy()
         for i in remove:
-            if i in self.listings:
-                self.listings.remove(i)
+            if i in self.filtered_listings:
+                self.filtered_listings.remove(i)
         print("Keeping {num} listings. ".format(num=len(self.listings)))
 
-    def refresh_items(self):
+    def refresh(self):
 
         # Base class console output/inheritance
 
-        super().refresh_items()
+        super().refresh()
+
+        self.get_auctions()
+        self.filter_auctions()
+        self.get_items_raw(False)
+        self.filter_items()
+
+
+
+    def refresh_my(self):
+
+        # Base class console output/inheritance
+
+        super().refresh_my()
+
+
+
+
 
     def close_driver(self):
         if self.driver is not None:

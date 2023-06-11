@@ -2,10 +2,14 @@ from collections.abc import Iterable
 
 
 class ManagerBase:
-    def __init__(self):
-        if self.manager_name is None:
-            self.manager_name = "ManagerBase"
+
+    manager_name: str
+
+    def __init__(self, name: str):
+
+        self.manager_name = name
         print("Init Manager -> ({name})".format(name=self.manager_name))
+
 
     def dispose(self):
         print("Disposing Manager -> ({name})".format(name=self.manager_name))
@@ -15,25 +19,44 @@ class ManagerBase:
         print("Getting auctions with Manager -> ({name})".format(name=self.manager_name))
         pass
 
-    def filter_auctions(self, auctions_to_remove: list[str]):
+    def filter_auctions(self):
         print("Filtering auctions for Manager -> ({name})".format(name=self.manager_name))
         pass
 
-    def get_items_raw(self, is_my_items: bool, f: Iterable[str]):
+    def get_items_raw(self, is_my_items: bool):
         print("Getting all items for ({name})".format(name=self.manager_name))
         pass
 
-    def load_from_file(self, f: Iterable[str]):
+    def read_listings(self, f: Iterable[str]):
         print("Loading all items on file for ({name})".format(name=self.manager_name))
 
-    def filter_items(self, keywords_to_filter: list[str]):
+    def read_my_listings(self, f: Iterable[str]):
+        print("Loading my items on file for ({name})".format(name=self.manager_name))
+
+    def filter_items(self):
         print("Filtering items for ({name})".format(name=self.manager_name))
         pass
 
-    def refresh_items(self):
+    def refresh(self):
         print("Refreshing items for ({name})".format(name=self.manager_name))
         pass
 
-    def refresh_items_select(self):
+    def refresh_my(self):
         print("Refreshing select items for ({name})".format(name=self.manager_name))
+        pass
+
+    def add_listings(self, items: list[int]):
+        print("Adding listings for ({name})".format(name=self.manager_name))
+        pass
+
+    def remove_listings(self, items: list[int]):
+        print("Removing listings for ({name})".format(name=self.manager_name))
+        pass
+
+    def add_filters(self, items: list[str]):
+        print("Adding filter items for ({name})".format(name=self.manager_name))
+        pass
+
+    def remove_filters(self, items: list[str]):
+        print("Removing filter items for ({name})".format(name=self.manager_name))
         pass
