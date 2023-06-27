@@ -195,9 +195,15 @@ class SeleniumManager0(ManagerBase.ManagerBase):
                                                  '2]/item-result/div/div[1]/div/div/div/a')
                 body = try_load_element(self.driver, '//*[@id="all-items"]')
 
-
                 print("There are {count} items.".format(count=count))
+                
                 while len(names) < count:
+
+                    # Get count again, in case listings have ended and have been removed
+
+                    count = int(
+                        try_load_element(self.driver, '//*[@id="many-items"]/div[3]/select/optgroup[2]/option[2]').
+                        text.replace("All > Active (", "").replace(")", ""))
 
                     # Find current active items
 
