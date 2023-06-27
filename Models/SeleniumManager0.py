@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 import time
 
 import selenium.webdriver.firefox.webdriver
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from attr import dataclass
 from selenium.webdriver import Keys
 from selenium.webdriver.support.ui import WebDriverWait
@@ -14,7 +15,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 timeout = 10
-
+REPEAT_INITIAL_VALUE = 5
 
 @dataclass
 class Listing:
@@ -25,6 +26,36 @@ class Listing:
     last_price: float
     retail_price: float
     condition: str
+
+class URLS:
+    # auction
+
+    site: str = "https://www.onlineliquidationauction.com/"
+    auctions: str = '/html/body/div[2]/div[5]/div/div[1]/div[1]'
+    auction_name: str = '/html/body/div[2]/div[5]/div/div[1]/div[1]/div[2]/h2/a'
+    auction_url: str = '/html/body/div[2]/div[5]/div/div[1]/div[1]/div[2]/h2/a'
+    auction_img: str = '/html/body/div[2]/div[5]/div/div[1]/div[1]/div[1]/div/div[1]/div/div[1]/div/a/img'
+
+    # item
+
+    select: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[3]/select'
+    active_item: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[3]/select/optgroup[2]/option[2]'
+    count: str = '//*[@id="many-items"]/div[3]/select/optgroup[2]/option[2]'
+    first_item: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
+    body: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div'
+    items: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result'
+    name: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
+    listing_url: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
+    img_elements: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[2]/div[1]/owl-carousel/div[1]/div/div[1]'
+    img_src: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[2]/div[1]/owl-carousel/div[1]/div/div[1]/div/img'
+    date: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[3]/div/item-status/div/div[1]/div[1]/b/span'
+    last_price: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[3]/div/item-status/div/div[1]/div[2]/b'
+    price_condition: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[2]/div[2]/div'
+    def subpath(src: str, dest: str):
+        rel_path = dest.replace(src, '')
+        if rel_path[0] == '[':
+            rel_path = rel_path[2:rel_path.index(']')]
+        return '.' + rel_path
 
 
 def try_load_element(driver: selenium.webdriver.firefox.webdriver.WebDriver, xpath: str):
@@ -83,7 +114,9 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
     def create_driver(self):
         print("Creating driver :)")
-        self.driver = webdriver.Firefox()
+        options = FirefoxOptions()
+        # options.add_argument("--headless")
+        self.driver = webdriver.Firefox(options=options)
 
     def get_auctions(self):
 
@@ -99,7 +132,7 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
         # Grab all auction elements
 
-        auction_elements = try_load_elements(self.driver, './html/body/div[2]/div[5]/div/div[1]/div')
+        auction_elements = try_load_elements(self.driver, URLS.auctions)
         print("\nFound {num} auctions: ".format(num=len(auction_elements)))
 
         # Get data into Listing class from each auction
@@ -108,19 +141,20 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
             # Grab name
 
-            name = i.find_element(By.XPATH, "./div[2]/h2/a").text
+            name = i.find_element(By.XPATH, URLS.subpath(URLS.auctions, URLS.auction_name)).text
             print(name)
 
             # Get url and swap domain with bidding page url, keep ID
 
             bad_url = 'https://www.onlineliquidationauction.com/auctions/detail/bw'
             good_url = 'https://bid.onlineliquidationauction.com/bid/'
-            url = i.find_element(By.XPATH, "./div[2]/h2/a").get_attribute("href").replace(bad_url, good_url)
+            url = i.find_element(By.XPATH, URLS.subpath(URLS.auctions, URLS.auction_name)).get_attribute("href") \
+                .replace(bad_url, good_url)
             print(url)
 
             # Get image src url and save, not really needed
 
-            img_url = [i.find_element(By.XPATH, "./div[1]/div/div/div/div/div/a/img").get_attribute('src')]
+            img_url = [i.find_element(By.XPATH, URLS.subpath(URLS.auctions, URLS.auction_img)).get_attribute('src')]
             print(img_url)
 
             # Add to auctions list
@@ -179,45 +213,47 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
             # need to set to active items only, first load use try_load
 
-            select = try_load_element(self.driver, '/html/body/div[3]/div[3]/div/div/div[2]/div[3]/select')
-            select.find_element(By.XPATH, './optgroup[2]/option[2]').click()
+            select = try_load_element(self.driver, URLS.select)
+            select.find_element(By.XPATH, URLS.subpath(URLS.select, URLS.active_item)).click()
 
             # Get number of total items to search for, first load call try_load
 
-            count = int(try_load_element(self.driver, '//*[@id="many-items"]/div[3]/select/optgroup[2]/option[2]').
+            count = int(select.find_element(By.XPATH, URLS.subpath(URLS.select, URLS.active_item)).
                         text.replace("All > Active (", "").replace(")", ""))
 
             if count > 0:
 
                 # Get body element so we can scroll
 
-                try_load_element(self.driver, '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div['
-                                                 '2]/item-result/div/div[1]/div/div/div/a')
-                body = try_load_element(self.driver, '//*[@id="all-items"]')
+                try_load_element(self.driver, URLS.first_item)
+                body = try_load_element(self.driver, URLS.body)
+
 
                 print("There are {count} items.".format(count=count))
-                
-                while len(names) < count:
 
-                    # Get count again, in case listings have ended and have been removed
+                # set repeat counter, so we exit if an item is missed but never accounted for
 
-                    count = int(
-                        try_load_element(self.driver, '//*[@id="many-items"]/div[3]/select/optgroup[2]/option[2]').
-                        text.replace("All > Active (", "").replace(")", ""))
+                repeat_counter = REPEAT_INITIAL_VALUE
+
+                while len(names) < count and repeat_counter > 0:
 
                     # Find current active items
 
-                    live_items = self.driver.find_elements(By.TAG_NAME, 'item-result')
+                    live_items = self.driver.find_elements(By.XPATH, URLS.items)
 
                     for i in live_items:
 
                         # Get item name text
 
-                        name = try_load_element(i, "./div/div/div/div/div/a").text
+                        name = try_load_element(i, URLS.subpath(URLS.items, URLS.name)).text
 
                         # If we have not already added this item to our item list
 
                         if name not in names:
+
+                            # reset counter if new info
+
+                            repeat_counter = REPEAT_INITIAL_VALUE
 
                             # TODO: fill out pricing and end date
                             # Set name
@@ -227,19 +263,20 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
                             # Set listing url
 
-                            url = try_load_element(i, "./div/div/div/div/div/a").get_attribute("href")
+                            url = try_load_element(i, URLS.subpath(URLS.items, URLS.listing_url)).get_attribute("href")
                             print(url)
 
                             # Set src image urls
 
                             img_url = []
-                            img_elements = try_load_elements(i, "./div/div[2]/div/owl-carousel/div/div/div/div")
+                            img_elements = try_load_elements(i, URLS.subpath(URLS.items, URLS.img_elements))
                             for element in img_elements:
-                                img_url.append(element.get_attribute('src'))
+                                img_url.append(try_load_element(element, URLS.subpath(URLS.img_elements, URLS.img_src)).get_attribute('owl-data-src'))
+                                print(img_url[-1])
 
                             # Set date by splitting formatted date into elements it could be; a unit with 0 left is hidden.
 
-                            date_text = try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[1]/b/span').text. \
+                            date_text = try_load_element(i, URLS.subpath(URLS.items, URLS.date)).text. \
                                 split(' ')
                             if 'Ends' in date_text:
                                 date_text.remove('Ends')
@@ -260,7 +297,7 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
                             # Set last price
 
-                            last_price = float(try_load_element(i, './div/div[3]/div/item-status/div/div[1]/div[2]/b').
+                            last_price = float(try_load_element(i, URLS.subpath(URLS.items, URLS.last_price)).
                                                text.replace('[$', '').replace(']', ''))
                             print("Last price is {price}".format(price=last_price))
 
@@ -268,12 +305,12 @@ class SeleniumManager0(ManagerBase.ManagerBase):
 
                             # TODO: FINISH THIS
 
-                            price_condition_text = try_load_element(i, './div/div[2]/div[2]/div').text
+                            price_condition_text = try_load_element(i, URLS.subpath(URLS.items, URLS.price_condition)).text
                             words = price_condition_text.replace("Retail Price: ", "").split(" ")
                             if 'Unknown' not in words[0]:
                                 retail_price = float(words[0].replace(',', '').replace('$', ''))
                             else:
-                                retail_price = None
+                                retail_price = -1
                             condition = ' '.join(words[1::])
                             print("Retail price is {price}".format(price=retail_price))
                             print("Condition is {condition}".format(condition=condition))
@@ -283,9 +320,14 @@ class SeleniumManager0(ManagerBase.ManagerBase):
                             self.listings.append(Listing(name, url, img_url, end_time, last_price, retail_price, condition))
                             names.append(name)
 
+
+
                     # Send page down and delay for a bit
 
                     body.send_keys(Keys.PAGE_DOWN)
+
+                    repeat_counter -= 1
+
                     time.sleep(.3)
                     print("Found {l_count}/{t_count} listings. ".format(l_count=len(names), t_count=count))
             break
@@ -297,6 +339,14 @@ class SeleniumManager0(ManagerBase.ManagerBase):
         f = open('listings.csv', 'w')
         w = csv.writer(f)
         for row in self.listings:
+            print(row.name)
+            print(row.url)
+            for item in row.img_url:
+                print(item)
+            print(row.end_time.strftime("%m/%d/%Y, %H:%M:%S"))
+            print(row.last_price)
+            print(row.retail_price)
+            print(row.condition)
             w.writerow([row.name, row.url, "*".join(row.img_url), row.end_time.strftime("%m/%d/%Y, %H:%M:%S"),
                         str(row.last_price), str(row.retail_price), row.condition])
 
