@@ -147,7 +147,7 @@ class SeleniumScraper:
         # Grab all auction elements
 
         auction_elements = try_load_elements(self.driver, URLS.subpath('', URLS.auctions))
-        print("\nFound {num} auctions: ".format(num=len(auction_elements)))
+        # print("\nFound {num} auctions: ".format(num=len(auction_elements)))
 
         # Get data into Listing class from each auction
 
@@ -228,7 +228,7 @@ class SeleniumScraper:
             try_load_element(self.driver, URLS.first_item)
             body = try_load_element(self.driver, URLS.body)
 
-            print("There are {count} items.".format(count=count))
+            # print("There are {count} items.".format(count=count))
 
             # set repeat counter, so we exit if an item is missed but never accounted for
 
@@ -272,9 +272,9 @@ class SeleniumScraper:
                 repeat_counter -= 1
 
                 time.sleep(.3)
-                print("Found {l_count}/{t_count} listings. ".format(l_count=len(names), t_count=count))
+                # print("Found {l_count}/{t_count} listings. ".format(l_count=len(names), t_count=count))
 
-        print("{count} items found. ".format(count=len(names)))
+        # print("{count} items found. ".format(count=len(names)))
 
     def get_item_details(self, item: WebDriver, names: []):
 
@@ -424,13 +424,13 @@ scraper = SeleniumScraper(auction_filters, item_filters, loud, show_browser)
 scraper.create_driver()
 scraper.import_()
 while True:
-    print("Finding Auctions...")
+    # print("Finding Auctions...")
     scraper.find_auctions()
-    print("Cleaning Up old Auctions...")
+    # print("Cleaning Up old Auctions...")
     scraper.clean_auctions()
-    print("Collecting auction items...")
+    # print("Collecting auction items...")
     scraper.find_items(scraper.new_auctions)
     scraper.export_()
     scraper.notify()
-    print("Sleeping...")
+    # print("Sleeping...")
     time.sleep(3600)
