@@ -1,5 +1,6 @@
 import dataclasses
 import os
+import pickle
 from collections.abc import Iterable
 from datetime import datetime, timedelta
 import time
@@ -202,6 +203,12 @@ class SeleniumScraper:
 
         # TODO: fix this, execute_script does not work
 
+        # self.driver.set_context("chrome")
+        #
+        # for i in range(1, 10):
+        #     self.driver.send_keys(Keys.CONTROL, '-')
+        #     self.driver.
+        # self.driver.set_context('content')
         # self.driver.execute_script("document.body.style.zoom='50%'")
 
         # need to set to active items only, first load use try_load
@@ -238,7 +245,10 @@ class SeleniumScraper:
                     # Get item name text
                     end_text = try_load_element(self.driver, URLS.date)
                     if end_text is not None:
-                        end_text = end_text.text
+                        try:
+                            end_text = end_text.text
+                        except:
+                            continue
                     else:
                         continue
                     for phrase in ['Extending', 'Closing', 'SOLD']:
@@ -261,7 +271,7 @@ class SeleniumScraper:
 
                 repeat_counter -= 1
 
-                time.sleep(.35)
+                time.sleep(.3)
                 print("Found {l_count}/{t_count} listings. ".format(l_count=len(names), t_count=count))
 
         print("{count} items found. ".format(count=len(names)))
@@ -289,7 +299,10 @@ class SeleniumScraper:
 
             url = try_load_element(item, URLS.subpath(URLS.items, URLS.listing_url))
             if url is not None:
-                url = url.get_attribute("href")
+                try:
+                    url = url.get_attribute("href")
+                except:
+                    return None
             else:
                 return None
             # print(url)
@@ -315,7 +328,7 @@ class SeleniumScraper:
                     time_left = datetime.now()
                     for segment in date_text:
                         if 'd' in segment:
-                            time_left += timedelta(days=datetime.strptime(segment, '%dd').day)
+                            time_left += timedelta(days=int(segment.replace('d', '')))
                         elif 'h' in segment:
                             time_left += timedelta(hours=datetime.strptime(segment, '%Hh').hour)
                         elif 'm' in segment:
@@ -332,7 +345,10 @@ class SeleniumScraper:
 
             last_price = try_load_element(item, URLS.subpath(URLS.items, URLS.last_price))
             if last_price is not None:
-                last_price = float(last_price.text.replace('[$', '').replace(']', ''))
+                try:
+                    last_price = float(last_price.text.replace('[$', '').replace(']', ''))
+                except:
+                    return None
             else:
                 return None
             # print("Last price is {price}".format(price=last_price))
@@ -345,10 +361,13 @@ class SeleniumScraper:
             retail_price = 0
             price_condition_text = try_load_element(item, URLS.subpath(URLS.items, URLS.price_condition))
             if price_condition_text is not None:
-                price_condition_text = price_condition_text.text
+                try:
+                    price_condition_text = price_condition_text.text
+                except:
+                    return None
 
                 words = price_condition_text.replace("Retail Price: ", "").split(" ")
-                if 'Unknown' not in words[0]:
+                if 'Unknown' not in words[0] and words[0] != '':
                     retail_price = float(words[0].replace(',', '').replace('$', ''))
                 else:
                     retail_price = -1
@@ -383,6 +402,14 @@ class SeleniumScraper:
                 webbrowser.open(i.url)
             print("{name} - {url}".format(name=i.name, url=i.url))
 
+    def import_(self):
+        if os.path.isfile("data"):
+            with open('data', 'rb') as f:
+                self.auctions = pickle.load(f)
+
+    def export_(self):
+        with open('data', 'wb') as f:
+            pickle.dump(self.auctions, f)
 
     def close_driver(self):
         if self.driver is not None:
@@ -395,9 +422,15 @@ show_browser = input("Show browser? (yes): ") == 'yes'
 loud = input("Open matches in browser? (yes): ") == 'yes'
 scraper = SeleniumScraper(auction_filters, item_filters, loud, show_browser)
 scraper.create_driver()
+scraper.import_()
 while True:
+    print("Finding Auctions...")
     scraper.find_auctions()
+    print("Cleaning Up old Auctions...")
     scraper.clean_auctions()
+    print("Collecting auction items...")
     scraper.find_items(scraper.new_auctions)
+    scraper.export_()
     scraper.notify()
+    print("Sleeping...")
     time.sleep(3600)
