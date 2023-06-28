@@ -173,18 +173,22 @@ class SeleniumScraper:
             if pass_auction_filter:
                 is_new_auction = True
                 for auction in self.auctions:
-                    if auction.name is name:
+                    if auction.name == name:
+                        print(name + " has already been counted")
                         is_new_auction = False
                 if is_new_auction:
                     self.new_auctions.append(Auction(name, url, img_url, []))
 
-    def find_items(self, auctions: list[Auction]):
+    def find_items(self):
 
         # For each auction
 
-        for auction in auctions:
+        for auction in self.new_auctions:
 
             self.get_auction_items(auction)
+
+            self.new_auctions.remove(auction)
+            self.auctions.append(auction)
 
     def get_auction_items(self, auction: Auction):
 
@@ -425,8 +429,8 @@ while True:
     # print("Cleaning Up old Auctions...")
     scraper.clean_auctions()
     # print("Collecting auction items...")
-    scraper.find_items(scraper.new_auctions)
+    scraper.find_items()
     scraper.export_()
     scraper.notify()
-    # print("Sleeping...")
+    print("Waiting for 1 hour...")
     time.sleep(3600)
