@@ -187,8 +187,8 @@ class SeleniumScraper:
 
             self.get_auction_items(auction)
 
-            self.new_auctions.remove(auction)
             self.auctions.append(auction)
+        self.new_auctions.clear()
 
     def get_auction_items(self, auction: Auction):
 
