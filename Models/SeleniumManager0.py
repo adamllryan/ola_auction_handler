@@ -186,7 +186,8 @@ class SeleniumScraper:
         for auction in self.new_auctions:
 
             self.get_auction_items(auction)
-            self.auctions.append(auction)
+
+        self.auctions += self.new_auctions
         self.new_auctions.clear()
 
     def get_auction_items(self, auction: Auction):
@@ -389,11 +390,8 @@ class SeleniumScraper:
     def clean_auctions(self):
         for auction in self.auctions:
             current = datetime.now()
-            for item in auction.items:
-                if current > item.end_time:
-                    auction.items -= item
-            if auction.items.count == 0:
-                self.auctions -= auction
+            auction.items = list(filter(lambda x: current > x.end_time, auction.items))
+        self.auctions = list(filter(lambda x: len(x.items)>0, self.auctions))
 
     def notify(self):
         for i in self.filter_items:
