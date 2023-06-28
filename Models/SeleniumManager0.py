@@ -1,8 +1,9 @@
+import dataclasses
 import os
 from collections.abc import Iterable
 from datetime import datetime, timedelta
 import time
-
+import webbrowser
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from attr import dataclass
@@ -15,12 +16,11 @@ from Models import ManagerBase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
-timeout = 10
-REPEAT_INITIAL_VALUE = 5
-
+timeout = 5
+REPEAT_INITIAL_VALUE = 10
 
 @dataclass
-class Listing:
+class Item:
     name: str
     url: str
     img_url: list[str]
@@ -30,11 +30,19 @@ class Listing:
     condition: str
 
 
+@dataclass
+class Auction:
+    name: str
+    url: str
+    src: list[str]
+    items: list[Item]
+
+
 class URLS:
     # auction
 
     site: str = "https://www.onlineliquidationauction.com/"
-    auctions: str = '/html/body/div[2]/div[5]/div/div[1]/div[1]'
+    auctions: str = '/html/body/div[2]/div[5]/div/div[1]/div'
     auction_name: str = '/html/body/div[2]/div[5]/div/div[1]/div[1]/div[2]/h2/a'
     auction_url: str = '/html/body/div[2]/div[5]/div/div[1]/div[1]/div[2]/h2/a'
     auction_img: str = '/html/body/div[2]/div[5]/div/div[1]/div[1]/div[1]/div/div[1]/div/div[1]/div/a/img'
@@ -44,20 +52,21 @@ class URLS:
     select: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[3]/select'
     active_item: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[3]/select/optgroup[2]/option[2]'
     count: str = '//*[@id="many-items"]/div[3]/select/optgroup[2]/option[2]'
-    first_item: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
+    first_item: str =  '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
     body: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div'
-    items: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result'
-    name: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
+    items: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div'
+    name: str =        '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
     listing_url: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
     img_elements: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[2]/div[1]/owl-carousel/div[1]/div/div[1]'
     img_src: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[2]/div[1]/owl-carousel/div[1]/div/div[1]/div/img'
     date: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[3]/div/item-status/div/div[1]/div[1]/b/span'
     last_price: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[3]/div/item-status/div/div[1]/div[2]/b'
     price_condition: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[2]/div[2]/div'
+
     def subpath(src: str, dest: str):
         rel_path = dest.replace(src, '')
         if rel_path[0] == '[':
-            rel_path = rel_path[2:rel_path.index(']')]
+            rel_path = rel_path[rel_path.index(']')+1:]
         return '.' + rel_path
 
 
@@ -66,11 +75,14 @@ def try_load_element(driver: WebDriver, xpath: str):
     # Load element with timeout set to x seconds
 
     element = None
+
     try:
         element = WebDriverWait(driver, timeout).until(
             ec.presence_of_element_located((By.XPATH, xpath))
         )
+
     finally:
+
         return element if element is not None else None
 
 
@@ -84,57 +96,56 @@ def try_load_elements(driver: WebDriver, xpath: str):
             ec.presence_of_element_located((By.XPATH, xpath))
         )
         elements = driver.find_elements(By.XPATH, xpath)
+
     finally:
+
         return elements
 
 
 class SeleniumScraper:
 
-    auctions: list[Listing]
-    listings: list[Listing]
-    filtered_listings: list[Listing]
-    my_listings: list[Listing]
+    auctions: list[Auction]
+    new_auctions: list[Auction]
+    filter_items: list[Item]
     driver: webdriver.firefox.webdriver.WebDriver
     auction_filters: list[str]
     item_filters: list[str]
+    loud: bool
+    debug: bool
 
-    def __init__(self):
+    def __init__(self, auctions: list[str], filters: list[str], open_in_browser, debug):
 
         # Init variables
 
         self.auctions = []
-        self.listings = []
-        self.filtered_listings = []
-        self.my_listings = []
-        self.auction_filters = []
-        self.item_filters = []
+        self.new_auctions = []
+        self.auction_filters = auctions
+        self.item_filters = filters
+        self.loud = open_in_browser
+        self.debug = debug
+        self.filter_items = []
 
-    def create_driver(self, debug):
+    def create_driver(self):
+
         options = FirefoxOptions()
-        if not debug:
+
+        if not self.debug:
             options.add_argument("--headless")
+
         self.driver = webdriver.Firefox(options=options)
 
-    def check_new_auctions(self):
-        new_auctions: list[Listing] = self.get_auctions()
-        new_auctions = self.filter_auctions(new_auctions)
-        self.auctions.append(new_auctions)
-
-    def get_auctions(self):
-
-        new_auctions: list[Listing] = []
-        old_auctions: list[str] = []
+    def find_auctions(self):
 
         # Get url
 
         if not hasattr(self, 'driver'):
-            self.create_driver(False)
+            self.create_driver()
 
         self.driver.get("https://www.onlineliquidationauction.com/")
 
         # Grab all auction elements
 
-        auction_elements = try_load_elements(self.driver, URLS.auctions)
+        auction_elements = try_load_elements(self.driver, URLS.subpath('', URLS.auctions))
         print("\nFound {num} auctions: ".format(num=len(auction_elements)))
 
         # Get data into Listing class from each auction
@@ -142,86 +153,43 @@ class SeleniumScraper:
         for i in auction_elements:
 
             # Grab name
-
             name = i.find_element(By.XPATH, URLS.subpath(URLS.auctions, URLS.auction_name)).text
-            print(name)
 
             # Get url and swap domain with bidding page url, keep ID
 
             bad_url = 'https://www.onlineliquidationauction.com/auctions/detail/bw'
             good_url = 'https://bid.onlineliquidationauction.com/bid/'
+
             url = i.find_element(By.XPATH, URLS.subpath(URLS.auctions, URLS.auction_name)).get_attribute("href") \
                 .replace(bad_url, good_url)
-            print(url)
 
             # Get image src url and save, not really needed
 
             img_url = [i.find_element(By.XPATH, URLS.subpath(URLS.auctions, URLS.auction_img)).get_attribute('src')]
-            print(img_url)
 
             # Add to auctions list
 
-            is_new_auction = True
-            for auction in self.auctions:
-                if auction is not [] and auction.name is name:
-                    is_new_auction = False
-            if is_new_auction:
-                new_auctions.append(Listing(name, url, img_url, None, None, None, None))
-            else:
-                old_auctions.append(name)
+            pass_auction_filter = False
+            for keyword in self.auction_filters:
+                if keyword in name:
+                    pass_auction_filter = True
+            if pass_auction_filter:
+                is_new_auction = True
+                for auction in self.auctions:
+                    if auction.name is name:
+                        is_new_auction = False
+                if is_new_auction:
+                    self.new_auctions.append(Auction(name, url, img_url, []))
 
+    def find_items(self, auctions: list[Auction]):
 
-        # Cleanup
+        # For each auction
 
-        for auction in self.auctions:
-            if auction.name not in old_auctions:
-                self.auctions.remove(auction)
-
-        return new_auctions
-
-    def filter_auctions(self, auctions: list[Listing]):
-
-        # Iterate through every auction and check for filter terms in name
-
-        remove = []
-        for i in auctions:
-            for j in self.auction_filters:
-                if j in i.name:
-                    remove.append(i)
-
-        # Remove every item chosen to be removed
-
-        for i in remove:
-            if i in auctions:
-                auctions.remove(i)
-
-        return auctions
-
-    def get_items(self, auctions: [Listing]):
-
-        # For each auction, does not care if filtered or not
-
-        for auction in self.auctions:
+        for auction in auctions:
 
             self.get_auction_items(auction)
 
-        # Save data to file, so we don't need to reload
-
-        f = open('listings.csv', 'w')
-        w = csv.writer(f)
-        for row in self.listings:
-            print(row.name)
-            print(row.url)
-            for item in row.img_url:
-                print(item)
-            print(row.end_time.strftime("%m/%d/%Y, %H:%M:%S"))
-            print(row.last_price)
-            print(row.retail_price)
-            print(row.condition)
-            w.writerow([row.name, row.url, "*".join(row.img_url), row.end_time.strftime("%m/%d/%Y, %H:%M:%S"),
-                        str(row.last_price), str(row.retail_price), row.condition])
-
-    def get_auction_items(self, auction: Listing):
+    def get_auction_items(self, auction: Auction):
 
         # Get url
 
@@ -263,36 +231,53 @@ class SeleniumScraper:
 
                 # Find current active items
 
-                live_items = self.driver.find_elements(By.XPATH, URLS.items)
-
+                live_items = self.driver.find_elements(By.XPATH, '//*[@id="all-items"]/div')
+                live_items.pop()
                 for i in live_items:
 
                     # Get item name text
+                    end_text = try_load_element(self.driver, URLS.date)
+                    if end_text is not None:
+                        end_text = end_text.text
+                    else:
+                        continue
+                    for phrase in ['Extending', 'Closing', 'SOLD']:
+                        if phrase in end_text:
+                            continue
 
-                    self.get_item_details(i, names)
+                    item = self.get_item_details(i, names)
+
+                    if item is not None:
+                        repeat_counter = REPEAT_INITIAL_VALUE
+                        auction.items.append(item)
+                        names.append(item.name)
 
                 # Send page down and delay for a bit
 
-                body.send_keys(Keys.PAGE_DOWN)
+                try:
+                    body.send_keys(Keys.PAGE_DOWN)
+                except:
+                    break
 
                 repeat_counter -= 1
 
-                time.sleep(.3)
+                time.sleep(.35)
                 print("Found {l_count}/{t_count} listings. ".format(l_count=len(names), t_count=count))
 
         print("{count} items found. ".format(count=len(names)))
 
     def get_item_details(self, item: WebDriver, names: []):
 
-        name = try_load_element(item, URLS.subpath(URLS.items, URLS.name)).text
+        try:
+            name = item.find_element(By.XPATH, URLS.subpath(URLS.items, URLS.name))
+        except:
+            return None
+
+        name = name.text
 
         # If we have not already added this item to our item list
 
         if name not in names:
-
-            # reset counter if new info
-
-            repeat_counter = REPEAT_INITIAL_VALUE
 
             # TODO: fill out pricing and end date
             # Set name
@@ -302,8 +287,12 @@ class SeleniumScraper:
 
             # Set listing url
 
-            url = try_load_element(item, URLS.subpath(URLS.items, URLS.listing_url)).get_attribute("href")
-            print(url)
+            url = try_load_element(item, URLS.subpath(URLS.items, URLS.listing_url))
+            if url is not None:
+                url = url.get_attribute("href")
+            else:
+                return None
+            # print(url)
 
             # Set src image urls
 
@@ -311,112 +300,104 @@ class SeleniumScraper:
             img_elements = try_load_elements(item, URLS.subpath(URLS.items, URLS.img_elements))
             for element in img_elements:
                 img_url.append(try_load_element(element, URLS.subpath(URLS.img_elements,
-                                                                      URLS.img_src)).get_attribute(
-                    'owl-data-src'))
-                print(img_url[-1])
+                                                                      URLS.img_src)).get_attribute('owl-data-src'))
+                # print(img_url[-1])
 
             # Set date by splitting formatted date into elements it could be; a unit with 0 left is hidden.
 
-            date_text = try_load_element(item, URLS.subpath(URLS.items, URLS.date)).text. \
-                split(' ')
-            if 'Ends' in date_text:
-                date_text.remove('Ends')
-                time_left = datetime.now()
-                for segment in date_text:
-                    if 'd' in segment:
-                        time_left += timedelta(days=datetime.strptime(segment, '%dd').day)
-                    elif 'h' in segment:
-                        time_left += timedelta(hours=datetime.strptime(segment, '%Hh').hour)
-                    elif 'm' in segment:
-                        time_left += timedelta(minutes=datetime.strptime(segment, '%Mm').minute)
-                    elif 's' in segment:
-                        time_left += timedelta(seconds=datetime.strptime(segment, '%Ss').second)
-                end_time = time_left
-            else:
-                end_time = datetime.now()
-            print("End Date is {date}".format(date=end_time))
+            end_time = None
+            date_text = try_load_element(item, URLS.subpath(URLS.items, URLS.date))
+            if date_text is not None:
+                date_text = date_text.text.split(' ')
 
+                if 'Ends' in date_text:
+                    date_text.remove('Ends')
+                    time_left = datetime.now()
+                    for segment in date_text:
+                        if 'd' in segment:
+                            time_left += timedelta(days=datetime.strptime(segment, '%dd').day)
+                        elif 'h' in segment:
+                            time_left += timedelta(hours=datetime.strptime(segment, '%Hh').hour)
+                        elif 'm' in segment:
+                            time_left += timedelta(minutes=datetime.strptime(segment, '%Mm').minute)
+                        elif 's' in segment:
+                            time_left += timedelta(seconds=datetime.strptime(segment, '%Ss').second)
+                    end_time = time_left
+                else:
+                    end_time = datetime.now()
+                # print("End Date is {date}".format(date=end_time))
+            else:
+                return None
             # Set last price
 
-            last_price = float(try_load_element(i, URLS.subpath(URLS.items, URLS.last_price)).
-                               text.replace('[$', '').replace(']', ''))
-            print("Last price is {price}".format(price=last_price))
+            last_price = try_load_element(item, URLS.subpath(URLS.items, URLS.last_price))
+            if last_price is not None:
+                last_price = float(last_price.text.replace('[$', '').replace(']', ''))
+            else:
+                return None
+            # print("Last price is {price}".format(price=last_price))
 
             # Set retail price and condition text
 
             # TODO: FINISH THIS
 
-            price_condition_text = try_load_element(i,
-                                                    URLS.subpath(URLS.items, URLS.price_condition)).text
-            words = price_condition_text.replace("Retail Price: ", "").split(" ")
-            if 'Unknown' not in words[0]:
-                retail_price = float(words[0].replace(',', '').replace('$', ''))
-            else:
-                retail_price = -1
-            condition = ' '.join(words[1::])
-            print("Retail price is {price}".format(price=retail_price))
-            print("Condition is {condition}".format(condition=condition))
+            condition = ''
+            retail_price = 0
+            price_condition_text = try_load_element(item, URLS.subpath(URLS.items, URLS.price_condition))
+            if price_condition_text is not None:
+                price_condition_text = price_condition_text.text
 
+                words = price_condition_text.replace("Retail Price: ", "").split(" ")
+                if 'Unknown' not in words[0]:
+                    retail_price = float(words[0].replace(',', '').replace('$', ''))
+                else:
+                    retail_price = -1
+                condition = ' '.join(words[1::])
+                # print("Retail price is {price}".format(price=retail_price))
+                # print("Condition is {condition}".format(condition=condition))
+            else:
+                return None
             # Add names to found list
 
-            self.listings.append(
-                Listing(name, url, img_url, end_time, last_price, retail_price, condition))
-            names.append(name)
+            listing = Item(name, url, img_url, end_time, last_price, retail_price, condition)
 
-    def read_listings(self, f: Iterable[str]):
+            for i in self.item_filters:
+                if i.lower() in name.lower():
+                    self.filter_items.append(listing)
+                    return listing
+            return listing
+        return None
 
-        if os.path.isfile('listings.csv'):
-            f = open('listings.csv', 'r')
-            r = csv.reader(f, delimiter=',')
-            for row in r:
-                self.listings.append(Listing(row[0], row[1], row[2].split("*"),
-                                             datetime.strptime(row[3], "%m/%d/%Y, %H:%M:%S"),
-                                             float(row[4]), float(row[5]), row[6]))
-            f.close()
+    def clean_auctions(self):
+        for auction in self.auctions:
+            current = datetime.now()
+            for item in auction.items:
+                if current > item.end_time:
+                    auction.items -= item
+            if auction.items.count == 0:
+                self.auctions -= auction
 
-    def read_my_listings(self, f: Iterable[str]):
+    def notify(self):
+        for i in self.filter_items:
+            if self.loud:
+                webbrowser.open(i.url)
+            print("{name} - {url}".format(name=i.name, url=i.url))
 
-        if os.path.isfile('mylistings.csv'):
-            f = open('mylistings.csv', 'r')
-            r = csv.reader(f, delimiter=',')
-            for row in r:
-                self.listings.append(Listing(row[0], row[1], row[2].split("*"),
-                                             datetime.strptime(row[3], "%m/%d/%Y, %H:%M:%S"),
-                                             float(row[4]), float(row[5]), row[6]))
-            f.close()
-
-    def filter_items(self):
-
-        # Find each listing that matches a keyword
-
-        remove = []
-        for i in self.listings:
-            for j in self.item_filters:
-                if j.lower() in i.name.lower():
-                    print("\033[91mRemoving {name} from list\033[0m".format(name=i.name))
-                    remove.append(i)
-
-        # Remove items that match keywords
-
-        self.filtered_listings = self.listings.copy()
-        for i in remove:
-            if i in self.filtered_listings:
-                self.filtered_listings.remove(i)
-        print("Keeping {num} listings. ".format(num=len(self.listings)))
-
-    def refresh(self):
-
-        self.get_auctions()
-        self.filter_auctions()
-        self.filter_items()
 
     def close_driver(self):
         if self.driver is not None:
             self.driver.close()
 
 
-scraper = SeleniumScraper()
-scraper.__init__()
-scraper.create_driver(True)
+auction_filters = input("Add auction locations, separated by ';' (eg. 'Brookpark;Stow'): ").split(';')
+item_filters = input("Add items to look for, same format ('item;item;item'): ").split(';')
+show_browser = input("Show browser? (yes): ") == 'yes'
+loud = input("Open matches in browser? (yes): ") == 'yes'
+scraper = SeleniumScraper(auction_filters, item_filters, loud, show_browser)
+scraper.create_driver()
 while True:
-    scraper.check_new_auctions()
+    scraper.find_auctions()
+    scraper.clean_auctions()
+    scraper.find_items(scraper.new_auctions)
+    scraper.notify()
+    time.sleep(3600)
