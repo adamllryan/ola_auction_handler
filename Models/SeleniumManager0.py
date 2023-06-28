@@ -1,7 +1,5 @@
-import dataclasses
 import os
 import pickle
-from collections.abc import Iterable
 from datetime import datetime, timedelta
 import time
 import webbrowser
@@ -9,16 +7,14 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from attr import dataclass
 from selenium.webdriver import Keys
-from selenium.webdriver.remote.webelement import WebElement, BaseWebElement
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
-import csv
-from Models import ManagerBase
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
 timeout = 5
 REPEAT_INITIAL_VALUE = 10
+
 
 @dataclass
 class Item:
@@ -53,10 +49,10 @@ class URLS:
     select: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[3]/select'
     active_item: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[3]/select/optgroup[2]/option[2]'
     count: str = '//*[@id="many-items"]/div[3]/select/optgroup[2]/option[2]'
-    first_item: str =  '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
+    first_item: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
     body: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div'
     items: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div'
-    name: str =        '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
+    name: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
     listing_url: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[1]/div/div/div/a'
     img_elements: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[2]/div[1]/owl-carousel/div[1]/div/div[1]'
     img_src: str = '/html/body/div[3]/div[3]/div/div/div[2]/div[4]/div/div[2]/item-result/div/div[2]/div[1]/owl-carousel/div[1]/div/div[1]/div/img'
