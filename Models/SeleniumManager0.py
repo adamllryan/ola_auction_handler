@@ -186,7 +186,6 @@ class SeleniumScraper:
         for auction in self.new_auctions:
 
             self.get_auction_items(auction)
-
             self.auctions.append(auction)
         self.new_auctions.clear()
 
