@@ -178,11 +178,13 @@ class SeleniumScraper:
                         is_new_auction = False
                 if is_new_auction:
                     self.new_auctions.append(Auction(name, url, img_url, []))
-            if len(self.new_auctions) > 0:
-                print("Found {count} new auction(s): ".format(count=len(self.new_auctions)))
-                for i in self.new_auctions:
-                    print(i.name)
-                print()
+        if len(self.new_auctions) > 0:
+            print("Found {count} new auction(s): ".format(count=len(self.new_auctions)))
+            for i in self.new_auctions:
+                print(i.name)
+            print()
+        else:
+            print("No new auctions")
 
     def find_items(self):
 
