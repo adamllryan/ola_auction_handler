@@ -1,5 +1,6 @@
 import os
 from datetime import datetime, timedelta
+import pickle
 import time
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
@@ -108,6 +109,7 @@ class SeleniumScraper(Thread):
     progress: list[int]
     total_items: list[int]
     reload_called: Event
+    callback: Event
 
     def __init__(self, auctions: list[str], debug: bool):
         Thread.__init__(self)
@@ -119,6 +121,7 @@ class SeleniumScraper(Thread):
         self.progress = []
         self.total_items = []
         self.reload_called = Event()
+        self.callback = Event()
         # self.create_driver()
 
     def create_driver(self):
@@ -381,17 +384,20 @@ class SeleniumScraper(Thread):
             current = datetime.now()
             auction.items = list(filter(lambda x: current > x.end_time, auction.items))
         self.auctions = list(filter(lambda x: len(x.items)>0, self.auctions))
+        print(f"Leaving {len(self.auctions)} auctions")
 
-    def import_(self):
-
-        if os.path.isfile("data"):
-            with open('data', 'rb') as f:
-                self.auctions = pickle.load(f)
+    # def import_(self, items):
+        
+        
 
     def export_(self):
-        with open('data', 'wb') as f:
-            pickle.dump(self.auctions, f)
+        items = []
+        for auction in self.auctions:
+            for x in auction.items:
+                items.append([auction.name, x.name, x.url, x.img_url[0], x.last_price, x.retail_price, x.condition, x.end_time])
         self.auctions.clear()
+        return items
+        
 
     def run(self):
         while True:
@@ -401,15 +407,33 @@ class SeleniumScraper(Thread):
             else:
                 print("Auto-refresh triggered")
             print('running __find_auctions__')
+            
+            # for i in range(1,100):
+            #     auction = Auction(f"auction{i}", "", [""], [])
+            #     for j in range(1,100):
+            #         item = Item(f"item{j}", "url", ["src"], datetime.now(), 0, 0, "New")
+            #         auction.items.append(item)
+            #     # print(len(auction.items))
+            #     self.auctions.append(auction)
+
+            # self.callback.set()
+            # self.reload_called.clear()
+            # continue
+           
+           
+           
+            # self.auctions.clear()
             self.find_auctions()
             print('running __find_items__')
             self.find_items()
-            print('running __clean_auctions__')
-            self.clean_auctions()
+            # print('running __clean_auctions__')
+            # self.clean_auctions()
             #1 min cooldown for refresh
+            self.callback.set()
             time.sleep(60)
             self.reload_called.clear()
 
+    
     def close_driver(self):
         if self.driver is not None:
             self.driver.close()
