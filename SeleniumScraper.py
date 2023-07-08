@@ -1,8 +1,6 @@
 import os
-import pickle
 from datetime import datetime, timedelta
 import time
-import webbrowser
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from attr import dataclass
@@ -11,8 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import threading
-from threading import Thread, Condition
+from threading import Thread, Event
 
 timeout = 5
 REPEAT_INITIAL_VALUE = 10
@@ -101,7 +98,7 @@ def try_load_elements(driver: WebDriver, xpath: str):
         return elements
 
 
-class SeleniumScraper(threading.Thread):
+class SeleniumScraper(Thread):
 
     logged_auctions: list[str]
     auctions: list[Auction]
@@ -110,10 +107,10 @@ class SeleniumScraper(threading.Thread):
     running: bool
     progress: list[int]
     total_items: list[int]
-    reload_called: threading.Event
+    reload_called: Event
 
     def __init__(self, auctions: list[str], debug: bool):
-        threading.Thread.__init__(self)
+        Thread.__init__(self)
 
         self.logged_auctions = auctions
         self.auctions = []
@@ -121,7 +118,7 @@ class SeleniumScraper(threading.Thread):
         self.running = False
         self.progress = []
         self.total_items = []
-        self.reload_called = threading.Event()
+        self.reload_called = Event()
         self.create_driver()
 
     def create_driver(self):
@@ -190,7 +187,7 @@ class SeleniumScraper(threading.Thread):
         for auction in self.auctions:
             self.progress.append(0)
             self.total_items.append(0)
-            thread = threading.Thread(target=self.get_auction_items, args=(auction,id))
+            thread = Thread(target=self.get_auction_items, args=(auction,id))
             thread.start()
             threads.append(thread)
             self.logged_auctions.append(auction.name)
@@ -403,7 +400,9 @@ class SeleniumScraper(threading.Thread):
             self.find_items()
             print('running __clean_auctions__')
             self.clean_auctions()
-            self.running = False
+            #1 min cooldown for refresh
+            time.sleep(60)
+            self.reload_called.clear()
 
     def close_driver(self):
         if self.driver is not None:
@@ -415,9 +414,9 @@ class SeleniumScraper(threading.Thread):
         if sum2 == 0:
             return 0
         else:
-            return sum1, "/", sum2, float(sum1)/sum2, '%'
+            return f"{sum1}/{sum2} - {float(sum1)/sum2} %"
 
-s = SeleniumScraper([], False)
+s = SeleniumScraper([], True)
 s.start()
 s.reload_called.set()
 # while True:
