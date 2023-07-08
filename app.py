@@ -5,8 +5,10 @@ from flask import Flask, send_from_directory, jsonify
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS  # comment this on deployment
 from flask_sqlalchemy import SQLAlchemy
-from sqlalchemy.sql import func
+from sqlalchemy.sql import func, text
 from sqlalchemy.inspection import inspect
+from flask_marshmallow import Marshmallow
+
 
 
 from api.ApiHandler import HelloApiHandler
@@ -23,6 +25,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'da
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db = SQLAlchemy(app)
+ma = Marshmallow(app)
 
 class Serializer(object):
     def serialize(self):
@@ -42,6 +45,16 @@ class Auction(db.Model):
 
     def __repr__(self):
         return f'<Auction {self.name}>'
+    
+class AuctionSchema(ma.Schema):
+    class Meta:
+        fields = ('id', 'name', 'url', 'src', 'created_at')
+
+auction_schema = AuctionSchema()
+auctions_schema = AuctionSchema(many=True)
+
+def as_dict(query):
+    return {c.name: getattr(query, c.name) for c in query.__table__.columns}
 
 @dataclass
 class Item(db.Model):
@@ -65,18 +78,32 @@ class Item(db.Model):
 def serve(path):
     return send_from_directory(app.static_folder, 'index.html')
 
-@app.route("/flask/api/auction/<str:query>")
-def get_auction(self, query):
-    # & will separate each param by key and values
-    query = query.replace('+', ' ')
-    terms = query.split('&')
+@app.route("/flask/api/auction/<Query>")
+def get_auction(Query):
+    print(Query)
+    results = []
+    # replace + with space because no space in url
+    Query = Query.replace('+', ' ')
+    print(Query)
+    # & separates query parameters
+    terms = Query.split('&')
+    print(terms)
     # = will split key from values
     params = {}
+    # split KP and then phrases by %
     for term in terms:
         key, pair = term.split('=')
-        params[key] = list(pair.split('%'))
-    results = db.session.execute('SELECT * FROM mytable \
-        WHERE column1 LIKE '{0}'')
+        params[key] = pair.split('%')
+        print(key, params[key])
+    search = "SELECT * FROM auction WHERE "
+    queries = []
+    for key in params:
+        for value in params[key]:
+            queries.append(f"{key} LIKE '%{value}%'")
+    search += " AND ".join(queries)
+    # TODO: return set(results)
+    final = auctions_schema.dump(db.session.execute(text(search)).fetchall())
+    return jsonify(final)
 
 class ApiHandler(Resource):
     def get(self):
@@ -89,16 +116,17 @@ class ApiHandler(Resource):
 
         return {
             'resultStatus': 'SUCCESS',
-            'message': f"You posted {0} items :)"
+            # todo
+            'message': "You posted 0 items :)"
         }
 
 
 api.add_resource(ApiHandler, '/flask/api')
 
-if __name__ == '__app__':
-    sample_auctions = []
-    for i in range(1,10):
-        sample_auctions.append(Auction(name="Stow", url="google.comlol", src="nowhere"))
-    db.create_all()
-    db.session.add_all(sample_auctions)
-    db.session.commit()
+#if __name__ == '__app__':
+    # sample_auctions = []
+    # for i in range(1,10):
+    #     sample_auctions.append(Auction(name="Stow", url="google.comlol", src="nowhere"))
+    # db.create_all()
+    # db.session.add_all(sample_auctions)
+    # db.session.commit()
