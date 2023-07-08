@@ -11,6 +11,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+import threading
 
 timeout = 5
 REPEAT_INITIAL_VALUE = 10
@@ -99,28 +100,26 @@ def try_load_elements(driver: WebDriver, xpath: str):
         return elements
 
 
-class SeleniumScraper:
+class SeleniumScraper(threading.Thread):
 
+    logged_auctions: list[str]
     auctions: list[Auction]
-    new_auctions: list[Auction]
-    filter_items: list[Item]
     driver: webdriver.firefox.webdriver.WebDriver
-    auction_filters: list[str]
-    item_filters: list[str]
-    loud: bool
     debug: bool
+    running: bool
+    progress: list[int]
+    total_items: list[int]
 
-    def __init__(self, auctions: list[str], filters: list[str], open_in_browser, debug):
+    def __init__(self, auctions: list[str], debug: bool):
+        threading.Thread.__init__(self)
 
-        # Init variables
-
+        self.logged_auctions = auctions
         self.auctions = []
-        self.new_auctions = []
-        self.auction_filters = auctions
-        self.item_filters = filters
-        self.loud = open_in_browser
         self.debug = debug
-        self.filter_items = []
+        self.running = False
+        self.progress = []
+        self.total_items = []
+        self.create_driver()
 
     def create_driver(self):
 
@@ -130,6 +129,9 @@ class SeleniumScraper:
             options.add_argument("--headless")
 
         self.driver = webdriver.Firefox(options=options)
+
+
+
 
     def find_auctions(self):
 
@@ -143,7 +145,6 @@ class SeleniumScraper:
         # Grab all auction elements
 
         auction_elements = try_load_elements(self.driver, URLS.subpath('', URLS.auctions))
-        # print("\nFound {num} auctions: ".format(num=len(auction_elements)))
 
         # Get data into Listing class from each auction
 
@@ -166,10 +167,10 @@ class SeleniumScraper:
 
             # Add to auctions list
 
-            pass_auction_filter = False
-            for keyword in self.auction_filters:
+            pass_auction_filter = True
+            for keyword in self.logged_auctions:
                 if keyword in name:
-                    pass_auction_filter = True
+                    pass_auction_filter = False
             if pass_auction_filter:
                 is_new_auction = True
                 for auction in self.auctions:
@@ -177,50 +178,45 @@ class SeleniumScraper:
 
                         is_new_auction = False
                 if is_new_auction:
-                    self.new_auctions.append(Auction(name, url, img_url, []))
-        if len(self.new_auctions) > 0:
-            print("Found {count} new auction(s): ".format(count=len(self.new_auctions)))
-            for i in self.new_auctions:
-                print(i.name)
-            print()
-        else:
-            print("No new auctions")
+                    self.auctions.append(Auction(name, url, img_url, []))
 
     def find_items(self):
 
-        # For each auction
+        threads = []
+        id = 0
+        for auction in self.auctions:
+            self.progress.append(0)
+            self.total_items.append(0)
+            thread = threading.Thread(target=self.get_auction_items, args=(auction,id))
+            thread.start()
+            threads.append(thread)
+            self.logged_auctions.append(auction.name)
+            id += 1
+        for thread in threads:
+            thread.join()
 
-        for auction in self.new_auctions:
 
-            self.get_auction_items(auction)
+    def get_auction_items(self, auction: Auction, id: int):
+        
+        options = FirefoxOptions()
 
-        self.auctions += self.new_auctions
-        self.new_auctions.clear()
+        if not self.debug:
+            options.add_argument("--headless")
 
-    def get_auction_items(self, auction: Auction):
+        driver = webdriver.Firefox(options=options)
 
         # Get url
 
-        self.driver.get(auction.url)
+        driver.get(auction.url)
 
         # Set page up and scroll until elements are found
 
         time.sleep(5)
         names = []
 
-        # TODO: fix this, execute_script does not work
-
-        # self.driver.set_context("chrome")
-        #
-        # for i in range(1, 10):
-        #     self.driver.send_keys(Keys.CONTROL, '-')
-        #     self.driver.
-        # self.driver.set_context('content')
-        # self.driver.execute_script("document.body.style.zoom='50%'")
-
         # need to set to active items only, first load use try_load
 
-        select = try_load_element(self.driver, URLS.select)
+        select = try_load_element(driver, URLS.select)
         select.find_element(By.XPATH, URLS.subpath(URLS.select, URLS.active_item)).click()
 
         # Get number of total items to search for, first load call try_load
@@ -230,12 +226,12 @@ class SeleniumScraper:
 
         if count > 0:
 
+            self.total_items[id] = count
+            
             # Get body element so we can scroll
 
-            try_load_element(self.driver, URLS.first_item)
-            body = try_load_element(self.driver, URLS.body)
-
-            # print("There are {count} items.".format(count=count))
+            try_load_element(driver, URLS.first_item)
+            body = try_load_element(driver, URLS.body)
 
             # set repeat counter, so we exit if an item is missed but never accounted for
 
@@ -243,21 +239,25 @@ class SeleniumScraper:
 
             while len(names) < count and repeat_counter > 0:
 
+                self.progress[id] = len(names)
+                
+
                 # Find current active items
 
-                live_items = self.driver.find_elements(By.XPATH, '//*[@id="all-items"]/div')
+                live_items = driver.find_elements(By.XPATH, '//*[@id="all-items"]/div')
                 live_items.pop()
+
                 for i in live_items:
 
                     # Get item name text
-                    end_text = try_load_element(self.driver, URLS.date)
-                    if end_text is not None:
-                        try:
-                            end_text = end_text.text
-                        except:
-                            continue
-                    else:
+
+                    end_text = try_load_element(driver, URLS.date)
+                    
+                    try:
+                        end_text = end_text.text
+                    except:
                         continue
+
                     for phrase in ['Extending', 'Closing', 'SOLD']:
                         if phrase in end_text:
                             continue
@@ -279,12 +279,11 @@ class SeleniumScraper:
                 repeat_counter -= 1
 
                 time.sleep(.3)
-                # print("Found {l_count}/{t_count} listings. ".format(l_count=len(names), t_count=count))
 
-        # print("{count} items found. ".format(count=len(names)))
+        driver.close()
 
-    def get_item_details(self, item: WebDriver, names: []):
-
+    def get_item_details(self, item: WebDriver, names: list):
+        
         try:
             name = item.find_element(By.XPATH, URLS.subpath(URLS.items, URLS.name))
         except:
@@ -296,32 +295,23 @@ class SeleniumScraper:
 
         if name not in names:
 
-            # TODO: fill out pricing and end date
-            # Set name
-
-            # name = name
-            print(name)
-
             # Set listing url
 
             url = try_load_element(item, URLS.subpath(URLS.items, URLS.listing_url))
-            if url is not None:
-                try:
-                    url = url.get_attribute("href")
-                except:
-                    return None
-            else:
+
+            try:
+                url = url.get_attribute("href")
+            except:
                 return None
-            # print(url)
 
             # Set src image urls
 
             img_url = []
             img_elements = try_load_elements(item, URLS.subpath(URLS.items, URLS.img_elements))
+
             for element in img_elements:
                 img_url.append(try_load_element(element, URLS.subpath(URLS.img_elements,
                                                                       URLS.img_src)).get_attribute('owl-data-src'))
-                # print(img_url[-1])
 
             # Set date by splitting formatted date into elements it could be; a unit with 0 left is hidden.
 
@@ -345,68 +335,50 @@ class SeleniumScraper:
                     end_time = time_left
                 else:
                     end_time = datetime.now()
-                # print("End Date is {date}".format(date=end_time))
             else:
                 return None
+            
             # Set last price
 
             last_price = try_load_element(item, URLS.subpath(URLS.items, URLS.last_price))
-            if last_price is not None:
-                try:
-                    last_price = float(last_price.text.replace('[$', '').replace(']', ''))
-                except:
-                    return None
-            else:
+            try:
+                last_price = float(last_price.text.replace('[$', '').replace(']', ''))
+            except:
                 return None
-            # print("Last price is {price}".format(price=last_price))
-
-            # Set retail price and condition text
-
-            # TODO: FINISH THIS
 
             condition = ''
             retail_price = 0
             price_condition_text = try_load_element(item, URLS.subpath(URLS.items, URLS.price_condition))
-            if price_condition_text is not None:
-                try:
-                    price_condition_text = price_condition_text.text
-                except:
-                    return None
-
-                words = price_condition_text.replace("Retail Price: ", "").split(" ")
-                if 'Unknown' not in words[0] and words[0] != '':
-                    retail_price = float(words[0].replace(',', '').replace('$', ''))
-                else:
-                    retail_price = -1
-                condition = ' '.join(words[1::])
-                # print("Retail price is {price}".format(price=retail_price))
-                # print("Condition is {condition}".format(condition=condition))
-            else:
+            
+            try:
+                price_condition_text = price_condition_text.text
+            except:
                 return None
+
+            words = price_condition_text.replace("Retail Price: ", "").split(" ")
+            if 'Unknown' not in words[0] and words[0] != '':
+                retail_price = float(words[0].replace(',', '').replace('$', ''))
+            else:
+                retail_price = -1
+            condition = ' '.join(words[1::])
+            
             # Add names to found list
 
             listing = Item(name, url, img_url, end_time, last_price, retail_price, condition)
 
-            for i in self.item_filters:
-                if i.lower() in name.lower():
-                    self.filter_items.append(listing)
-                    return listing
             return listing
         return None
 
     def clean_auctions(self):
+
+
         for auction in self.auctions:
             current = datetime.now()
             auction.items = list(filter(lambda x: current > x.end_time, auction.items))
         self.auctions = list(filter(lambda x: len(x.items)>0, self.auctions))
 
-    def notify(self):
-        for i in self.filter_items:
-            if self.loud:
-                webbrowser.open(i.url)
-            print("{name} - {url}".format(name=i.name, url=i.url))
-
     def import_(self):
+
         if os.path.isfile("data"):
             with open('data', 'rb') as f:
                 self.auctions = pickle.load(f)
@@ -414,27 +386,28 @@ class SeleniumScraper:
     def export_(self):
         with open('data', 'wb') as f:
             pickle.dump(self.auctions, f)
+        self.auctions.clear()
+
+    def run(self):
+        print('running __find_auctions__')
+        self.find_auctions()
+        print('running __find_items__')
+        self.find_items()
+        print('running __clean_auctions__')
+        self.clean_auctions()
 
     def close_driver(self):
         if self.driver is not None:
             self.driver.close()
 
-
-auction_filters = input("Add auction locations, separated by ';' (eg. 'Brookpark;Stow'): ").split(';')
-item_filters = input("Add items to look for, same format ('item;item;item'): ").split(';')
-show_browser = input("Show browser? (yes): ") == 'yes'
-loud = input("Open matches in browser? (yes): ") == 'yes'
-scraper = SeleniumScraper(auction_filters, item_filters, loud, show_browser)
-scraper.create_driver()
-scraper.import_()
+s = SeleniumScraper([], True)
+s.start()
 while True:
-    # print("Finding Auctions...")
-    scraper.find_auctions()
-    # print("Cleaning Up old Auctions...")
-    scraper.clean_auctions()
-    # print("Collecting auction items...")
-    scraper.find_items()
-    scraper.export_()
-    scraper.notify()
-    print("Waiting for 1 hour...")
-    time.sleep(3600)
+    input("press enter to check progress.")
+    sum1 = sum(s.progress)
+    sum2 = sum(s.total_items)
+    if sum2 == 0:
+        print(0)
+    else:
+        print(sum1, "/", sum2, float(sum1)/sum2, '%')
+

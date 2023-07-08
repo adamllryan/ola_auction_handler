@@ -8,14 +8,12 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func, text
 from sqlalchemy.inspection import inspect
 from flask_marshmallow import Marshmallow
-
-
-
-from api.ApiHandler import HelloApiHandler
+from SeleniumScraper import SeleniumScraper
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
 CORS(app)  # comment this on deployment
 api = Api(app)
+scraper = SeleniumScraper()
 
 # DB Handling
 
@@ -46,15 +44,8 @@ class Auction(db.Model):
     def __repr__(self):
         return f'<Auction {self.name}>'
     
-class AuctionSchema(ma.Schema):
-    class Meta:
-        fields = ('id', 'name', 'url', 'src', 'created_at')
 
-auction_schema = AuctionSchema()
-auctions_schema = AuctionSchema(many=True)
 
-def as_dict(query):
-    return {c.name: getattr(query, c.name) for c in query.__table__.columns}
 
 @dataclass
 class Item(db.Model):
@@ -71,15 +62,20 @@ class Item(db.Model):
     def __repr__(self):
         return f'<Item {self.name}>'
 
+class ItemSchema(ma.Schema):
+    class Meta:
+        fields = ('id', 'auction', 'name', 'url', 'src', 'last_price', 'retail_price', 'condition', 'ends_at', 'created_at')
 
+item_schema = ItemSchema()
+items_schema = ItemSchema(many=True)
 # 
 
 @app.route("/", defaults={'path': ''})
 def serve(path):
     return send_from_directory(app.static_folder, 'index.html')
 
-@app.route("/flask/api/auction/<Query>")
-def get_auction(Query):
+@app.route("/flask/api/items/<Query>")
+def get_items(Query):
     print(Query)
     results = []
     # replace + with space because no space in url
@@ -95,38 +91,43 @@ def get_auction(Query):
         key, pair = term.split('=')
         params[key] = pair.split('%')
         print(key, params[key])
-    search = "SELECT * FROM auction WHERE "
+    search = "SELECT * FROM items WHERE "
     queries = []
     for key in params:
         for value in params[key]:
             queries.append(f"{key} LIKE '%{value}%'")
-    search += " AND ".join(queries)
+    search += " OR ".join(queries)
     # TODO: return set(results)
-    final = auctions_schema.dump(db.session.execute(text(search)).fetchall())
+    final = items_schema.dump(db.session.execute(text(search)).fetchall())
     return jsonify(final)
 
-class ApiHandler(Resource):
-    def get(self):
-        # get json data
-        auctions = Auction.query.all()
-        return jsonify(auctions)
+@app.route('/flask/api/refresh', methods=['POST'])
+def refresh():
+    scraper.find_auctions()
+    scraper.clean_auctions()
+    scraper.find_items()
+# class ApiHandler(Resource):
+#     def get(self):
+#         # get json data
+#         auctions = Auction.query.all()
+#         return jsonify(auctions)
 
-    def post(self):
-        # update
+#     def post(self):
+#         # update
 
-        return {
-            'resultStatus': 'SUCCESS',
-            # todo
-            'message': "You posted 0 items :)"
-        }
+#         return {
+#             'resultStatus': 'SUCCESS',
+#             # todo
+#             'message': "You posted 0 items :)"
+#         }
 
 
-api.add_resource(ApiHandler, '/flask/api')
+# api.add_resource(ApiHandler, '/flask/api')
 
-#if __name__ == '__app__':
-    # sample_auctions = []
-    # for i in range(1,10):
-    #     sample_auctions.append(Auction(name="Stow", url="google.comlol", src="nowhere"))
-    # db.create_all()
-    # db.session.add_all(sample_auctions)
-    # db.session.commit()
+if __name__ == '__app__':
+    sample_auctions = []
+    for i in range(1,10):
+        sample_auctions.append(Auction(name="Stow", url="google.comlol", src="nowhere"))
+    db.create_all()
+    db.session.add_all(sample_auctions)
+    db.session.commit()
