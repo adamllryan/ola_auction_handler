@@ -108,13 +108,13 @@ class SeleniumScraper(Thread):
     running: bool
     progress: list[int]
     total_items: list[int]
-    reload_called: Event
-    callback: Event
+    reload_called: Event # Use this to call reload
+    callback: Event # Use this to call back after load
 
     def __init__(self, auctions: list[str], debug: bool):
         Thread.__init__(self)
 
-        self.logged_auctions = auctions
+        self.logged_auctions = auctions # Set vars to initial values
         self.auctions = []
         self.debug = debug
         self.running = False
@@ -122,7 +122,6 @@ class SeleniumScraper(Thread):
         self.total_items = []
         self.reload_called = Event()
         self.callback = Event()
-        # self.create_driver()
 
     def create_driver(self):
 
@@ -131,7 +130,7 @@ class SeleniumScraper(Thread):
         if not self.debug:
             options.add_argument("--headless")
 
-        self.driver = webdriver.Firefox(options=options)
+        return webdriver.Firefox(options=options)
 
 
 
@@ -140,12 +139,7 @@ class SeleniumScraper(Thread):
 
         # Get url
 
-        options = FirefoxOptions()
-
-        if not self.debug:
-            options.add_argument("--headless")
-
-        driver = webdriver.Firefox(options=options)
+        driver = self.create_driver()
 
         driver.get("https://www.onlineliquidationauction.com/")
 
@@ -199,22 +193,17 @@ class SeleniumScraper(Thread):
             thread = Thread(target=self.get_auction_items, args=(auction,id))
             thread.start()
             threads.append(thread)
-            self.logged_auctions.add(auction.name)
+            self.logged_auctions.append(auction.name)
             id += 1
         for thread in threads:
             thread.join()
 
 
     def get_auction_items(self, auction: Auction, id: int):
-        
-        options = FirefoxOptions()
-
-        if not self.debug:
-            options.add_argument("--headless")
-
-        driver = webdriver.Firefox(options=options)
 
         # Get url
+
+        driver = self.create_driver()
 
         driver.get(auction.url)
 

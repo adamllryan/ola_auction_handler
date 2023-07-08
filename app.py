@@ -1,7 +1,7 @@
 import datetime
 import os.path
 from dataclasses import dataclass
-from flask import Flask, send_from_directory, jsonify
+from flask import Flask, send_from_directory, jsonify, request
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS  # comment this on deployment
 from flask_sqlalchemy import SQLAlchemy
@@ -96,9 +96,12 @@ def get_items(Query):
     search = "SELECT * FROM item WHERE "
     queries = []
     for key in params:
+        query = []
         for value in params[key]:
-            queries.append(f"{key} LIKE '%{value}%'")
-    search += " OR ".join(queries)
+            query.append(f"{key} LIKE '%{value}%'")
+        queries.append(" OR ".join(query))
+    search += "(" + ") AND (".join(queries) + ")"
+    print(search)
     # TODO: return set(results)
     final = items_schema.dump(db.session.execute(text(search)).fetchall())
     return jsonify(final)
@@ -115,7 +118,7 @@ def callback():
         with app.app_context():
             items = scraper.export_()
             print("cleaning out old db items")
-            db.session.execute(text("DELETE FROM item WHERE ends_at"))
+            db.session.execute(text("DELETE FROM item WHERE ends_at < date('now')"))
             print(f"Writing {len(items)} items to db")
             #db.session.add_all(map(lambda x: Item(auction=x[0], name=x[1], url=x[2], src=x[3], last_price=x[4], retail_price=x[5], condition=x[6], ends_at=x[7]), items))
             for x in items:
@@ -129,12 +132,23 @@ def callback():
 cbFunc = Thread(target=callback)
 cbFunc.start()
 
-@app.route('/flask/api/refresh')
+@app.route('/flask/api/refresh',methods = ['POST', 'GET'])
 def refresh():
-    if not scraper.reload_called.is_set():
-        scraper.reload_called.set()
-        return jsonify('Refreshing!')
-    else:
+    if request.method == 'POST':
+        if not scraper.reload_called.is_set():
+            auctions = [item[0] for item in db.session.execute(text("SELECT DISTINCT auction FROM item")).fetchall()]
+            #print(auctions)
+            scraper.logged_auctions = auctions
+            scraper.reload_called.set()
+            return jsonify('Refreshing')
+        else:
+            return jsonify(scraper.get_progres)
+    elif request.method == 'GET':
+        return jsonify(Item.query.all())
+
+@app.route('/flask/api/refresh/progress', methods = ['GET'])
+def refresh_progress():
+    if request.method == 'GET':
         return jsonify(scraper.get_progress())
     
 
