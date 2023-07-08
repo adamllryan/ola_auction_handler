@@ -12,6 +12,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 import threading
+from threading import Thread, Condition
 
 timeout = 5
 REPEAT_INITIAL_VALUE = 10
@@ -109,6 +110,7 @@ class SeleniumScraper(threading.Thread):
     running: bool
     progress: list[int]
     total_items: list[int]
+    reload_called: threading.Event
 
     def __init__(self, auctions: list[str], debug: bool):
         threading.Thread.__init__(self)
@@ -119,6 +121,7 @@ class SeleniumScraper(threading.Thread):
         self.running = False
         self.progress = []
         self.total_items = []
+        self.reload_called = threading.Event()
         self.create_driver()
 
     def create_driver(self):
@@ -371,7 +374,6 @@ class SeleniumScraper(threading.Thread):
 
     def clean_auctions(self):
 
-
         for auction in self.auctions:
             current = datetime.now()
             auction.items = list(filter(lambda x: current > x.end_time, auction.items))
@@ -389,12 +391,19 @@ class SeleniumScraper(threading.Thread):
         self.auctions.clear()
 
     def run(self):
-        print('running __find_auctions__')
-        self.find_auctions()
-        print('running __find_items__')
-        self.find_items()
-        print('running __clean_auctions__')
-        self.clean_auctions()
+        while True:
+            flag = self.reload_called.wait(3600)
+            if flag:
+                print("Refresh Called")
+            else:
+                print("Auto-refresh triggered")
+            print('running __find_auctions__')
+            self.find_auctions()
+            print('running __find_items__')
+            self.find_items()
+            print('running __clean_auctions__')
+            self.clean_auctions()
+            self.reload_called = False
 
     def close_driver(self):
         if self.driver is not None:
@@ -402,6 +411,7 @@ class SeleniumScraper(threading.Thread):
 
 s = SeleniumScraper([], True)
 s.start()
+s.reload_called.set()
 while True:
     input("press enter to check progress.")
     sum1 = sum(s.progress)
