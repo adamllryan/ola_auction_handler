@@ -91,7 +91,7 @@ def get_items(Query):
         key, pair = term.split('=')
         params[key] = pair.split('%')
         print(key, params[key])
-    search = "SELECT * FROM items WHERE "
+    search = "SELECT * FROM item WHERE "
     queries = []
     for key in params:
         for value in params[key]:
@@ -100,29 +100,18 @@ def get_items(Query):
     # TODO: return set(results)
     final = items_schema.dump(db.session.execute(text(search)).fetchall())
     return jsonify(final)
+names = set(db.session.execute("SELECT name FROM item").fetchall())
+scraper = SeleniumScraper(names, False)
+scraper.start()
 
-@app.route('/flask/api/refresh', methods=['POST'])
+@app.route('/flask/api/refresh')
 def refresh():
-    scraper.find_auctions()
-    scraper.clean_auctions()
-    scraper.find_items()
-# class ApiHandler(Resource):
-#     def get(self):
-#         # get json data
-#         auctions = Auction.query.all()
-#         return jsonify(auctions)
+    if not scraper.reload_called.is_set():
+        scraper.reload_called.set()
+        return jsonify('Refreshing!')
+    else:
+        return jsonify(scraper.get_progress())
 
-#     def post(self):
-#         # update
-
-#         return {
-#             'resultStatus': 'SUCCESS',
-#             # todo
-#             'message': "You posted 0 items :)"
-#         }
-
-
-# api.add_resource(ApiHandler, '/flask/api')
 
 if __name__ == '__app__':
     sample_auctions = []

@@ -403,21 +403,24 @@ class SeleniumScraper(threading.Thread):
             self.find_items()
             print('running __clean_auctions__')
             self.clean_auctions()
-            self.reload_called = False
+            self.running = False
 
     def close_driver(self):
         if self.driver is not None:
             self.driver.close()
+    
+    def get_progress(self):
+        sum1 = sum(s.progress)
+        sum2 = sum(s.total_items)
+        if sum2 == 0:
+            return 0
+        else:
+            return sum1, "/", sum2, float(sum1)/sum2, '%'
 
-s = SeleniumScraper([], True)
+s = SeleniumScraper([], False)
 s.start()
 s.reload_called.set()
-while True:
-    input("press enter to check progress.")
-    sum1 = sum(s.progress)
-    sum2 = sum(s.total_items)
-    if sum2 == 0:
-        print(0)
-    else:
-        print(sum1, "/", sum2, float(sum1)/sum2, '%')
+# while True:
+#     input("press enter to check progress.")
+#     print(s.get_progress())
 
