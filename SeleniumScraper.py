@@ -119,7 +119,7 @@ class SeleniumScraper(Thread):
         self.progress = []
         self.total_items = []
         self.reload_called = Event()
-        self.create_driver()
+        # self.create_driver()
 
     def create_driver(self):
 
@@ -137,14 +137,18 @@ class SeleniumScraper(Thread):
 
         # Get url
 
-        if not hasattr(self, 'driver'):
-            self.create_driver()
+        options = FirefoxOptions()
 
-        self.driver.get("https://www.onlineliquidationauction.com/")
+        if not self.debug:
+            options.add_argument("--headless")
+
+        driver = webdriver.Firefox(options=options)
+
+        driver.get("https://www.onlineliquidationauction.com/")
 
         # Grab all auction elements
 
-        auction_elements = try_load_elements(self.driver, URLS.subpath('', URLS.auctions))
+        auction_elements = try_load_elements(driver, URLS.subpath('', URLS.auctions))
 
         # Get data into Listing class from each auction
 
@@ -180,6 +184,8 @@ class SeleniumScraper(Thread):
                 if is_new_auction:
                     self.auctions.append(Auction(name, url, img_url, []))
 
+        driver.close()
+
     def find_items(self):
 
         threads = []
@@ -190,7 +196,7 @@ class SeleniumScraper(Thread):
             thread = Thread(target=self.get_auction_items, args=(auction,id))
             thread.start()
             threads.append(thread)
-            self.logged_auctions.append(auction.name)
+            self.logged_auctions.add(auction.name)
             id += 1
         for thread in threads:
             thread.join()
@@ -409,16 +415,16 @@ class SeleniumScraper(Thread):
             self.driver.close()
     
     def get_progress(self):
-        sum1 = sum(s.progress)
-        sum2 = sum(s.total_items)
+        sum1 = sum(self.progress)
+        sum2 = sum(self.total_items)
         if sum2 == 0:
             return 0
         else:
-            return f"{sum1}/{sum2} - {float(sum1)/sum2} %"
+            return f"{sum1}/{sum2} - {float(sum1)/sum2}%"
 
-s = SeleniumScraper([], True)
-s.start()
-s.reload_called.set()
+# s = SeleniumScraper([], True)
+# s.start()
+# s.reload_called.set()
 # while True:
 #     input("press enter to check progress.")
 #     print(s.get_progress())

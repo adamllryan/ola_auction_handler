@@ -101,7 +101,10 @@ def get_items(Query):
     final = items_schema.dump(db.session.execute(text(search)).fetchall())
     return jsonify(final)
 # names = db.session.execute(text("SELECT name FROM item")).fetchall()
-scraper = SeleniumScraper([], False)
+scraper: SeleniumScraper
+with app.app_context():
+    items = set(map(lambda x: x.name, Item.query.all()))
+    scraper = SeleniumScraper(items, True)
 scraper.start()
 
 @app.route('/flask/api/refresh')
