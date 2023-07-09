@@ -89,11 +89,11 @@ def callback():
 cbFunc = Thread(target=callback)
 cbFunc.start()
 
-@app.route("/", defaults={'path': ''})
-def serve(path):
-    return send_from_directory(app.static_folder, 'index.html')
+# @app.route("/", defaults={'path': ''})
+# def serve(path):
+#     return send_from_directory(app.static_folder, 'index.html')
 
-@app.route("/flask/api/items/<Query>")
+@app.route("/api/v1/search/")
 def get_items(Query):
     print(Query)
     results = []
@@ -123,7 +123,7 @@ def get_items(Query):
     final = items_schema.dump(db.session.execute(text(search)).fetchall())
     return jsonify(final)
 
-@app.route('/flask/api/refresh',methods = ['POST', 'GET'])
+@app.route('/api/v1/refresh',methods = ['POST', 'GET'])
 def refresh():
     if request.method == 'POST':
         if not scraper.reload_called.is_set():
@@ -137,12 +137,12 @@ def refresh():
     elif request.method == 'GET':
         return jsonify(Item.query.all())
 
-@app.route('/flask/api/refresh/progress', methods = ['GET'])
+@app.route('/api/v1/refresh/progress', methods = ['GET'])
 def refresh_progress():
     if request.method == 'GET':
         return jsonify(scraper.get_progress())
 
-@app.route('/flask/api/item/<int:item_id>/<owner>', methods = ['GET', 'POST'])
+@app.route('/api/v1/owner/<int:item_id>/<owner>', methods = ['GET', 'POST'])
 def owner(item_id, owner):
     if request.method == 'POST':
         # check owner exists
@@ -155,8 +155,10 @@ def owner(item_id, owner):
             return jsonify('SUCCESS')
         else:
             return jsonify('FAILURE')
-    elif request.method == 'GET':
-        query = db.session.execute(select(Item.owner_id).where(Item.id==id)).fetchall()
+@app.route('/api/v1/owner/<int:item_id>', methods = ['GET'])
+def get_owner(item_id):
+    if request.method == 'GET':
+        query = db.session.execute(select(Item.owner_id).where(Item.id==item_id)).fetchall()
         if len(query)==1:
             name = db.session.execute(select(Users.name).where(Users.id==query[0][0])).fetchall()
             if len(name)==1:
@@ -166,7 +168,7 @@ def owner(item_id, owner):
         else:
             return jsonify('No Owner')
 
-@app.route('/flask/api/user/<username>', methods = ['GET', 'POST'])
+@app.route('/api/v1/u/<username>', methods = ['GET', 'POST'])
 def user(username):
     query = db.session.execute(select(Users.id).where(Users.name==username)).fetchall()
     if request.method == 'POST':
