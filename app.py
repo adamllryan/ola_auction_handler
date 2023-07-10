@@ -84,7 +84,7 @@ def callback():
                 i = Item(auction=x[0], name=x[1], url=x[2], src=x[3], last_price=x[4], retail_price=x[5], condition=x[6], ends_at=x[7])
                 db.session.add(i)
                 db.session.commit()
-                scraper.logged_auctions = set(list(map(lambda x: x.name, Item.query.all())))
+                scraper.logged_auctions = map(lambda x: x.name, Item.query.distinct())
             scraper.callback.clear()
 cbFunc = Thread(target=callback)
 cbFunc.start()
