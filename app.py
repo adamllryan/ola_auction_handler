@@ -1,7 +1,7 @@
 import datetime
 import os.path
 from dataclasses import dataclass
-from flask import Flask, send_from_directory, jsonify, request
+from flask import Flask, send_from_directory, jsonify, request, render_template
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS  # comment this on deployment
 from flask_sqlalchemy import SQLAlchemy
@@ -90,9 +90,9 @@ def callback():
 cbFunc = Thread(target=callback)
 cbFunc.start()
 
-# @app.route("/", defaults={'path': ''})
-# def serve(path):
-#     return send_from_directory(app.static_folder, 'index.html')
+@app.route("/")
+def serve(path):
+    return render_template("index.html", flask_token="Hello   world")
 
 @app.route("/api/v1/search/")
 def get_items(Query):
