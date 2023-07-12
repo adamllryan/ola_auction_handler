@@ -6,14 +6,14 @@ const SearchTagsInput = ({id}) => {
   let [search, setSearch] = useState([])
 
   let handleEnter = (e) => {
-    if (e.key === 'Enter' && !search.includes(e.target.value)) {
+    if (e.key === 'Enter' && !search.includes(e.target.value) && e.target.value !== '') {
       setSearch(search => [...search, e.target.value])
       
     }
   }
 
   return (
-    <div className='search-element'>
+    <div key = {id} className='search-element'>
       <label className='search-label'>{id}</label>
       <input name={id} type="text" onKeyUp={handleEnter} />
       <div className='search-tags'>

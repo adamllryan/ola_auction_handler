@@ -1,12 +1,15 @@
 import React from 'react'
-
-const ItemsDisplay = () => {
+import ItemCard from './ItemCard.js'
+import {useState} from 'react'
+const ItemsDisplay = ({data}) => {
   return (
     <>
-        
-        <div>ItemsDisplay</div>
-
-        <div>END ItemsDisplay</div>
+        {
+            data.map((i) => {
+                return <ItemCard item={i} />
+            })
+            
+        }
     </>
   )
 }

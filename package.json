@@ -15,7 +15,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "server": "flask run --port:8000",
+    "server": "flask run --port=8000",
     "client": "npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "start": "react-scripts start",

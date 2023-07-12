@@ -11,6 +11,7 @@ from flask_marshmallow import Marshmallow
 from SeleniumScraper import SeleniumScraper
 from threading import Thread
 from sqlalchemy import exists, insert, select, update
+from json import dumps
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
 
@@ -123,7 +124,7 @@ def get_items(Query):
     final = items_schema.dump(db.session.execute(text(search)).fetchall())
     return jsonify(final)
 
-@app.route('/api/v1/refresh',methods = ['POST', 'GET'])
+@app.route('/api/v1/refresh',methods = ['POST'])
 def refresh():
     if request.method == 'POST':
         if not scraper.reload_called.is_set():
@@ -134,8 +135,9 @@ def refresh():
             return jsonify('Refreshing')
         else:
             return jsonify(scraper.get_progress())
-    elif request.method == 'GET':
-        return jsonify(Item.query.all())
+@app.route('/api/v1/items/page/<int:page>')
+def items_page(page):
+    return jsonify(Item.query.all())
 
 @app.route('/api/v1/refresh/progress', methods = ['GET'])
 def refresh_progress():
