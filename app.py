@@ -94,7 +94,7 @@ cbFunc.start()
 def serve(path):
     return render_template("index.html", flask_token="Hello   world")
 
-@app.route("/api/v1/search/")
+@app.route("/api/v1/search/<Query>")
 def get_items(Query):
     print(Query)
     results = []

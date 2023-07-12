@@ -13,11 +13,12 @@ function App() {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const res = await fetch('https://localhost:8000/api/v1/items/page/1')
+        const res = await fetch('http://localhost:8000/api/v1/search/auction=Stow&name=Harmon%253+in+1')
         console.log(res)
-        const data = await res.json()
-
-        console.log(res)
+        if (res.ok) {
+          const data = await res.json()
+          setItems(data)
+        }
       } catch (e) {
         console.log(e);
       }
