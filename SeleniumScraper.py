@@ -1,20 +1,16 @@
-import os
-from datetime import datetime, timedelta
-import pickle
+from datetime import datetime
 import time
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from attr import dataclass
-from selenium.webdriver import Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from threading import Thread, Event
 
-timeout = 5
 REPEAT_INITIAL_VALUE = 10
-
+TIMEOUT = 15
 
 @dataclass
 class Item:
@@ -31,7 +27,7 @@ class Item:
 class Auction:
     name: str
     url: str
-    src: list[str]
+    src: str
     items: list[Item]
 
 
@@ -74,7 +70,7 @@ def try_load_element(driver: WebDriver, xpath: str):
     element = None
 
     try:
-        element = WebDriverWait(driver, timeout).until(
+        element = WebDriverWait(driver, TIMEOUT).until(
             ec.presence_of_element_located((By.XPATH, xpath))
         )
 
@@ -89,7 +85,7 @@ def try_load_elements(driver: WebDriver, xpath: str):
 
     elements = []
     try:
-        WebDriverWait(driver, timeout).until(
+        WebDriverWait(driver, TIMEOUT).until(
             ec.presence_of_element_located((By.XPATH, xpath))
         )
         elements = driver.find_elements(By.XPATH, xpath)
@@ -101,174 +97,167 @@ def try_load_elements(driver: WebDriver, xpath: str):
 
 class SeleniumScraper(Thread):
 
-    logged_auctions: list[str]
-    auctions: list[Auction]
-    driver: webdriver.firefox.webdriver.WebDriver
-    debug: bool
-    running: bool
-    progress: list[int]
-    total_items: list[int]
-    reload_called: Event # Use this to call reload
-    callback: Event # Use this to call back after load
-    state: list
+    callback = { # Event to trigger refresh and event to trigger export callback
+        'page_refresh_trigger': Event(),
+        'page_refresh_callback': Event()
+    }
+    debug = { # Debug events for all responses
+        'verbose': False,
+        'demo': False,
+        'show_display': False
+    }
+    status = { # All vars related to status of class
+        'state': ['Idle - Waiting'],
+        'items_found': [],
+        'total_items': [],
+        'is_running': False
+    }
+    auction_data = { # Storage of auction data
+        'auctions_in_database': [],
+        'auctions_to_process': []
+    }
 
-    def __init__(self, auctions: list[str], debug: bool):
-        Thread.__init__(self)
+    def __init__(self, auctions: list[str], debug: dict):
 
-        self.logged_auctions = auctions # Set vars to initial values
-        self.auctions = []
+        Thread.__init__(self) # Init threading
+
+        self.auction_data['auctions_in_database'] = auctions
         self.debug = debug
-        self.running = False
-        self.state = ['Idle - Waiting']
-        self.progress = []
-        self.total_items = []
-        self.reload_called = Event()
-        self.callback = Event()
 
     def create_driver(self):
-        self.state.append('Creating Driver')
-        options = FirefoxOptions()
 
-        if not self.debug:
+        self.status['state'].append('Creating Driver')
+
+        options = FirefoxOptions()
+        if not self.debug['show_display']:
             options.add_argument("--headless")
 
-        self.state.pop()
+        self.status['state'].pop()
 
         return webdriver.Firefox(options=options)
 
 
-
-
     def find_auctions(self):
 
-        self.state.append('Finding Auctions')
-
-        # Get url
+        self.status['state'].append('Finding Auctions')
 
         driver = self.create_driver()
-
         driver.get("https://www.onlineliquidationauction.com/")
 
-        # Grab all auction elements
+        auction_elements = try_load_elements(driver, URLS.subpath('', URLS.auctions)) # initial load with Wait
 
-        auction_elements = try_load_elements(driver, URLS.subpath('', URLS.auctions))
-
-        # Get data into Listing class from each auction
-
-        self.state.append('Getting Auction Data')
+        self.status['state'].append('Getting Auction Data')
 
         for i in auction_elements:
 
             # Grab name
+
             name = i.find_element(By.XPATH, URLS.subpath(URLS.auctions, URLS.auction_name)).text
 
             # Get url and swap domain with bidding page url, keep ID
 
             bad_url = 'https://www.onlineliquidationauction.com/auctions/detail/bw'
             good_url = 'https://bid.onlineliquidationauction.com/bid/'
-
             url = i.find_element(By.XPATH, URLS.subpath(URLS.auctions, URLS.auction_name)).get_attribute("href") \
                 .replace(bad_url, good_url)
 
             # Get image src url and save, not really needed
 
-            img_url = [i.find_element(By.XPATH, URLS.subpath(URLS.auctions, URLS.auction_img)).get_attribute('src')]
+            img_url = i.find_element(By.XPATH, URLS.subpath(URLS.auctions, URLS.auction_img)).get_attribute('src')
 
             # Add to auctions list
 
-            pass_auction_filter = True
-            for keyword in self.logged_auctions:
-                if keyword in name:
-                    pass_auction_filter = False
-            if pass_auction_filter:
-                is_new_auction = True
-                for auction in self.auctions:
-                    if auction.name == name:
+            if not name in self.auction_data['auctions_in_database']:
+                self.auction_data['auctions_to_process'].append(Auction(name, url, img_url, []))
 
-                        is_new_auction = False
-                if is_new_auction:
-                    self.auctions.append(Auction(name, url, img_url, []))
+        self.close_driver(driver)
 
-        driver.close()
-
-        self.state.pop()
-        self.state.pop()
+        self.status['state'].pop()
+        self.status['state'].pop()
 
     def find_items(self):
 
-        self.state.append('Creating Item Search Threads and Waiting for Completion')
+        self.status['state'].append('Creating Item Search Threads and Waiting for Completion')
 
         threads = []
         id = 0
-        for auction in self.auctions:
-            self.progress.append(0)
-            self.total_items.append(0)
-            thread = Thread(target=self.get_auction_items, args=(auction,id))
+        for auction in self.auction_data['auctions_to_process']:
+            self.status['items_found'].append(0) # Append a 0 for every auction so we can measure progress
+            self.status['total_items'].append(0)
+            thread = Thread(target=self.get_auction_items, args=(auction,id)) # New thread per auction
             thread.start()
-            threads.append(thread)
-            self.logged_auctions.append(auction.name)
+            threads.append(thread) # Make sure threads are tracked
+            self.auction_data['auctions_in_database'].append(auction.name) # So we don't rescrape
             id += 1
-            if self.debug:
+            if self.debug['demo']:
                 break
 
         for thread in threads:
-            thread.join()
+            thread.join() # Wait for all threads to complete
 
-        self.state.pop()
+        self.status['state'].pop()
 
     def parse_description(self, data: str):
-        retail: float
+        retail: float # Description is stored as one string
         condition: str
         words = data.replace("Retail Price: ", "").split(" ")
-        if 'Unknown' not in words[0] and words[0] != '':
+        if 'Unknown' not in words[0] and words[0] != '': # Price is not unknown & not empty
             retail = float(words[0].replace(',', '').replace('$', ''))
         else:
             retail = -1
         condition = ' '.join(words[1::])
         return retail, condition
 
-    def all_items_loaded(self, driver, count, id):
+    def all_items_loaded(self, driver, total_items, id): # Check if all loaded and do status updates
         current_size = int(driver.execute_script('return bwAppState.auction.all_items.items.length'))
-        self.progress[id] = current_size
-        # print(f"Found {current_size}/{count} items. ")
-        return count <= current_size
+        self.status['items_found'][id] = current_size
+        
+        if self.debug['verbose']:
+            print(f'Auction {id}: ({sum(self.status["items_found"])}/{sum(self.status["total_items"])}) found.')
+
+        return total_items <= current_size
 
     def get_auction_items(self, auction: Auction, id: int):
 
-        # Get url
+        # NOTE: This used to be much larger because it would scroll and scrape auction items in sets of 5-10, 
+        # has since been replaced with a set of JS lines that force all items to load at once, and then grabs the 
+        # auction application state with all the items in it. 
 
         driver = self.create_driver()
-
+        
+        # Get url
         driver.get(auction.url)
 
-        # Set page up and scroll until elements are found
+        # Originally the element to change to active items, now good for grabbing total items to scrape
 
-        time.sleep(5)
         names = []
-
-        # need to set to active items only, first load use try_load
-
         select = try_load_element(driver, URLS.select)
+
+        # Line no longer works because js refresh call requires search option to be default
         # select.find_element(By.XPATH, URLS.subpath(URLS.select, URLS.active_item)).click()
 
         # Get number of total items to search for, first load call try_load
 
         count = int(select.find_element(By.XPATH, URLS.subpath(URLS.select, URLS.active_item)).
                     text.replace("All > Active (", "").replace(")", ""))
-        self.total_items[id] = count
-        if count >= 50:
+        self.status['total_items'][id] = count
+        if count >= 50: # All items are already loaded if <=50
+            # JS line that will force next refresh to load 1500 more items (largest auction so far has been 1100)
             driver.execute_script('bwAppState.auction.all_items.api_args.per_page=1500;')
-            retries = 30
-            time.sleep(5)
+            retries = 30 # 30s of retry
+            # Force refresh
+            driver.execute_script('bwAppState.auction.all_items.fetch_more_items();')
+            # Check once a second to see if items have been found, timeout in case items have been removed and numbers are incorrect
             while not self.all_items_loaded(driver, count, id) and retries > 0:
                 count = int(select.find_element(By.XPATH, URLS.subpath(URLS.select, URLS.active_item)).
                     text.replace("All > Active (", "").replace(")", ""))
-                self.total_items[id] = count
-                driver.execute_script('bwAppState.auction.all_items.fetch_more_items();')
+                self.status['total_items'][id] = count
                 retries-=1
                 time.sleep(1)
         
+        # Line that will get all data
         data = driver.execute_script('return Array.from(bwAppState.auction.all_items.items).map(item => [item.name, item.id, item.images.map(img => img.original_url), item.actual_end_time, item.maxbid.amount, item.simple_description])')
+        # Write data to Auction object
         for item in data:
             name = item[0]
             url = 'https://bid.onlineliquidationauction.com/bid/' + str(item[1])
@@ -279,70 +268,86 @@ class SeleniumScraper(Thread):
             retail, condition = self.parse_description(item[5])
             item = Item(name, url, img, end, max, retail, condition)
             auction.items.append(item)
-        driver.close()
-
-    def clean_auctions(self):
         
-        self.state.append('Cleaning Auctions')
+        self.close_driver(driver)
+        
+    # Obsolete, we now clear the whole auction list after write to db and clean in other file
+    def clean_auctions(self): 
+        
+        self.status['state'].append('Cleaning Auctions')
 
         for auction in self.auctions:
             current = datetime.now()
             auction.items = list(filter(lambda x: current > x.end_time, auction.items))
         self.auctions = list(filter(lambda x: len(x.items)>0, self.auctions))
 
-        self.state.pop()
+        self.status['state'].pop()
 
+    # Export data
     def export_(self):
 
-        self.state.append('Exporting Data')
+        self.status['state'].append('Exporting Data')
 
         items = []
-        for auction in self.auctions:
+        for auction in self.auction_data['auctions_to_process']:
             for x in auction.items:
                 items.append([auction.name, x.name, x.url, x.img_url, x.last_price, x.retail_price, x.condition, x.end_time])
         self.auctions.clear()
 
-        self.state.pop()
+        self.status['state'].pop()
 
         return items
-        
+    
+    # Cleanup driver
+    def close_driver(self, driver):
+        if driver is not None:
+            driver.close()
+    
 
+    def get_progress(self):
+        sum1 = sum(self.status['items_found'])
+        sum2 = sum(self.status['total_items'])
+        if sum2 == 0:
+            return f"{self.status['state']}"
+        else:
+            return f"{self.status['state']} => ({sum1} / {sum2}), {float(sum1)/sum2}%"
+        
     def run(self):
         while True:
-            flag = self.reload_called.wait(3600)
+            # Wait for 1 hour before auto refresh
+            flag = self.callback['page_refresh_trigger'].wait(3600)
             if flag:
                 print("Refresh Called")
             else:
                 print("Auto-refresh triggered")
-            self.state.pop()
+            
+            # Remove idle state
+
+            self.status['state'].pop()
+
+            # Run sequence
+
             print('running __find_auctions__')
             self.find_auctions()
             print('running __find_items__')
             self.find_items()
             #1 min cooldown for refresh
-            self.callback.set()
-            self.state.append('Idle - Cooldown')
-            time.sleep(60)
-            self.reload_called.clear()
-            self.state[0] = ('Idle - Waiting')
-
+            self.callback['page_refresh_callback'].set()
+            self.status['state'].append('Idle - Cooldown')
+            time.sleep(300) # Force cooldown 5 min so we don't overburden server
+            self.callback['page_refresh_trigger'].clear()
+            self.state[0] = ('Idle - Waiting')    
     
-    def close_driver(self):
-        if self.driver is not None:
-            self.driver.close()
-    
-    def get_progress(self):
-        sum1 = sum(self.progress)
-        sum2 = sum(self.total_items)
-        if sum2 == 0:
-            return f"{self.state}"
-        else:
-            return f"{self.state} \n{sum1}/{sum2} - {float(sum1)/sum2}%"
 
 if __name__ == '__main__':
-    s = SeleniumScraper([], True)
+    debug = {
+        'verbose': True,
+        'demo': False,
+        'show_display': True
+    }
+    s = SeleniumScraper([], debug)
     s.start()
-    s.reload_called.set()
+    s.callback['page_refresh_trigger'].set()
     while True:
         input("press enter to check progress.")
         print(s.get_progress())
