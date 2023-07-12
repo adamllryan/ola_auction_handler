@@ -17954,3 +17954,39 @@ DevTools listening on ws://localhost:55758/devtools/browser/48915223-3d78-4859-8
 1689122638982	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 1689122639020	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
 1689122639045	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1689122646606	Marionette	INFO	Stopped listening on port 55832
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1689122646711	Marionette	INFO	Stopped listening on port 55774
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1689122647428	Marionette	INFO	Stopped listening on port 55840
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1689122647807	Marionette	INFO	Stopped listening on port 55830
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1689122648452	Marionette	INFO	Stopped listening on port 55835
+1689122661669	Marionette	INFO	Stopped listening on port 55771
+1689122670142	Marionette	INFO	Stopped listening on port 55833
+1689122670677	Marionette	INFO	Stopped listening on port 55814
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1689122671350	Marionette	INFO	Stopped listening on port 55831
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1689122671914	Marionette	INFO	Stopped listening on port 55805
+1689122673090	Marionette	INFO	Stopped listening on port 55773
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1689122673659	Marionette	INFO	Stopped listening on port 55813
+1689122673944	Marionette	INFO	Stopped listening on port 55806
+1689122678626	Marionette	INFO	Stopped listening on port 55772
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+

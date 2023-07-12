@@ -273,7 +273,7 @@ class SeleniumScraper(Thread):
             name = item[0]
             url = 'https://bid.onlineliquidationauction.com/bid/' + str(item[1])
             img = ';'.join(item[2])
-            print(item[2])
+            # print(item[2])
             end = datetime.strptime(item[3], "%Y-%m-%dT%H:%M:%S.000Z")
             max = item[4]
             retail, condition = self.parse_description(item[5])
