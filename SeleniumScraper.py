@@ -208,6 +208,8 @@ class SeleniumScraper(Thread):
             threads.append(thread)
             self.logged_auctions.append(auction.name)
             id += 1
+            if self.debug:
+                break
 
         for thread in threads:
             thread.join()
@@ -266,11 +268,12 @@ class SeleniumScraper(Thread):
                 retries-=1
                 time.sleep(1)
         
-        data = driver.execute_script('return Array.from(bwAppState.auction.all_items.items).map(item => [item.name, item.id, item.company.logo_url, item.actual_end_time, item.maxbid.amount, item.simple_description])')
+        data = driver.execute_script('return Array.from(bwAppState.auction.all_items.items).map(item => [item.name, item.id, item.images.map(img => img.original_url), item.actual_end_time, item.maxbid.amount, item.simple_description])')
         for item in data:
             name = item[0]
             url = 'https://bid.onlineliquidationauction.com/bid/' + str(item[1])
-            img = item[2]
+            img = ';'.join(item[2])
+            print(item[2])
             end = datetime.strptime(item[3], "%Y-%m-%dT%H:%M:%S.000Z")
             max = item[4]
             retail, condition = self.parse_description(item[5])
@@ -296,7 +299,7 @@ class SeleniumScraper(Thread):
         items = []
         for auction in self.auctions:
             for x in auction.items:
-                items.append([auction.name, x.name, x.url, x.img_url[0], x.last_price, x.retail_price, x.condition, x.end_time])
+                items.append([auction.name, x.name, x.url, x.img_url, x.last_price, x.retail_price, x.condition, x.end_time])
         self.auctions.clear()
 
         self.state.pop()
@@ -313,27 +316,9 @@ class SeleniumScraper(Thread):
                 print("Auto-refresh triggered")
             self.state.pop()
             print('running __find_auctions__')
-            
-            # for i in range(1,100):
-            #     auction = Auction(f"auction{i}", "", [""], [])
-            #     for j in range(1,100):
-            #         item = Item(f"item{j}", "url", ["src"], datetime.now(), 0, 0, "New")
-            #         auction.items.append(item)
-            #     # print(len(auction.items))
-            #     self.auctions.append(auction)
-
-            # self.callback.set()
-            # self.reload_called.clear()
-            # continue
-           
-           
-           
-            # self.auctions.clear()
             self.find_auctions()
             print('running __find_items__')
             self.find_items()
-            # print('running __clean_auctions__')
-            # self.clean_auctions()
             #1 min cooldown for refresh
             self.callback.set()
             self.state.append('Idle - Cooldown')
@@ -354,10 +339,11 @@ class SeleniumScraper(Thread):
         else:
             return f"{self.state} \n{sum1}/{sum2} - {float(sum1)/sum2}%"
 
-# s = SeleniumScraper([], True)
-# s.start()
-# s.reload_called.set()
-# while True:
-#     input("press enter to check progress.")
-#     print(s.get_progress())
+if __name__ == '__main__':
+    s = SeleniumScraper([], True)
+    s.start()
+    s.reload_called.set()
+    while True:
+        input("press enter to check progress.")
+        print(s.get_progress())
 
