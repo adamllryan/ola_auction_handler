@@ -129,9 +129,14 @@ function App() {
     }
     setIsRefreshing(false)
   }
-  const getProgress = async () => {
+  const getSetProgress = async () => {
     try {
-      const res = await fetch(baseURL + '/refresh/progress')
+      const res = await fetch(baseURL + '/refresh', {
+        method: 'POST',
+        headers: {
+          Accept: 'application/json'
+        }
+      })
       if (!res.ok) {
         throw new Error(res.status)
       }
@@ -145,7 +150,7 @@ function App() {
 
   const refreshPage = () => {
     console.log("REFRESH CALLED")
-    getProgress()
+    getSetProgress()
     // if (refreshTimer != null) {
     //   clearInterval(refreshTimer)
       
@@ -159,7 +164,7 @@ function App() {
   }
   return (
     <>
-      <Header refreshPage={refreshPage}/> 
+      <Header refreshPage={refreshPage} progress={progress}/> 
       <div className="App">
           <SearchBar submitQuery={newSearch}/>
           <ItemsDisplay page={page} onLoadNext={getNextPage} data={items}/>

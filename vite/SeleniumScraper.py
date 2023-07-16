@@ -101,6 +101,8 @@ class SeleniumScraper(Thread):
         'page_refresh_trigger': Event(),
         'page_refresh_callback': Event()
     }
+    page_refresh_trigger = Event()
+    page_refresh_callback = Event()
     debug = { # Debug events for all responses
         'verbose': False,
         'demo': False,
@@ -111,8 +113,6 @@ class SeleniumScraper(Thread):
         'items_found': [],
         'total_items': [],
         'is_running': False,
-        'completed_time': 0,
-        'total_time': 50
     }
     auction_data = { # Storage of auction data
         'auctions_in_database': [],
@@ -122,9 +122,10 @@ class SeleniumScraper(Thread):
     def __init__(self, auctions: list[str], debug: dict):
 
         Thread.__init__(self) # Init threading
-
+        page_refresh_trigger = Event()
+        page_refresh_callback = Event()
         self.auction_data['auctions_in_database'] = auctions
-        self.debug = debug
+        # self.debug = debug
 
     def create_driver(self):
 
@@ -191,8 +192,8 @@ class SeleniumScraper(Thread):
             threads.append(thread) # Make sure threads are tracked
             self.auction_data['auctions_in_database'].append(auction.name) # So we don't rescrape
             id += 1
-            if self.debug['demo']:
-                break
+            # if self.debug['demo']:
+            #     break
 
         for thread in threads:
             thread.join() # Wait for all threads to complete
@@ -214,8 +215,8 @@ class SeleniumScraper(Thread):
         current_size = int(driver.execute_script('return bwAppState.auction.all_items.items.length'))
         self.status['items_found'][id] = current_size
         
-        if self.debug['verbose']:
-            print(f'Auction {id}: ({sum(self.status["items_found"])}/{sum(self.status["total_items"])}) found.')
+        # if self.debug['verbose']:
+        #     print(f'Auction {id}: ({sum(self.status["items_found"])}/{sum(self.status["total_items"])}) found.')
 
         return total_items <= current_size
 
@@ -256,9 +257,8 @@ class SeleniumScraper(Thread):
                     text.replace("All > Active (", "").replace(")", ""))
                 self.status['total_items'][id] = count
                 retries-=1
-                self.status['completed_time'] += 1
+                
                 time.sleep(1)
-        self.status['completed_time'] += retries
         # Line that will get all data
         data = driver.execute_script('return Array.from(bwAppState.auction.all_items.items).map(item => [item.name, item.id, item.images.map(img => img.original_url), item.actual_end_time, item.maxbid.amount, item.simple_description, item.auction_id])')
         # Write data to Auction object
@@ -280,10 +280,10 @@ class SeleniumScraper(Thread):
         
         self.status['state'].append('Cleaning Auctions')
 
-        for auction in self.auctions:
+        for auction in self.auction_data['auctions_to_process']:
             current = datetime.now()
             auction.items = list(filter(lambda x: current > x.end_time, auction.items))
-        self.auctions = list(filter(lambda x: len(x.items)>0, self.auctions))
+        self.auction_data['auctions_to_process'] = list(filter(lambda x: len(x.items)>0, self.auction_data['auctions_to_process']))
 
         self.status['state'].pop()
 
@@ -296,7 +296,7 @@ class SeleniumScraper(Thread):
         for auction in self.auction_data['auctions_to_process']:
             for x in auction.items:
                 items.append([auction.name, x.name, x.url, x.img_url, x.last_price, x.retail_price, x.condition, x.end_time])
-        self.auctions.clear()
+        self.auction_data['auctions_to_process'].clear()
 
         self.status['state'].pop()
 
@@ -309,15 +309,17 @@ class SeleniumScraper(Thread):
     
 
     def get_progress(self):
-        sum1 = self.status['completed_time']
-        sum2 = self.status['total_time']
-        return {'state': self.status['state'], 'progress': float(sum1)/sum2}
+        sum1 = sum(self.status['items_found'])
+        sum2 = sum(self.status['total_items'])
+        if sum2==0:
+            return {'state': self.status['state'], 'progress': 0, 'vals': [sum1, sum2]}
+        else:
+            return {'state': self.status['state'], 'progress': float(sum1)/sum2, 'vals': [sum1, sum2]}
         
     def run(self):
         while True:
-            self.status['completed_time'] = 0
             # Wait for 1 hour before auto refresh
-            flag = self.callback['page_refresh_trigger'].wait(3600)
+            flag = page_refresh_trigger.wait(3600)
             if flag:
                 print("Refresh Called")
             else:
@@ -331,17 +333,13 @@ class SeleniumScraper(Thread):
 
             print('running __find_auctions__')
             self.find_auctions()
-            self.status['completed_time'] += 5
             print('running __find_items__')
             self.find_items()
             #1 min cooldown for refresh
-            self.callback['page_refresh_callback'].set()
-            self.status['completed_time'] += 5
-            self.callback['page_refresh_callback'].wait(300)
-            self.status['completed_time'] += 10
+            page_refresh_callback.set()
             self.status['state'].append('Idle - Cooldown')
             time.sleep(300) # Force cooldown 5 min so we don't overburden server
-            self.callback['page_refresh_trigger'].clear()
+            page_refresh_trigger.clear()
             self.state[0] = ('Idle - Waiting')    
     
 

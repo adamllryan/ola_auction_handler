@@ -69,13 +69,17 @@ users_schema = UsersSchema(many=True)
 
 scraper: SeleniumScraper
 with app.app_context():
-    items = set(map(lambda x: x.name, Item.query.all()))
-    scraper = SeleniumScraper(items, False)
+    items = set(map(lambda x: x.name, Item.query.all())) # TODO MAKE THIS NOT THIS
+    scraper = SeleniumScraper(list(items), {
+        'verbose': True,
+        'demo': False,
+        'show_display': True
+    })
 scraper.start()
 
 def callback():
     while True:
-        scraper.callback['page_refresh_callback'].wait()
+        scraper.page_refresh_callback.wait()
         with app.app_context():
             items = scraper.export_()
             print(f"cleaning out old db items")
@@ -85,8 +89,8 @@ def callback():
                 i = Item(auction=x[0], name=x[1], url=x[2], src=x[3], last_price=x[4], retail_price=x[5], condition=x[6], ends_at=x[7])
                 db.session.add(i)
                 db.session.commit()
-                scraper.logged_auctions = map(lambda x: x.name, Item.query.distinct())
-            scraper.callback.clear()
+                scraper.auction_data['logged_auctions'] = map(lambda x: x.name, Item.query.distinct())
+            scraper.page_refresh_callback.clear()
 cbFunc = Thread(target=callback)
 cbFunc.start()
 
@@ -125,14 +129,12 @@ def get_items(Query):
 @app.route('/api/v1/refresh',methods = ['POST'])
 def refresh():
     if request.method == 'POST':
-        if not scraper.reload_called.is_set():
+        if not scraper.callback['page_refresh_trigger'].is_set():
             auctions = [item[0] for item in db.session.execute(text("SELECT DISTINCT auction FROM item")).fetchall()]
             #print(auctions)
             scraper.logged_auctions = auctions
-            scraper.reload_called.set()
-            return jsonify('Refreshing')
-        else:
-            return jsonify(scraper.get_progress())
+            scraper.callback['page_refresh_trigger'].set()
+        return jsonify(scraper.get_progress())
 
 @app.route('/api/v1/refresh/progress', methods = ['GET'])
 def refresh_progress():

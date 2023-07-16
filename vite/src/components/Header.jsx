@@ -7,7 +7,7 @@ import {
   Button,
   Input,
 } from '@material-tailwind/react'
-const Header = ({ refreshPage }) => {  
+const Header = ({ refreshPage, progress}) => {  
 
   return (
     <Navbar className="mx-auto max-w-screen-xl px-6 py-3">
@@ -18,8 +18,10 @@ const Header = ({ refreshPage }) => {
           variant="h6"
           className="mr-4 text-black py-1.5"
         >
+        
           Online Liquidation Auction Handler
         </Typography>
+        
         <div className="flex items-center gap-4">
             <Button
               variant="gradient"
@@ -30,10 +32,9 @@ const Header = ({ refreshPage }) => {
               <span className='text-black'>Refresh Items</span>
           </Button>
         </div>
-        <div className="hidden lg:block">
-          
-        </div>
+        
       </div>
+      <div className='flex position-absolute'>{progress}</div>
     </Navbar>
   );
 }
