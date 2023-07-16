@@ -334,8 +334,10 @@ class SeleniumScraper(Thread):
             self.find_auctions()
             print('running __find_items__')
             self.find_items()
-            #1 min cooldown for refresh
+
+            # Set callback flag for flask server
             self.callback['page_refresh_callback'].set()
+
             self.status['state'].append('Idle - Cooldown')
             time.sleep(300) # Force cooldown 5 min so we don't overburden server
             self.callback['page_refresh_trigger'].clear()
