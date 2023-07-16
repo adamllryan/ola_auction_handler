@@ -101,19 +101,20 @@ class SeleniumScraper(Thread):
         'page_refresh_trigger': Event(),
         'page_refresh_callback': Event()
     }
-    page_refresh_trigger = Event()
-    page_refresh_callback = Event()
+
     debug = { # Debug events for all responses
         'verbose': False,
         'demo': False,
         'show_display': False
     }
+
     status = { # All vars related to status of class
         'state': ['Idle - Waiting'],
         'items_found': [],
         'total_items': [],
         'is_running': False,
     }
+
     auction_data = { # Storage of auction data
         'auctions_in_database': [],
         'auctions_to_process': []
@@ -122,18 +123,18 @@ class SeleniumScraper(Thread):
     def __init__(self, auctions: list[str], debug: dict):
 
         Thread.__init__(self) # Init threading
-        page_refresh_trigger = Event()
-        page_refresh_callback = Event()
+        self.callback['page_refresh_trigger'] = Event()
+        self.callback['page_refresh_callback'] = Event()
         self.auction_data['auctions_in_database'] = auctions
-        # self.debug = debug
+        self.debug = debug
 
     def create_driver(self):
 
         self.status['state'].append('Creating Driver')
 
         options = FirefoxOptions()
-        #if not self.debug['show_display']:
-        options.add_argument("--headless")
+        if not self.debug['show_display']:
+            options.add_argument("--headless")
 
         self.status['state'].pop()
 
@@ -192,8 +193,8 @@ class SeleniumScraper(Thread):
             threads.append(thread) # Make sure threads are tracked
             self.auction_data['auctions_in_database'].append(auction.name) # So we don't rescrape
             id += 1
-            # if self.debug['demo']:
-            #     break
+            if self.debug['demo']:
+                break
 
         for thread in threads:
             thread.join() # Wait for all threads to complete
@@ -215,8 +216,8 @@ class SeleniumScraper(Thread):
         current_size = int(driver.execute_script('return bwAppState.auction.all_items.items.length'))
         self.status['items_found'][id] = current_size
         
-        # if self.debug['verbose']:
-        #     print(f'Auction {id}: ({sum(self.status["items_found"])}/{sum(self.status["total_items"])}) found.')
+        if self.debug['verbose']:
+            print(f'Auction {id}: ({sum(self.status["items_found"])}/{sum(self.status["total_items"])}) found.')
 
         return total_items <= current_size
 
@@ -232,8 +233,6 @@ class SeleniumScraper(Thread):
         driver.get(auction.url)
 
         # Originally the element to change to active items, now good for grabbing total items to scrape
-
-        names = []
         select = try_load_element(driver, URLS.select)
 
         # Line no longer works because js refresh call requires search option to be default
@@ -244,7 +243,7 @@ class SeleniumScraper(Thread):
         count = int(select.find_element(By.XPATH, URLS.subpath(URLS.select, URLS.active_item)).
                     text.replace("All > Active (", "").replace(")", ""))
         self.status['total_items'][id] = count
-        retries = 30 # 30s of retry
+        retries = 60 # 60s of retry
         if count >= 50: # All items are already loaded if <=50
             # JS line that will force next refresh to load 1500 more items (largest auction so far has been 1100)
             driver.execute_script('bwAppState.auction.all_items.api_args.per_page=1500;')
@@ -319,7 +318,7 @@ class SeleniumScraper(Thread):
     def run(self):
         while True:
             # Wait for 1 hour before auto refresh
-            flag = page_refresh_trigger.wait(3600)
+            flag = self.callback['page_refresh_trigger'].wait(3600)
             if flag:
                 print("Refresh Called")
             else:
@@ -336,10 +335,10 @@ class SeleniumScraper(Thread):
             print('running __find_items__')
             self.find_items()
             #1 min cooldown for refresh
-            page_refresh_callback.set()
+            self.callback['page_refresh_callback'].set()
             self.status['state'].append('Idle - Cooldown')
             time.sleep(300) # Force cooldown 5 min so we don't overburden server
-            page_refresh_trigger.clear()
+            self.callback['page_refresh_trigger'].clear()
             self.state[0] = ('Idle - Waiting')    
     
 
