@@ -1,8 +1,9 @@
 import {React, useState} from 'react'
 import './ItemCard.css'
 import CardCarousel from './CardCarousel'
-
+import Countdown from 'react-countdown'
 const ItemCard = ({ item }) => {
+  console.log(new Date(Date.parse(item.ends_at)))
   const getConditionColor = () => {
     if (item.condition==='New') {
       return 'bg-lime-300'
@@ -34,10 +35,9 @@ const ItemCard = ({ item }) => {
           Owner: {item.owner_id === null ? 'None' : item.owner_id}
         </div>
         <div className='text-xs '>
-            <label>Ends in:</label> 
-            <span className=''>
-              {item.ends_at}
-            </span>
+            <label>Ends in: </label>
+            
+            <Countdown date={new Date(Date.parse(item.ends_at + ' UTC'))}/>
         </div>
         
         

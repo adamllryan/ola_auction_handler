@@ -79,7 +79,7 @@ scraper.start()
 
 def callback():
     while True:
-        scraper.page_refresh_callback.wait()
+        scraper.callback['page_refresh_callback'].wait()
         with app.app_context():
             items = scraper.export_()
             print(f"cleaning out old db items")
@@ -90,7 +90,7 @@ def callback():
                 db.session.add(i)
                 db.session.commit()
                 scraper.auction_data['logged_auctions'] = map(lambda x: x.name, Item.query.distinct())
-            scraper.page_refresh_callback.clear()
+            scraper.callback['page_refresh_callback'].clear()
 cbFunc = Thread(target=callback)
 cbFunc.start()
 

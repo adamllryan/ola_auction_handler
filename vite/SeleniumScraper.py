@@ -341,7 +341,7 @@ class SeleniumScraper(Thread):
             self.status['state'].append('Idle - Cooldown')
             time.sleep(300) # Force cooldown 5 min so we don't overburden server
             self.callback['page_refresh_trigger'].clear()
-            self.state[0] = ('Idle - Waiting')    
+            self.status['state'][0] = ('Idle - Waiting')    
     
 
 if __name__ == '__main__':
