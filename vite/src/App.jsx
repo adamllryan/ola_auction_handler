@@ -7,21 +7,30 @@ import SearchBar from './components/SearchBar';
 import { useState, useEffect } from "react";
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
+//import io from 'socket.io'
 
 function App() {
 
-  const baseURL = 'http://localhost:8000/api/v1'
+  //TODO: 
+  //Finish Refresh with web socket
+  //Add Alerts
+  //Add saving search into cookies
+  //Add setting owner button to each item
+  //Fix backend
+
+  const baseURL = 'http://localhost:8000/api/v1'        // Base URL
+  const wsURL = 'wss://localhost:8000/api/v1'
   //DISPLAY VARS
-  const [items, setItems] = useState([]);
-  const [isRefreshing, setIsRefreshing] = useState(false)
-  const [progress, setProgress] = useState(0)
-  const [timeElapsed, setTimeElapsed] = useState(0)
-  const [page, setPage] = useState(0)
-  const [search, setSearch] = useState('')
-  const [more, setMore] = useState(true)
-  const [refreshTimer, setRefreshTimer] = useState()
-  const [refreshTimeout, setRefreshTimeout] = useState()
-  //SEARCH VARS
+  const [items, setItems] = useState([]);               // All items displayed
+  const [more, setMore] = useState(true);               // Are there more items available to load
+  const [page, setPage] = useState(0);                  // Page Number
+  
+  const [search, setSearch] = useState('');             // Search terms in URL string
+
+  const [refreshTimer, setRefreshTimer] = useState();   // All refresh vars, replace
+  const [refreshTimeout, setRefreshTimeout] = useState();
+  const [isRefreshing, setIsRefreshing] = useState(false);
+  const [progress, setProgress] = useState(1);
 
   useEffect(() => {
     const getItems = async () => {
@@ -44,38 +53,6 @@ function App() {
       }
     } catch (e) {
       console.log(e)
-        // create sample data for testing
-        return [
-          {
-            id:1,
-            name:'Item 1',
-            auction:'Auction 1 stow',
-            owner_id:null,
-            condition:'new',
-            ends_at:'',
-            url:'',
-            src:'https://s3.amazonaws.com/bwpaperclip-production/item_images/assets/056/171/277/web_small/RackMultipart20230713-4035-15wyvg6?1689276574;https://s3.amazonaws.com/bwpaperclip-production/item_images/assets/056/171/881/web_small/RackMultipart20230713-4034-10tc05x?1689276625;https://s3.amazonaws.com/bwpaperclip-production/item_images/assets/056/171/883/web_small/RackMultipart20230713-26669-1bf58im?1689276625'
-          },{
-            id:2,
-            name:'Item 2',
-            auction:'Auction 1 stow',
-            owner_id:'adam',
-            condition:'used',
-            ends_at:'',
-            url:'',
-            src:'https://s3.amazonaws.com/bwpaperclip-production/item_images/assets/056/171/277/web_small/RackMultipart20230713-4035-15wyvg6?1689276574'
-          },{
-            id:3,
-            name:'Item 3',
-            auction:'Auction 2 brookpark',
-            owner_id:'todd',
-            condition:'salvage',
-            ends_at:'',
-            url:'',
-            src:'https://s3.amazonaws.com/bwpaperclip-production/item_images/assets/056/171/277/web_small/RackMultipart20230713-4035-15wyvg6?1689276574'
-          },
-        ]
-    
     }
     setIsRefreshing(false)
   }
@@ -107,17 +84,12 @@ function App() {
   const getNextPage = async () => {
     setIsRefreshing(true)
     try {
-      const res = await fetch(baseURL + '/search/' + search + '&_pgn=' + page, {
-        method: 'GET',
-        headers: {
-          Accept: 'application/json'
-        },
-      })
+      const res = await fetch(baseURL + '/search/' + search + '&_pgn=' + page)
       if (!res.ok) {
         throw new Error(res.status)
       }
       let json = await res.json()
-      if (json !== []) {
+      if (json.length !== 0) {
         console.log(json)
         setItems(items => [...items, ...json])
         setPage(page+1)
@@ -162,9 +134,15 @@ function App() {
     //   set
     // }, 2000))
   }
+
+  // let socket = new WebSocket(wsURL+'/websocket')
+
+  const refreshOnClick = (e) => {
+    e.disabled = true;
+  }
   return (
     <>
-      <Header refreshPage={refreshPage} progress={progress}/> 
+      <Header refreshPage={refreshOnClick} progress={progress}/> 
       <div className="App">
           <SearchBar submitQuery={newSearch}/>
           <ItemsDisplay page={page} onLoadNext={getNextPage} data={items}/>

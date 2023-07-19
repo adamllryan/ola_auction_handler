@@ -10,19 +10,22 @@ from sqlalchemy.inspection import inspect
 from flask_marshmallow import Marshmallow
 from SeleniumScraper import SeleniumScraper
 from threading import Thread
-from sqlalchemy import exists, insert, select, update
+from sqlalchemy import exists, insert, select, update, delete
 from json import dumps
+# from flask_socketio import SocketIO, emit
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+app.config['SOCK_SERVER_OPTIONS'] = {'ping_interval': 25}
 
 CORS(app)  # comment this on deployment
 api = Api(app)
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
+# socketio = SocketIO(app)
 
 # DB Handling
 
@@ -88,8 +91,11 @@ def callback():
             for x in items:
                 i = Item(auction=x[0], name=x[1], url=x[2], src=x[3], last_price=x[4], retail_price=x[5], condition=x[6], ends_at=x[7])
                 db.session.add(i)
-                db.session.commit()
-                scraper.auction_data['logged_auctions'] = map(lambda x: x.name, Item.query.distinct())
+            Item.query.filter(Item.ends_at<func.now()).delete()
+            db.session.commit()
+            auctions = db.session.query(Item.auction).distinct().all()
+            print(auctions)
+            scraper.auction_data['logged_auctions'] = auctions
             scraper.callback['page_refresh_callback'].clear()
 cbFunc = Thread(target=callback)
 cbFunc.start()
@@ -101,7 +107,7 @@ def get_items(Query):
     [Query, page] = Query.split('&_pgn=')
     page = int(page)
     if Query=='':
-        return jsonify(items_schema.dump(db.session.execute(text('SELECT * FROM item LIMIT 50 OFFSET ' + str(page*50))).fetchall()))
+        return jsonify(items_schema.dump(db.session.execute(text("SELECT * FROM item WHERE ends_at > date('now') LIMIT 50 OFFSET " + str(page*50))).fetchall()))
     # replace + with space because no space in url
     Query = Query.replace('+', ' ')
     # & separates query parameters
@@ -120,7 +126,11 @@ def get_items(Query):
         for value in params[key]:
             query.append(f"{key} LIKE '%{value}%'")
         queries.append(" OR ".join(query))
-    search += "(" + ") AND (".join(queries) + ") LIMIT 50 OFFSET " + str(page*50)
+    search += "(" + ") AND (".join(queries) + ")"
+    if 'owner_id' not in queries:
+        search += ' AND (ends_at > date(\'now\'))'
+    
+    search += 'LIMIT 50 OFFSET ' + str(page*50)
     print(search)
     # TODO: return set(results)
     final = items_schema.dump(db.session.execute(text(search)).fetchall())
@@ -130,7 +140,7 @@ def get_items(Query):
 def refresh():
     if request.method == 'POST':
         if not scraper.callback['page_refresh_trigger'].is_set():
-            auctions = [item[0] for item in db.session.execute(text("SELECT DISTINCT auction FROM item")).fetchall()]
+            auctions = db.session.query(Item.auction).distinct().all()
             #print(auctions)
             scraper.logged_auctions = auctions
             scraper.callback['page_refresh_trigger'].set()
@@ -182,3 +192,7 @@ def user(username):
             return jsonify(query[0][0])
         else:
             return jsonify('FAILURE')
+
+# @socketio.on('/api/v1/websocket')
+# def socket():
+#     emit('after connect', {'data': 'test'})

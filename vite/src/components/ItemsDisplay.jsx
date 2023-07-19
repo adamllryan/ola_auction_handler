@@ -14,7 +14,7 @@ const ItemsDisplay = ({page, onLoadNext, data}) => {
         }
         {
           
-          <button onClick={onLoadNext} >Load Page {page+1}</button>
+          <button onClick={onLoadNext} >Load Page {page+2}</button>
         }
     </div>
   )
