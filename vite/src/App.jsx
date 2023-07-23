@@ -7,7 +7,7 @@ import SearchBar from './components/SearchBar';
 import { useState, useEffect } from "react";
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
-//import io from 'socket.io'
+import { io } from 'socket.io-client';
 
 function App() {
 
@@ -136,17 +136,33 @@ function App() {
   }
 
   // let socket = new WebSocket(wsURL+'/websocket')
+  const socket = io('ws://localhost:8000');
+
+  const refresh = (e) => {
+    e.disabled = true;
+    setProgress(0)
+    socket.emit('refresh_page')
+  }
+
+  socket.on('refresh_progress', (data) => {
+    console.log(data)
+    if (data instanceof String && data==='completed') {
+      setProgress(data)
+    } else {
+      setProgress(1)
+    }
+    console.log(data)
+  })
 
   const refreshOnClick = (e) => {
     e.disabled = true;
   }
   return (
     <>
-      <Header refreshPage={refreshOnClick} progress={progress}/> 
-      <div className="App">
+      <Header refreshPage={refresh} progress={progress}/> 
+      <div className="grid grid-cols-3">
           <SearchBar submitQuery={newSearch}/>
           <ItemsDisplay page={page} onLoadNext={getNextPage} data={items}/>
-          
       </div>
       <Footer />
     </>

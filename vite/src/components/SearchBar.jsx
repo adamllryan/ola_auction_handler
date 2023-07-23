@@ -50,7 +50,7 @@ const SearchBar = ({ submitQuery }) => {
     }
   }
   return (
-    <div>
+    <div className='col-span-1'>
         <TagsInput value={names} onChange={setNames} name='names' placeHolder='Add Keywords e.g. Power Strip' />
         <TagsInput value={auctions} onChange={setAuctions} name='auctions' placeHolder='Add Auction keywords e.g. Stow or 3010' />
         <TagsInput value={owners} onChange={setOwners} name='owners' placeHolder='Add Users e.g. John' />

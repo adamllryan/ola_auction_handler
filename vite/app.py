@@ -1,6 +1,7 @@
 import datetime
 import os.path
 from dataclasses import dataclass
+import time
 from flask import Flask, send_from_directory, jsonify, request, render_template
 from flask_restful import Api, Resource, reqparse
 from flask_cors import CORS  # comment this on deployment
@@ -12,7 +13,7 @@ from SeleniumScraper import SeleniumScraper
 from threading import Thread
 from sqlalchemy import exists, insert, select, update, delete
 from json import dumps
-# from flask_socketio import SocketIO, emit
+from flask_socketio import SocketIO, emit
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
 
@@ -25,7 +26,7 @@ CORS(app)  # comment this on deployment
 api = Api(app)
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
-# socketio = SocketIO(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 # DB Handling
 
@@ -72,7 +73,7 @@ users_schema = UsersSchema(many=True)
 
 scraper: SeleniumScraper
 with app.app_context():
-    items = set(map(lambda x: x.name, Item.query.all())) # TODO MAKE THIS NOT THIS
+    items = db.session.query(Item.auction).distinct().all()
     scraper = SeleniumScraper(list(items), {
         'verbose': True,
         'demo': False,
@@ -196,3 +197,20 @@ def user(username):
 # @socketio.on('/api/v1/websocket')
 # def socket():
 #     emit('after connect', {'data': 'test'})
+@socketio.on('socket')
+def socket(data):
+    emit('receive', 'test')
+
+@socketio.on('refresh_page')
+def refresh_call():
+    if scraper.callback['page_refresh_trigger'].is_set():
+        emit('err', 'Scraper is running or on cooldown')
+    else:
+        auctions = db.session.query(Item.auction).distinct().all()
+        scraper.logged_auctions = auctions
+        scraper.callback['page_refresh_trigger'].set()
+        while not scraper.callback['page_refresh_callback'].is_set():
+            time.sleep(1)
+            emit('refresh_progress', jsonify(scraper.get_progress().progress))
+        emit('refresh_progress', 'completed')
+        
