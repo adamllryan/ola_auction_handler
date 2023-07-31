@@ -77,7 +77,7 @@ const ItemCard = ({ owners, item, setOwner }) => {
   else
 
     return (
-      <div key={item.id} className='flex gap-x-6 py-2'>
+      <div key={item.id} className='flex gap-x-6 py-2 hover:scale-y-105 duration-100 hover:shadow-md h-fit ease-in transition-all'>
 
         <CardCarousel src={item.src.includes(';')?item.src.split(';'):''}/>
 
@@ -89,7 +89,7 @@ const ItemCard = ({ owners, item, setOwner }) => {
             </a>
           </div>
 
-          <div className={'mx-2 p-2 mt-1 flex justify-normal text-sm leading-5 text-gray-900 bg-gray-100 rounded-full m-8'}>
+          <div className={'mx-2 p-2 mt-1 flex h-fit justify-normal text-sm leading-5 text-gray-900 bg-gray-100 rounded-lg m-8 duration-300 hover:' + getConditionColor()}>
             <span className={'flex mr-1 w-5 h-5 rounded-full ' + getConditionColor()} ></span>
             {item.condition}
           </div>
@@ -98,20 +98,23 @@ const ItemCard = ({ owners, item, setOwner }) => {
             {item.auction}
           </div>
 
-          <div className='text-xs col-span-3'>
-            Owner: {item.owner_id === null ? 'None' : item.owner_id}
+          <div className='grid text-xs col-span-3 grid-cols-1'>
+
+              <div className='inline-block justify-center align-middle'>
+                <label>Ends in: </label>
+                <Countdown date={new Date(Date.parse(item.ends_at + ' UTC'))} renderer={renderer}/>
+              </div>
+              <div>
+                <label>Owner: </label>
+                <OwnerDropdown owners={owners} owner_id={ownerId} updateOwner={updateOwnerId} id={item.id}/>
+
+              </div>
           </div>
 
           <div className='text-xs '>
               <label>Last (Recorded) Price: ${item.last_price}</label><br/>
 
               <label>Retail Price: ${item.retail_price}</label><br/>
-
-              <label>Ends in: </label>
-
-              <Countdown date={new Date(Date.parse(item.ends_at + ' UTC'))} renderer={renderer}/>
-              
-              <OwnerDropdown owners={owners} owner_id={ownerId} updateOwner={updateOwnerId} id={item.id}/>
           </div>
 
         </div>

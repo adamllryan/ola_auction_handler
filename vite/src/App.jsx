@@ -170,7 +170,7 @@ const App = ( ) => {
   
   return (
     <>
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 p-4 h-screen">
 
         {/*Left side panel*/}
         <div>

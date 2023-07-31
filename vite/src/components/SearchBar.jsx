@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { TagsInput } from 'react-tag-input-component';
-
+import './TagsInput.css'
 const SearchBar = ({ submitQuery, ownersData }) => {
 
   // App states
@@ -57,13 +57,13 @@ const SearchBar = ({ submitQuery, ownersData }) => {
   }
   
   return (
-    <div className='col-span-1'>
+    <div className='col-span-1 p-4 shadow-md hover:shadow-xl duration-300 m-4 hover:m-2 '>
 
         {/* Search Terms*/}
 
-        <TagsInput value={names} onChange={setNames} name='names' placeHolder='Add Keywords e.g. Power Strip' />
-        <TagsInput value={auctions} onChange={setAuctions} name='auctions' placeHolder='Add Auction keywords e.g. Stow or 3010' />
-        <TagsInput value={owners} onChange={setOwners} name='owners' placeHolder='Add Users e.g. John' />
+        <TagsInput className='rti--container' value={names} onChange={setNames} name='names' placeHolder='Add Keywords e.g. Power Strip' />
+        <TagsInput className='item-tag' value={auctions} onChange={setAuctions} name='auctions' placeHolder='Add Auction keywords e.g. Stow or 3010' />
+        <TagsInput className='item-tag' value={owners} onChange={setOwners} name='owners' placeHolder='Add Users e.g. John' />
         
         {/* Submit Button */}
 
