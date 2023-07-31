@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "server": "flask run --port=8000",
-    "client": "vite",
+    "server": "flask run --port=8000 --host=0.0.0.0",
+    "client": "vite --host",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "vite build",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
@@ -21,6 +21,7 @@
     "react-countdown": "^2.3.5",
     "react-dom": "^18.2.0",
     "react-tag-input-component": "^2.0.2",
+    "react-top-loading-bar": "^2.3.1",
     "react-use-websocket": "^4.3.1",
     "socket.io": "4.7.1",
     "socket.io-client": "^4.7.1"

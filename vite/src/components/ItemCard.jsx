@@ -1,10 +1,11 @@
 import {React, useState} from 'react'
 import './ItemCard.css'
 import CardCarousel from './CardCarousel'
-import Countdown from 'react-countdown'
+import Countdown, { calcTimeDelta } from 'react-countdown'
 import OwnerDropdown from './OwnerDropdown'
-const ItemCard = ({ owners, item }) => {
+const ItemCard = ({ owners, item, setOwner }) => {
   //console.log(new Date(Date.parse(item.ends_at)))
+  const [ownerId, setOwnerId] = useState(item.owner_id !== null ? item.owner_id : 0)
   const getConditionColor = () => {
     if (item.condition==='New') {
       return 'bg-lime-300'
@@ -16,13 +17,34 @@ const ItemCard = ({ owners, item }) => {
       return 'bg-orange-600'//TODO: complete these
     }
   }
+  const displayNotif = () => {
+    if (Notification.permission === 'granted') {
+      if (ownerId!==0) {
+        const notification = new Notification('Owned item ending soon', { body: item.name + ' is ending soon', icon:null})
+      }
+    } else {
+      console.log('missing notif permissions')
+    }
+  }
+
+  const renderer = ({ hours, minutes, seconds, completed}) => {
+    let time = calcTimeDelta(new Date(Date.parse(item.ends_at + ' UTC')))
+    if (time.days===0 && time.hours ===0 && time.minutes===5 && time.seconds===0) displayNotif()
+    return <label>{hours}h {minutes}m {seconds}s</label>
+  }
+
+  const updateOwnerId = (item_id, owner_id) => {
+    setOwner(item_id, owner_id)
+    setOwnerId(owner_id)
+  }
+
   if (Date.parse(item.ends_at)-Date.now()<0)
     return (<div>Auction Ended</div>)
   else
     return (
-      <div key={item.id} className='flex justify-between gap-x-6 py-2'>
+      <div key={item.id} className='flex gap-x-6 py-2'>
         <CardCarousel src={item.src.includes(';')?item.src.split(';'):''}/>
-        <div className='inline-grid grid-cols-5 gap-x-2'>
+        <div className='inline-grid basis-full grid-cols-5 gap-x-2'>
           <div className='min-w-0 flex-auto col-span-4'>
             <a className='text-sm font-semibold leading-none text-gray-900' href={item.url}>
               {item.name}
@@ -42,8 +64,9 @@ const ItemCard = ({ owners, item }) => {
               <label>Last (Recorded) Price: ${item.last_price}</label><br/>
               <label>Retail Price: ${item.retail_price}</label><br/>
 
-              <label>Ends in: </label><Countdown date={new Date(Date.parse(item.ends_at + ' UTC'))}/>
-              <OwnerDropdown owners={owners} owner_id={item.owner_id}/>
+              <label>Ends in: </label>
+              <Countdown date={new Date(Date.parse(item.ends_at + ' UTC'))} renderer={renderer}/>
+              <OwnerDropdown owners={owners} owner_id={ownerId} updateOwner={updateOwnerId} id={item.id}/>
           </div>
           
           

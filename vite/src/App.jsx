@@ -4,12 +4,14 @@ import './components/Footer';
 import './components/ItemsDisplay';
 import ItemsDisplay from './components/ItemsDisplay';
 import SearchBar from './components/SearchBar';
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Header from './components/Header.jsx'
 import Footer from './components/Footer.jsx'
-import { io } from 'socket.io-client';
+import { io } from 'socket.io-client'
 
-function App() {
+
+
+const App = ( ) => {
 
   //TODO: 
   //Finish Refresh with web socket
@@ -18,13 +20,13 @@ function App() {
   //Add setting owner button to each item
   //Fix backend
 
-  const baseURL = 'http://localhost:8000/api/v1'        // Base URL
+  const baseURL = 'http://100.108.92.57:8000/api/v1'        // Base URL
   const wsURL = 'wss://localhost:8000/api/v1'
   //DISPLAY VARS
   const [items, setItems] = useState([]);               // All items displayed
   const [more, setMore] = useState(true);               // Are there more items available to load
   const [page, setPage] = useState(0);                  // Page Number
-  
+  const [owners, setOwners] = useState([])
   const [search, setSearch] = useState('');             // Search terms in URL string
 
   const [refreshTimer, setRefreshTimer] = useState();   // All refresh vars, replace
@@ -32,17 +34,55 @@ function App() {
   const [isRefreshing, setIsRefreshing] = useState(false);
   const [progress, setProgress] = useState(1);
 
+  const client = useRef();
+  let notificationPermission;
   useEffect(() => {
+    const getOwners = async () => {
+      let ownersQuery = [{id: 0, name: 'None', password: null}]
+      try {
+        const res = await fetch(baseURL + '/users')
+        if (!res.ok) {
+          throw new Error(res.status)
+        }
+        ownersQuery = [...ownersQuery, ...(await res.json())]
+      } catch (err) {
+        console.log(err)
+      }
+      setOwners(ownersQuery)
+    }
+    getOwners()
     const getItems = async () => {
       const items = await fetchItems();
       setItems(items);
     }
     getItems();
+
+    const URL = process.env.NODE_ENV === 'prod' ? undefined : 'ws://100.108.92.57:8000'
+    const socket = io(URL);
+
+    socket.on('refresh_progress', (data) => {
+      if (typeof data === 'string' && data==='completed') {
+        setProgress(1)
+        setIsRefreshing(false)
+        setItems([])
+        setPage(0)
+        getNextPage()
+      } else {
+        setProgress(data)
+      }
+
+    })
+
+    client.current = socket;
+    const requestPermission = async () => {
+      let permission = await Notification.requestPermission();
+      return permission
+    }
+    notificationPermission = requestPermission();
   }, [])
 
   //fetch items
   const fetchItems = async (paramsStr) => {
-    setIsRefreshing(true)
 
     try {
       let res = await fetch(baseURL + "/search/&_pgn=0")
@@ -54,13 +94,11 @@ function App() {
     } catch (e) {
       console.log(e)
     }
-    setIsRefreshing(false)
   }
   //update owner
 
   //submit query
   const newSearch = async (params) => {
-    setIsRefreshing(true)
     try {
       const res = await fetch(baseURL + '/search/' + params + '&_pgn=0', {
         method: 'GET',
@@ -78,11 +116,8 @@ function App() {
     } catch (err) {
       console.log(err)
     }
-
-    setIsRefreshing(false)
   }
   const getNextPage = async () => {
-    setIsRefreshing(true)
     try {
       const res = await fetch(baseURL + '/search/' + search + '&_pgn=' + page)
       if (!res.ok) {
@@ -99,7 +134,6 @@ function App() {
     } catch (err) {
       console.log(err)
     }
-    setIsRefreshing(false)
   }
   const getSetProgress = async () => {
     try {
@@ -120,49 +154,41 @@ function App() {
     }
   }
 
-  const refreshPage = () => {
-    console.log("REFRESH CALLED")
-    getSetProgress()
-    // if (refreshTimer != null) {
-    //   clearInterval(refreshTimer)
-      
-    // }
-    // setRefreshTimer(setInterval(() => {
-    //   getProgress()
-    // }, 1000))
-    // setTimeout(setTimeout(() => {
-    //   set
-    // }, 2000))
-  }
-
-  // let socket = new WebSocket(wsURL+'/websocket')
-  const socket = io('ws://localhost:8000');
-
-  const refresh = (e) => {
-    e.disabled = true;
-    setProgress(0)
-    socket.emit('refresh_page')
-  }
-
-  socket.on('refresh_progress', (data) => {
-    console.log(data)
-    if (data instanceof String && data==='completed') {
-      setProgress(data)
-    } else {
-      setProgress(1)
+  const setOwner = async (item_id, owner_id) => {
+    try {
+      const res = await fetch(baseURL + '/items/' + item_id, {
+        method: 'POST',
+        headers: {
+          'Content-type':'application/json', 
+          Accept: 'application/json'
+        },
+        body: JSON.stringify({owner_id: owner_id})
+      })
+      if (!res.ok) {
+        throw new Error(res.status)
+      }
+    } catch (err) {
+      console.log(err)
     }
-    console.log(data)
-  })
-
-  const refreshOnClick = (e) => {
-    e.disabled = true;
   }
+  
+  
+  const refresh = () => {
+    setProgress(0)
+    setIsRefreshing(true)
+    client.current.emit('refresh_page')
+  }
+  
   return (
     <>
-      <Header refreshPage={refresh} progress={progress}/> 
+      
       <div className="grid grid-cols-3">
-          <SearchBar submitQuery={newSearch}/>
-          <ItemsDisplay page={page} onLoadNext={getNextPage} data={items}/>
+        <div>
+          <Header refreshPage={refresh} progress={progress > 1? .95 : progress} isRefreshing={isRefreshing}/> 
+          <SearchBar submitQuery={newSearch} ownersData={owners}/>
+        </div>
+          
+          <ItemsDisplay page={page} onLoadNext={getNextPage} data={items} setOwner={setOwner} owners={owners}/>
       </div>
       <Footer />
     </>

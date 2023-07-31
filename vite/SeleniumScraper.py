@@ -1,4 +1,5 @@
 from datetime import datetime
+import sys
 import time
 from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
@@ -172,6 +173,7 @@ class SeleniumScraper(Thread):
             # Add to auctions list
 
             if not name in self.auction_data['auctions_in_database']:
+                print(name, 'not in', self.auction_data['auctions_in_database'], file=sys.stderr)
                 self.auction_data['auctions_to_process'].append(Auction(name, url, img_url, []))
 
         self.close_driver(driver)
@@ -311,9 +313,9 @@ class SeleniumScraper(Thread):
         sum1 = sum(self.status['items_found'])
         sum2 = sum(self.status['total_items'])
         if sum2==0:
-            return {'state': self.status['state'], 'progress': 0, 'vals': [sum1, sum2]}
+            return {'state': self.status['state'], 'progress': 0, 'vals': [sum1, sum2], 'logged': self.auction_data['auctions_in_database']}
         else:
-            return {'state': self.status['state'], 'progress': float(sum1)/sum2, 'vals': [sum1, sum2]}
+            return {'state': self.status['state'], 'progress': float(sum1)/sum2, 'vals': [sum1, sum2],  'logged': self.auction_data['auctions_in_database']}
         
     def run(self):
         while True:
@@ -339,7 +341,7 @@ class SeleniumScraper(Thread):
             self.callback['page_refresh_callback'].set()
 
             self.status['state'].append('Idle - Cooldown')
-            time.sleep(300) # Force cooldown 5 min so we don't overburden server
+            # time.sleep(300) # Force cooldown 5 min so we don't overburden server
             self.callback['page_refresh_trigger'].clear()
             self.status['state'][0] = ('Idle - Waiting')    
     

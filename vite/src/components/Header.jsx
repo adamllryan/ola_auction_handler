@@ -7,7 +7,7 @@ import {
   Button,
   Input,
 } from '@material-tailwind/react'
-const Header = ({ refreshPage, progress}) => {  
+const Header = ({ refreshPage, progress, isRefreshing}) => {  
 
   return (
     <Navbar className="mx-auto max-w-screen-xl px-6 py-3">
@@ -28,13 +28,13 @@ const Header = ({ refreshPage, progress}) => {
               size="sm"
               className="hidden lg:inline-block"
               onClick={refreshPage}
+              disabled={isRefreshing}
             >
-              <span className='text-black'>Refresh Items</span>
+              <span className='text-black'>{isRefreshing ? (progress*100).toFixed(2) + '%': 'Refresh Items'}</span>
           </Button>
         </div>
         
       </div>
-      <div className='flex position-absolute'>{progress}</div>
     </Navbar>
   );
 }

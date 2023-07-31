@@ -1,6 +1,7 @@
 import datetime
 import os.path
 from dataclasses import dataclass
+import sys
 import time
 from flask import Flask, send_from_directory, jsonify, request, render_template
 from flask_restful import Api, Resource, reqparse
@@ -10,13 +11,12 @@ from sqlalchemy.sql import func, text
 from sqlalchemy.inspection import inspect
 from flask_marshmallow import Marshmallow
 from SeleniumScraper import SeleniumScraper
-from threading import Thread
+from threading import Event, Thread
 from sqlalchemy import exists, insert, select, update, delete
 from json import dumps
 from flask_socketio import SocketIO, emit
 
 app = Flask(__name__, static_url_path='', static_folder='frontend/build')
-
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -77,9 +77,11 @@ with app.app_context():
     scraper = SeleniumScraper(list(items), {
         'verbose': True,
         'demo': False,
-        'show_display': True
+        'show_display': False
     })
 scraper.start()
+
+commit_completed = Event()
 
 def callback():
     while True:
@@ -88,16 +90,15 @@ def callback():
             items = scraper.export_()
             print(f"cleaning out old db items")
             db.session.execute(text("DELETE FROM item WHERE ends_at < date('now')"))
-            print(f"Writing {len(items)} items to db")
+            print(f"Writing {len(items)} items to db", file=sys.stderr)
             for x in items:
                 i = Item(auction=x[0], name=x[1], url=x[2], src=x[3], last_price=x[4], retail_price=x[5], condition=x[6], ends_at=x[7])
                 db.session.add(i)
             Item.query.filter(Item.ends_at<func.now()).delete()
             db.session.commit()
-            auctions = db.session.query(Item.auction).distinct().all()
-            print(auctions)
-            scraper.auction_data['logged_auctions'] = auctions
             scraper.callback['page_refresh_callback'].clear()
+            commit_completed.set()
+
 cbFunc = Thread(target=callback)
 cbFunc.start()
 
@@ -137,38 +138,36 @@ def get_items(Query):
     final = items_schema.dump(db.session.execute(text(search)).fetchall())
     return jsonify(final)
 
-@app.route('/api/v1/refresh',methods = ['POST'])
-def refresh():
-    if request.method == 'POST':
-        if not scraper.callback['page_refresh_trigger'].is_set():
-            auctions = db.session.query(Item.auction).distinct().all()
-            #print(auctions)
-            scraper.logged_auctions = auctions
-            scraper.callback['page_refresh_trigger'].set()
-        return jsonify(scraper.get_progress())
+# @app.route('/api/v1/refresh',methods = ['POST'])
+# def refresh():
+#     if request.method == 'POST':
+#         if not scraper.callback['page_refresh_trigger'].is_set():
+#             auctions = db.session.query(Item.auction).distinct().all()
+#             #print(auctions)
+#             scraper.logged_auctions = auctions
+#             scraper.callback['page_refresh_trigger'].set()
+#         return jsonify(scraper.get_progress())
 
 @app.route('/api/v1/refresh/progress', methods = ['GET'])
 def refresh_progress():
     if request.method == 'GET':
         return jsonify(scraper.get_progress())
 
-@app.route('/api/v1/owner/<int:item_id>/<owner>', methods = ['GET', 'POST'])
-def owner(item_id, owner):
+@app.route('/api/v1/items/<int:id>', methods = ['GET', 'POST'])
+def owner(id):
     if request.method == 'POST':
         # check owner exists
-        query = db.session.execute(select(Users.id).where(Users.name==owner)).fetchall()
+        owner_id = request.get_json()['owner_id']
+        query = db.session.execute(select(Users.id).where(Users.id==owner_id)).fetchall()
         if len(query)==1:
-            print(query[0][0], item_id)
-            db.session.execute(update(Item).where(Item.id==int(item_id)).values(owner_id=query[0][0]))
+            db.session.execute(update(Item).where(Item.id==int(id)).values(owner_id=owner_id))
             db.session.commit()
             #db.session.execute(text(f"UPDATE item SET owner_id = {query[0][0]} WHERE id = '{id}'"))
             return jsonify('SUCCESS')
         else:
             return jsonify('FAILURE')
-@app.route('/api/v1/owner/<int:item_id>', methods = ['GET'])
-def get_owner(item_id):
-    if request.method == 'GET':
-        query = db.session.execute(select(Item.owner_id).where(Item.id==item_id)).fetchall()
+    elif request.method == 'GET':
+        query = db.session.execute(select(Item.owner_id).where(Item.id==id)).fetchall()
         if len(query)==1:
             name = db.session.execute(select(Users.name).where(Users.id==query[0][0])).fetchall()
             if len(name)==1:
@@ -176,7 +175,7 @@ def get_owner(item_id):
             else:
                 return jsonify('Invalid Owner')
         else:
-            return jsonify('No Owner')
+            return jsonify('No Owner')        
 
 @app.route('/api/v1/u/<username>', methods = ['GET', 'POST'])
 def user(username):
@@ -193,13 +192,10 @@ def user(username):
             return jsonify(query[0][0])
         else:
             return jsonify('FAILURE')
-
-# @socketio.on('/api/v1/websocket')
-# def socket():
-#     emit('after connect', {'data': 'test'})
-@socketio.on('socket')
-def socket(data):
-    emit('receive', 'test')
+        
+@app.route('/api/v1/users', methods = ['GET'])
+def getUserList():
+    return jsonify(Users.query.all())
 
 @socketio.on('refresh_page')
 def refresh_call():
@@ -207,10 +203,12 @@ def refresh_call():
         emit('err', 'Scraper is running or on cooldown')
     else:
         auctions = db.session.query(Item.auction).distinct().all()
-        scraper.logged_auctions = auctions
+        auctions = list(map(lambda x: x[0], auctions))
+        scraper.auction_data['auctions_in_database'] = auctions
         scraper.callback['page_refresh_trigger'].set()
-        while not scraper.callback['page_refresh_callback'].is_set():
+        while not commit_completed.is_set():
             time.sleep(1)
-            emit('refresh_progress', jsonify(scraper.get_progress().progress))
+            emit('refresh_progress', scraper.get_progress()['progress'])
         emit('refresh_progress', 'completed')
+        commit_completed.clear()
         

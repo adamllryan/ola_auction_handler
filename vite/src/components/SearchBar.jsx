@@ -8,7 +8,7 @@ import './SearchBar.css'
 import SearchTagsInput from './SearchTagsInput'
 import Tag from './Tag'
 
-const SearchBar = ({ submitQuery }) => {
+const SearchBar = ({ submitQuery, ownersData }) => {
   const [names, setNames] = useState([])
   const [auctions, setAuctions] = useState([])
   const [owners, setOwners] = useState([])
@@ -28,7 +28,11 @@ const SearchBar = ({ submitQuery }) => {
     }
     console.log(result)
     if (owners.length>0) {
-      result.push(formatQuery('owner_id', owners))
+      //need to convert to ids for db
+      console.log(ownersData)
+      let filtered = ownersData.filter((owner) => {return owners.indexOf(owner.name) !== -1})
+      filtered = filtered.map((owner) => owner.id)
+      result.push(formatQuery('owner_id', filtered))
     }
     console.log(result)
     result = result.join('&').replaceAll(' ', '+')
@@ -53,8 +57,11 @@ const SearchBar = ({ submitQuery }) => {
     <div className='col-span-1'>
         <TagsInput value={names} onChange={setNames} name='names' placeHolder='Add Keywords e.g. Power Strip' />
         <TagsInput value={auctions} onChange={setAuctions} name='auctions' placeHolder='Add Auction keywords e.g. Stow or 3010' />
-        <TagsInput value={owners} onChange={setOwners} name='owners' placeHolder='Add Users e.g. John' />
-        <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" onClick={onSubmit}>Apply</button>
+        <div className='grid'>
+          <TagsInput value={owners} onChange={setOwners} name='owners' placeHolder='Add Users e.g. John' />
+          <button type="button" className="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700" onClick={onSubmit}>Apply</button>
+        </div>
+        
     </div>
   );
 }
