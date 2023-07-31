@@ -84,7 +84,7 @@ const ItemCard = ({ owners, item, setOwner }) => {
         <div className='inline-grid basis-full grid-cols-5 gap-x-2'>
 
           <div className='min-w-0 flex-auto col-span-4'>
-            <a className='text-sm font-semibold leading-none text-gray-900' href={item.url}>
+            <a className='text-sm font-semibold leading-none text-gray-900' href={item.url} target='_blank'>
               {item.name}
             </a>
           </div>
