@@ -1,6 +1,7 @@
 import React from 'react'
 const CardCarousel = ({ src }) => {
   return (
+    
     <div className='group relative text-2xl'>
         <img className='m-2 hover:border-t-4 border-blue-900 hover:scale-110 hover:z-10 hover:shadow-outline duration-200 inline-flex items-center h-48 w-48 flex-none rounded-md bg-gray-50' src={src[0]}/>
         
