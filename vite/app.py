@@ -158,6 +158,9 @@ def owner(id):
     if request.method == 'POST':
         # check owner exists
         owner_id = request.get_json()['owner_id']
+        if owner_id == None:
+            db.session.execute(update(Item).where(Item.id==int(id)).values(owner_id=None))
+            db.session.commit()
         query = db.session.execute(select(Users.id).where(Users.id==owner_id)).fetchall()
         if len(query)==1:
             db.session.execute(update(Item).where(Item.id==int(id)).values(owner_id=owner_id))

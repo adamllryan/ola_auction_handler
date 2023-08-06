@@ -32,7 +32,7 @@ const ItemCard = ({ owners, item, setOwner }) => {
     if (Notification.permission === 'granted') {
 
       if (ownerId!==0) {
-        const notification = new Notification('Owned item ending soon', { body: item.name + ' is ending soon', icon:null})
+        const notification = new Notification('Saved item ending soon', { body: `${item.name} is ending soon`, icon:null})
       }
 
     } else {
@@ -107,7 +107,6 @@ const ItemCard = ({ owners, item, setOwner }) => {
               <div>
                 <label>Owner: </label>
                 <OwnerDropdown owners={owners} owner_id={ownerId} updateOwner={updateOwnerId} id={item.id}/>
-
               </div>
           </div>
 

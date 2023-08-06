@@ -110,6 +110,7 @@ const App = ( ) => {
       if (!res.ok) {
         throw new Error(res.status)
       }
+      setItems([])
       setItems(await res.json())
       setSearch(params)
       setPage(1)
@@ -150,7 +151,7 @@ const App = ( ) => {
           'Content-type':'application/json', 
           Accept: 'application/json'
         },
-        body: JSON.stringify({owner_id: owner_id})
+        body: JSON.stringify({owner_id: owner_id===0?null:owner_id})
       })
       if (!res.ok) {
         throw new Error(res.status)
