@@ -1,0 +1,14 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./api
+      dockerfile: Dockerfile.api
+    entrypoint: ["sh", "/usr/src/ola-handler/entrypoint.sh"] # new
+    volumes:
+      - "./services/backend:/usr/src/ola-handler"
+    ports:
+      - 5004:5000
+    environment:
+      - FLASK_ENV=development

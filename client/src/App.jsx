@@ -13,13 +13,14 @@ import { io } from 'socket.io-client'
 
 const App = ( ) => {
 
+  const PORT = 5004
   //TODO: 
   //Add Panel under search with post, get, update, delete owners
 
   // URL bases
 
-  const baseURL = 'http://localhost:8000/api/v1'        // Base URL
-  const wsURL = 'ws://localhost:8000'
+  const baseURL = `http://localhost:${PORT}/api/v1`        // Base URL
+  const wsURL = `ws://localhost:${PORT}s`
 
   // Data States
 

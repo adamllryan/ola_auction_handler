@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1
+
 FROM python:3.9-slim-buster
 
 # set working directory
@@ -6,11 +8,21 @@ WORKDIR /usr/src/ola-handler
 # set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
-
+ENV FLASK_APP api.py
 # install system dependencies
 RUN apt-get update \
   && apt-get -y install netcat gcc sqlite \
   && apt-get clean
+
+# Firefox
+RUN apt install wget -y && apt-get install -y apt-transport-https
+RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux64.tar.gz
+RUN tar -xvzf geckodriver-v0.33.0-linux64.tar.gz 
+RUN chmod +x geckodriver 
+RUN mv geckodriver /usr/local/bin/
+
+RUN apt install firefox-esr -y
+RUN export MOZ_HEADLESS=1
 
 # add and install requirements
 COPY ./requirements.txt .
@@ -18,8 +30,14 @@ RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
 # add entrypoint.sh
-COPY ./entrypoint.sh /usr/src/ola-handler/entrypoint.sh
-RUN chmod +x /usr/src/ola-handler/entrypoint.sh
+#COPY ./entrypoint.sh /usr/src/ola-handler/entrypoint.sh
+#RUN chmod +x /usr/src/ola-handler/entrypoint.sh
 
+
+
+EXPOSE 5004
 # add app
 COPY . .
+
+CMD [ "python3", "-m" , "flask", "run", "--host=0.0.0.0", "--port=5004"]
+#CMD ["flask", "run"]

@@ -16,7 +16,7 @@ from sqlalchemy import exists, insert, select, update, delete
 from json import dumps
 from flask_socketio import SocketIO, emit
 
-app = Flask(__name__, static_url_path='', static_folder='frontend/build')
+app = Flask(__name__, static_url_path='', static_folder='./static')
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///' + os.path.join(basedir, 'database.db')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
@@ -102,6 +102,9 @@ def callback():
 cbFunc = Thread(target=callback)
 cbFunc.start()
 
+@app.route('/')
+def home():
+    return send_from_directory(app.static_folder, 'index.html')
 @app.route("/api/v1/search/<Query>")
 def get_items(Query):
     results = []

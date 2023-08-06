@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "server": "flask run --port=8000 --host=0.0.0.0",
+    "server": "flask run --port=5004 --host=0.0.0.0",
     "client": "vite --host",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "build": "vite build",
@@ -38,6 +38,6 @@
     "eslint-plugin-react-refresh": "^0.4.1",
     "postcss": "^8.4.26",
     "tailwindcss": "^3.3.3",
-    "vite": "^4.4.0"
+    "vite": "^4.4.8"
   }
 }
