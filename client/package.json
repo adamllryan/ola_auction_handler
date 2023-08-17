@@ -7,9 +7,10 @@
     "server": "flask run --port=5004 --host=0.0.0.0",
     "client": "vite --host",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "vite build",
+    "build": "vite build --emptyOutDir",
     "lint": "eslint src --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build-prod": "docker build --pull --rm -f \"api/Dockerfile.api\" -t olaauctionhandler:latest \"api\""
   },
   "dependencies": {
     "@headlessui/react": "^1.7.15",
@@ -38,6 +39,7 @@
     "eslint-plugin-react-refresh": "^0.4.1",
     "postcss": "^8.4.26",
     "tailwindcss": "^3.3.3",
+    "tailwindcss-bg-patterns": "^0.2.0",
     "vite": "^4.4.8"
   }
 }

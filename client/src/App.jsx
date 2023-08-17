@@ -6,21 +6,28 @@ import ItemsDisplay from './components/ItemsDisplay';
 import SearchBar from './components/SearchBar';
 import { useState, useEffect, useRef } from "react";
 import Header from './components/Header.jsx'
-import Footer from './components/Footer.jsx'
 import { io } from 'socket.io-client'
 
 
 
 const App = ( ) => {
 
-  const PORT = 5004
   //TODO: 
   //Add Panel under search with post, get, update, delete owners
 
   // URL bases
-
-  const baseURL = `http://localhost:${PORT}/api/v1`        // Base URL
-  const wsURL = `ws://localhost:${PORT}s`
+  let url_items = window.location.href.replace('http://', '').replace('/', '').split(':')
+  let PORT = '5004';
+  let API_URL = url_items[0]
+  
+  if (process.env.NODE_ENV === 'production') {
+    //PORT = window._env_.REACT_APP_PORT
+    //API_URL = url_items[0]
+    PORT = url_items[1]
+  }
+  const baseURL = `http://${API_URL}:${PORT}/api/v1`        // Base URL
+  //const baseURL = `http://${API_URL}/api/v1`
+  const wsURL = `ws://${API_URL}:${PORT}`
 
   // Data States
 
@@ -167,19 +174,18 @@ const App = ( ) => {
   const refresh = () => {
     setProgress(0)
     setIsRefreshing(true)
-    client.current.emit('refresh_page')
+    client.current.emit('refresh_page', '')
   }
   
   return (
     <>
-      <div className="grid grid-cols-3 p-4 h-screen">
+      <div className="flex flex-col h-screen max-w-4xl m-auto">
 
         {/*Left side panel*/}
-        <div>
-          <Header refreshPage={refresh} progress={progress > 1? .95 : progress} isRefreshing={isRefreshing}/> 
-          <SearchBar submitQuery={newSearch} ownersData={owners}/>
+        <div className='group/header z-50'>
+          <Header refreshPage={refresh} progress={progress > 1? .95 : progress} isRefreshing={isRefreshing}/>   
+        <SearchBar submitQuery={newSearch} ownersData={owners}/>
         </div>
-
         {/*Item display panel*/}
         <ItemsDisplay page={page} onLoadNext={getNextPage} data={items} setOwner={setOwner} owners={owners} more={more}/>
 

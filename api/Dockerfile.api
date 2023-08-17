@@ -9,20 +9,12 @@ WORKDIR /usr/src/ola-handler
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 ENV FLASK_APP api.py
+ENV API_URL localhost
+ENV PORT 5004
 # install system dependencies
 RUN apt-get update \
   && apt-get -y install netcat gcc sqlite \
   && apt-get clean
-
-# Firefox
-RUN apt install wget -y && apt-get install -y apt-transport-https
-RUN wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux64.tar.gz
-RUN tar -xvzf geckodriver-v0.33.0-linux64.tar.gz 
-RUN chmod +x geckodriver 
-RUN mv geckodriver /usr/local/bin/
-
-RUN apt install firefox-esr -y
-RUN export MOZ_HEADLESS=1
 
 # add and install requirements
 COPY ./requirements.txt .

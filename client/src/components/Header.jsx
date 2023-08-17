@@ -8,19 +8,20 @@ import {
 const Header = ({ refreshPage, progress, isRefreshing}) => {  
 
   return (
-    <Navbar className="mx-auto max-w-screen-xl px-6 py-3">
-
+    <Navbar className="w-full p-4 z-30">
+      
       <div className="flex items-center justify-between text-blue-gray-900">
-        <Typography as="a" href="" variant="h6" className="mr-4 text-black py-1.5" >
+        <Typography as="a" href="" variant="h6" className="mr-4 text-black py-1.5 z-10" >
           Online Liquidation Auction Handler
         </Typography>
-        
-        <div className="flex items-center gap-4">
-
+        <div className='text-black absolute left-0 right-0 z-0 text-center'>
+          <label className='peer/dropdown hover:cursor-pointer p-8'>Settings</label>
+        </div>
+        <div className="items-center gap-4">
           <Button
             variant="gradient"
             size="sm"
-            className="hidden lg:inline-block"
+            className="inline-block z-10"
             onClick={refreshPage}
             disabled={isRefreshing}
           >

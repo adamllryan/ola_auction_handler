@@ -4,7 +4,7 @@ from dataclasses import dataclass
 import sys
 import time
 from flask import Flask, send_from_directory, jsonify, request, render_template
-from flask_restful import Api, Resource, reqparse
+from flask_restful import Api
 from flask_cors import CORS  # comment this on deployment
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy.sql import func, text
@@ -23,7 +23,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['SOCK_SERVER_OPTIONS'] = {'ping_interval': 25}
 
 CORS(app)  # comment this on deployment
-api = Api(app)
+# api = Api(app)
 db = SQLAlchemy(app)
 ma = Marshmallow(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
@@ -141,16 +141,6 @@ def get_items(Query):
     final = items_schema.dump(db.session.execute(text(search)).fetchall())
     return jsonify(final)
 
-# @app.route('/api/v1/refresh',methods = ['POST'])
-# def refresh():
-#     if request.method == 'POST':
-#         if not scraper.callback['page_refresh_trigger'].is_set():
-#             auctions = db.session.query(Item.auction).distinct().all()
-#             #print(auctions)
-#             scraper.logged_auctions = auctions
-#             scraper.callback['page_refresh_trigger'].set()
-#         return jsonify(scraper.get_progress())
-
 @app.route('/api/v1/refresh/progress', methods = ['GET'])
 def refresh_progress():
     if request.method == 'GET':
@@ -204,7 +194,8 @@ def getUserList():
     return jsonify(Users.query.all())
 
 @socketio.on('refresh_page')
-def refresh_call():
+def refresh_call(data=None):
+    # print('Refresh Called!', file=sys.stderr.err)
     if scraper.callback['page_refresh_trigger'].is_set():
         emit('err', 'Scraper is running or on cooldown')
     else:
@@ -217,4 +208,3 @@ def refresh_call():
             emit('refresh_progress', scraper.get_progress()['progress'])
         emit('refresh_progress', 'completed')
         commit_completed.clear()
-        

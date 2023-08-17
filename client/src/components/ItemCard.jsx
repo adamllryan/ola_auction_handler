@@ -77,11 +77,11 @@ const ItemCard = ({ owners, item, setOwner }) => {
   else
 
     return (
-      <div key={item.id} className='flex gap-x-6 py-2 duration-100 hover:shadow-md h-fit ease-in transition-all'>
+      <div key={item.id} className='flex group/wrap gap-x-6 bg-slate-50 border-b-2 border-black py-2 duration-100 gap-y-2 h-fit ease-in transition-all '>
 
         <CardCarousel src={item.src.includes(';')?item.src.split(';'):''}/>
 
-        <div className='inline-grid basis-full grid-cols-5 gap-x-2'>
+        <div className=' inline-grid basis-full grid-cols-5 gap-x-2'>
 
           <div className='min-w-0 flex-auto col-span-4'>
             <a className='text-sm font-semibold leading-none text-gray-900' href={item.url} target='_blank'>

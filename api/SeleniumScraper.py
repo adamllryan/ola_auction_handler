@@ -1,4 +1,6 @@
 from datetime import datetime
+import os
+import platform
 import sys
 import time
 from selenium.webdriver.firefox.webdriver import WebDriver
@@ -9,6 +11,7 @@ from selenium.webdriver.support import expected_conditions as ec
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from threading import Thread, Event
+from selenium.webdriver.firefox.service import Service as FirefoxService
 
 REPEAT_INITIAL_VALUE = 10
 TIMEOUT = 15
@@ -120,6 +123,7 @@ class SeleniumScraper(Thread):
         'auctions_in_database': [],
         'auctions_to_process': []
     }
+    driver_path = ''
 
     def __init__(self, auctions: list[str], debug: dict):
 
@@ -128,6 +132,16 @@ class SeleniumScraper(Thread):
         self.callback['page_refresh_callback'] = Event()
         self.auction_data['auctions_in_database'] = auctions
         self.debug = debug
+
+
+        if not os.path.isfile('geckodriver'):
+            if platform.system() is 'Linux':
+                os.system('wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux-aarch64.tar.gz')
+                os.system('tar -xvzf geckodriver-v0.33.0-linux-aarch64.tar.gz')
+                os.system('chmod -xvzf geckodriver')
+                self.driver_path = './geckodriver'
+            elif platform.system() is 'Darwin':
+                os.system('brew install geckodriver')
 
     def create_driver(self):
 
@@ -139,8 +153,17 @@ class SeleniumScraper(Thread):
 
         self.status['state'].pop()
 
-        return webdriver.Firefox(options=options)
+        if self.driver_path is '':
+            return webdriver.Firefox(options=options)
+        else:    
+            service = FirefoxService(executable_path=self.driver_path)
+            return webdriver.Firefox(service=service, options=options)
 
+
+    def setup_aarch64():
+        os.system('wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux-aarch64.tar.gz')
+        os.system('tar -xvzf geckodriver-v0.33.0-linux-aarch64.tar.gz')
+        os.system('chmod -xvzf geckodriver')
 
     def find_auctions(self):
 
