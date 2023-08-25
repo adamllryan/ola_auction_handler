@@ -1308,3 +1308,509 @@ console.error: QuickSuggest: (new TypeError("NetworkError: Network request faile
 1692034542203	Marionette	INFO	Stopped listening on port 65349
 console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
 1692034542843	Marionette	INFO	Stopped listening on port 65345
+1692243964071	geckodriver	INFO	Listening on 127.0.0.1:54529
+1692243964601	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54530" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilepgNC5M"
+*** You are running in headless mode.
+1692243965025	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilepgNC5M/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:54530/devtools/browser/0d296d60-5995-4865-a868-608bae745e24
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1692243965874	Marionette	INFO	Listening on port 54542
+1692243965969	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+JavaScript warning: https://www.google.com/js/th/5x46hAwcu1giTks49_45rmqwDjy4tXQwiwjXFxDvn6Y.js line 2 > eval line 7432 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1692243969501	Marionette	INFO	Stopped listening on port 54542
+JavaScript warning: https://www.google.com/js/th/5x46hAwcu1giTks49_45rmqwDjy4tXQwiwjXFxDvn6Y.js line 2 > eval line 333 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Msg_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PContent::Reply_DiscardBrowsingContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilepgNC5M/protections.sqlite
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1692243970330	geckodriver	INFO	Listening on 127.0.0.1:54672
+1692243970332	geckodriver	INFO	Listening on 127.0.0.1:54669
+1692243970337	geckodriver	INFO	Listening on 127.0.0.1:54673
+1692243970339	geckodriver	INFO	Listening on 127.0.0.1:54664
+1692243970341	geckodriver	INFO	Listening on 127.0.0.1:54670
+1692243970345	geckodriver	INFO	Listening on 127.0.0.1:54661
+1692243970348	geckodriver	INFO	Listening on 127.0.0.1:54660
+1692243970351	geckodriver	INFO	Listening on 127.0.0.1:54678
+1692243970366	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54677" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileJjPELh"
+1692243970366	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54676" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileecRxf2"
+1692243970375	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54675" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofiledMXgM9"
+1692243970375	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54663" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileQlTNDp"
+1692243970375	geckodriver	INFO	Listening on 127.0.0.1:54666
+1692243970374	geckodriver	INFO	Listening on 127.0.0.1:54667
+1692243970377	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54665" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileQEG5p3"
+1692243970376	geckodriver	INFO	Listening on 127.0.0.1:54679
+1692243970378	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54674" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilejnuyKA"
+1692243970379	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54681" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileKxqS83"
+1692243970379	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54662" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile5y9ZG0"
+1692243970382	geckodriver	INFO	Listening on 127.0.0.1:54680
+1692243970410	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54668" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile2t7vgC"
+1692243970415	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54671" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileFLM2rK"
+1692243970421	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54683" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilepZKtEi"
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+1692243970421	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "54682" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilerQHedI"
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+1692243970907	Marionette	INFO	Marionette enabled
+1692243970932	Marionette	INFO	Marionette enabled
+1692243970937	Marionette	INFO	Marionette enabled
+1692243970938	Marionette	INFO	Marionette enabled
+1692243970939	Marionette	INFO	Marionette enabled
+1692243970948	Marionette	INFO	Marionette enabled
+1692243970979	Marionette	INFO	Marionette enabled
+1692243971001	Marionette	INFO	Marionette enabled
+1692243971008	Marionette	INFO	Marionette enabled
+1692243971010	Marionette	INFO	Marionette enabled
+1692243971033	Marionette	INFO	Marionette enabled
+1692243971105	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilepZKtEi/search.json.mozlz4", (void 0)))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileKxqS83/search.json.mozlz4", (void 0)))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileJjPELh/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileQlTNDp/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofiledMXgM9/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileFLM2rK/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileQEG5p3/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileecRxf2/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile5y9ZG0/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilerQHedI/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilejnuyKA/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile2t7vgC/search.json.mozlz4", (void 0)))
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:54681/devtools/browser/c08365c6-7d96-40be-9588-0805f1a3f8bd
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:54677/devtools/browser/13848c02-22a3-4bb1-b60d-c6277ac5caf4
+1692243973125	Marionette	INFO	Listening on port 54721
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:54683/devtools/browser/b2a0f82a-c0e6-4ca8-911a-1188923ad66c
+1692243973238	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692243973243	Marionette	INFO	Listening on port 54717
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1692243973266	Marionette	INFO	Listening on port 54750
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:54663/devtools/browser/7808baad-236e-4049-b835-707842bb3b3f
+DevTools listening on ws://localhost:54662/devtools/browser/bd2c961b-bb89-4877-b2d5-16b9b99d831f
+1692243973402	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1692243973490	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:54668/devtools/browser/7400890c-008b-4204-9bd2-bf358d827339
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:54675/devtools/browser/9d2f8e8d-ba94-475b-8499-f3cd421d1a58
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1692243973554	Marionette	INFO	Listening on port 54723
+DevTools listening on ws://localhost:54671/devtools/browser/007ac870-8840-458e-86b6-e5992a413ca7
+1692243973563	Marionette	INFO	Listening on port 54718
+DevTools listening on ws://localhost:54682/devtools/browser/16f3bf24-9fe7-4631-9038-cb8b83e48f8d
+1692243973591	Marionette	INFO	Listening on port 54720
+1692243973614	Marionette	INFO	Listening on port 54749
+1692243973622	Marionette	INFO	Listening on port 54753
+1692243973647	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:54674/devtools/browser/158974a7-477f-46cf-be78-e8529f3985af
+DevTools listening on ws://localhost:54665/devtools/browser/3245015b-5b28-48da-a2af-afdd8a6f6090
+1692243973656	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:54676/devtools/browser/747c9f4d-bc7a-44b3-8f66-583f3be76598
+1692243973700	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692243973702	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692243973707	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692243973708	Marionette	INFO	Listening on port 54719
+1692243973725	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692243973725	Marionette	INFO	Listening on port 54748
+1692243973750	Marionette	INFO	Listening on port 54716
+1692243973780	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692243973819	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692243973828	Marionette	INFO	Listening on port 54722
+1692243973837	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692243976460	Marionette	INFO	Stopped listening on port 54721
+1692243976760	Marionette	INFO	Stopped listening on port 54723
+1692243977001	Marionette	INFO	Stopped listening on port 54750
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Child][PContentChild] Error: Send(msgname=PNecko::Msg_RemoveRequestContext) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+JavaScript error: resource://gre/modules/UrlClassifierListManager.jsm, line 691: TypeError: this.tablesData[table] is undefined
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1692243977692	Marionette	INFO	Stopped listening on port 54753
+1692243977701	Marionette	INFO	Stopped listening on port 54717
+1692243978027	Marionette	INFO	Stopped listening on port 54718
+1692243978146	Marionette	INFO	Stopped listening on port 54716
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1692243996615	Marionette	INFO	Stopped listening on port 54720
+1692243996628	Marionette	INFO	Stopped listening on port 54719
+console.error: PushServiceWebSocket: 
+  _beginWSSetup: Not in shutdown state! Current state
+  2
+1692243997024	Marionette	INFO	Stopped listening on port 54749
+1692244000719	Marionette	INFO	Stopped listening on port 54722
+1692244005315	Marionette	INFO	Stopped listening on port 54748
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1692245773045	geckodriver	INFO	Listening on 127.0.0.1:63986
+1692245773055	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "63987" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile1FoiM9"
+*** You are running in headless mode.
+1692245773353	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile1FoiM9/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:63987/devtools/browser/a8eb7f2e-47f0-4f4d-9602-68d559eb1ecb
+1692245774094	Marionette	INFO	Listening on port 63998
+1692245774119	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+JavaScript warning: https://www.google.com/js/th/5x46hAwcu1giTks49_45rmqwDjy4tXQwiwjXFxDvn6Y.js line 2 > eval line 2999 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+1692245778064	Marionette	INFO	Stopped listening on port 63998
+JavaScript warning: https://www.google.com/js/th/5x46hAwcu1giTks49_45rmqwDjy4tXQwiwjXFxDvn6Y.js line 2 > eval line 2388 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile1FoiM9/protections.sqlite
+1692245778832	geckodriver	INFO	Listening on 127.0.0.1:64153
+1692245778840	geckodriver	INFO	Listening on 127.0.0.1:64150
+1692245778843	geckodriver	INFO	Listening on 127.0.0.1:64157
+1692245778845	geckodriver	INFO	Listening on 127.0.0.1:64149
+1692245778847	geckodriver	INFO	Listening on 127.0.0.1:64152
+1692245778850	geckodriver	INFO	Listening on 127.0.0.1:64155
+1692245778851	geckodriver	INFO	Listening on 127.0.0.1:64159
+1692245778869	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "64161" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilerAZJ4S"
+1692245778872	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "64154" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilev2TSJ4"
+1692245778872	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "64151" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofiles4Cv4J"
+1692245778872	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "64156" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile4MLCt4"
+1692245778872	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "64162" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileCeiR1v"
+1692245778872	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "64160" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilev1svMH"
+1692245778872	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "64158" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilejZa9GQ"
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+1692245779281	Marionette	INFO	Marionette enabled
+1692245779287	Marionette	INFO	Marionette enabled
+1692245779302	Marionette	INFO	Marionette enabled
+1692245779312	Marionette	INFO	Marionette enabled
+1692245779314	Marionette	INFO	Marionette enabled
+1692245779318	Marionette	INFO	Marionette enabled
+1692245779356	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilerAZJ4S/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileCeiR1v/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofiles4Cv4J/search.json.mozlz4", (void 0)))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilejZa9GQ/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilev1svMH/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile4MLCt4/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilev2TSJ4/search.json.mozlz4", (void 0)))
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:64161/devtools/browser/a5a721d4-6812-47ed-8ae2-103885811ebf
+DevTools listening on ws://localhost:64151/devtools/browser/de05ec78-7c88-44b1-87b1-c31eec82f854
+DevTools listening on ws://localhost:64162/devtools/browser/6903b02b-f6db-4634-a8e5-1028c38f15b9
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1692245780799	Marionette	INFO	Listening on port 64196
+DevTools listening on ws://localhost:64158/devtools/browser/ab46476e-3a5b-48c6-9d80-2d2a2d295f76
+1692245780814	Marionette	INFO	Listening on port 64198
+1692245780855	Marionette	INFO	Listening on port 64199
+1692245780872	Marionette	INFO	Listening on port 64195
+1692245780874	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1692245780882	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692245780883	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:64160/devtools/browser/49e94ff4-1376-4acd-82dc-1eb44c4b1d34
+DevTools listening on ws://localhost:64156/devtools/browser/3d41e862-3966-4355-b766-67554f90abb0
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1692245780971	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692245780976	Marionette	INFO	Listening on port 64201
+1692245780981	Marionette	INFO	Listening on port 64200
+DevTools listening on ws://localhost:64154/devtools/browser/8308b962-06f0-4a05-a311-88c3ccd987b7
+1692245781033	Marionette	INFO	Listening on port 64197
+1692245781069	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692245781075	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692245781077	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692245782576	Marionette	INFO	Stopped listening on port 64198
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1692245783401	Marionette	INFO	Stopped listening on port 64199
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1692245783522	Marionette	INFO	Stopped listening on port 64196
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1692245783739	Marionette	INFO	Stopped listening on port 64200
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1692245783858	Marionette	INFO	Stopped listening on port 64197
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1692245783954	Marionette	INFO	Stopped listening on port 64195
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1692245784043	Marionette	INFO	Stopped listening on port 64201
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1692246069463	geckodriver	INFO	Listening on 127.0.0.1:49289
+1692246069996	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "49290" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileAzdI98"
+*** You are running in headless mode.
+1692246070314	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileAzdI98/search.json.mozlz4", (void 0)))
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:49290/devtools/browser/a81ff225-eff2-4d30-9fa3-fd5515402ae0
+1692246071181	Marionette	INFO	Listening on port 49297
+1692246071249	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1692246074601	Marionette	INFO	Stopped listening on port 49297
+console.error: services.settings: 
+  main/query-stripping Signature failed  TypeError: NetworkError: Network request failed
+console.error: services.settings: 
+  main/quicksuggest Signature failed  TypeError: NetworkError: Network request failed
+JavaScript warning: https://www.google.com/js/th/5x46hAwcu1giTks49_45rmqwDjy4tXQwiwjXFxDvn6Y.js line 2 > eval line 4914 > eval line 1 > eval line 1 > eval, line 1: WEBGL_debug_renderer_info is deprecated in Firefox and will be removed. Please use RENDERER.
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Reply_DiscardBrowsingContext) Closed channel: cannot send/recv
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Child][PContentChild] Error: Send(msgname=PBrowser::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PContentParent] Error: Send(msgname=PContent::Msg_DestroyBrowsingContextGroup) Closed channel: cannot send/recv
+
+JavaScript error: resource://gre/modules/Sqlite.jsm, line 1105: Error: Sqlite.jsm has been shutdown. Cannot open connection to: /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileAzdI98/protections.sqlite
+1692246077316	geckodriver	INFO	Listening on 127.0.0.1:49396
+1692246077321	geckodriver	INFO	Listening on 127.0.0.1:49385
+1692246077324	geckodriver	INFO	Listening on 127.0.0.1:49391
+1692246077332	geckodriver	INFO	Listening on 127.0.0.1:49392
+1692246077334	geckodriver	INFO	Listening on 127.0.0.1:49390
+1692246077350	geckodriver	INFO	Listening on 127.0.0.1:49388
+1692246077353	geckodriver	INFO	Listening on 127.0.0.1:49386
+1692246077357	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "49397" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile1MeGYE"
+1692246077371	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "49394" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileJiJzZM"
+1692246077371	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "49395" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileyPlddh"
+1692246077371	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "49398" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilelSGX3C"
+1692246077372	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "49389" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileE5u0NX"
+1692246077372	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "49387" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilezn9evJ"
+1692246077372	mozrunner::runner	INFO	Running command: "/Applications/Firefox.app/Contents/MacOS/firefox" "--marionette" "--headless" "--remote-debugging-port" "49393" "-foreground" "-no-remote" "-profile" "/var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileY6IIDY"
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+*** You are running in headless mode.
+1692246077726	Marionette	INFO	Marionette enabled
+1692246077734	Marionette	INFO	Marionette enabled
+1692246077736	Marionette	INFO	Marionette enabled
+1692246077754	Marionette	INFO	Marionette enabled
+1692246077847	Marionette	INFO	Marionette enabled
+1692246077881	Marionette	INFO	Marionette enabled
+1692246077910	Marionette	INFO	Marionette enabled
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileJiJzZM/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileY6IIDY/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofile1MeGYE/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileE5u0NX/search.json.mozlz4", (void 0)))
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilezn9evJ/search.json.mozlz4", (void 0)))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofileyPlddh/search.json.mozlz4", (void 0)))
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /var/folders/4r/k0h0tqnj05l_kgjxtk6zrp000000gn/T/rust_mozprofilelSGX3C/search.json.mozlz4", (void 0)))
+DevTools listening on ws://localhost:49393/devtools/browser/69a76543-d6d3-4c5b-9385-d5398265d558
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1692246079088	Marionette	INFO	Listening on port 49432
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:49389/devtools/browser/a8e122e1-2a52-441c-a804-8c1e77bfe588
+DevTools listening on ws://localhost:49387/devtools/browser/2aa69ffb-abe6-48f9-a79e-85217775902e
+1692246079142	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:49394/devtools/browser/92d0013a-d749-4cee-8fbc-f1f654513fc2
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+1692246079208	Marionette	INFO	Listening on port 49433
+DevTools listening on ws://localhost:49397/devtools/browser/4de5a2a4-2894-4ee5-92b0-56fee1a6d3e4
+1692246079224	Marionette	INFO	Listening on port 49431
+console.error: BackgroundUpdate: 
+  _reasonsToNotScheduleUpdates: Failed to check for Maintenance Service Registry Key: [Exception... "Component returned failure code: 0x80004001 (NS_ERROR_NOT_IMPLEMENTED) [nsIUpdateProcessor.getServiceRegKeyExists]"  nsresult: "0x80004001 (NS_ERROR_NOT_IMPLEMENTED)"  location: "JS frame :: resource://gre/modules/BackgroundUpdate.jsm :: _reasonsToNotScheduleUpdates :: line 241"  data: no]
+DevTools listening on ws://localhost:49395/devtools/browser/d5a61adb-a9d6-43fe-b371-5557a094bfe2
+1692246079252	Marionette	INFO	Listening on port 49435
+1692246079265	Marionette	INFO	Listening on port 49422
+1692246079266	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692246079269	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692246079270	Marionette	INFO	Listening on port 49434
+DevTools listening on ws://localhost:49398/devtools/browser/eb891f84-161a-4415-aa9d-ecf3e3b92bee
+1692246079300	Marionette	INFO	Listening on port 49436
+1692246079351	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692246079366	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692246079371	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1692246079372	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+console.warn: TopSitesFeed: Contile provided more links than permitted. (3 received, limit is 2)
+1692246083559	Marionette	INFO	Stopped listening on port 49433
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1692246083841	Marionette	INFO	Stopped listening on port 49434
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1692246084128	Marionette	INFO	Stopped listening on port 49436
+1692246084130	Marionette	INFO	Stopped listening on port 49431
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+1692246084333	Marionette	INFO	Stopped listening on port 49435
+console.error: QuickSuggest: (new TypeError("NetworkError: Network request failed", "resource://services-settings/Utils.jsm", 132))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1692246084646	Marionette	INFO	Stopped listening on port 49422
+
+###!!! [Child][PContentChild] Error: RunMessage(msgname=PHttpChannel::Msg_DeleteSelf) Channel closing: too late to send/recv, messages will be lost
+
+console.error: QuickSuggest: (new Error("Shutdown, aborting read-only worker requests.", "resource://services-settings/RemoteSettingsWorker.jsm", 143))
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1692246085119	Marionette	INFO	Stopped listening on port 49432
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+

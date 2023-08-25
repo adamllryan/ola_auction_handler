@@ -136,9 +136,11 @@ class SeleniumScraper(Thread):
 
         if not os.path.isfile('geckodriver'):
             if platform.system() is 'Linux':
+                os.system('apt-get install -y wget')
                 os.system('wget https://github.com/mozilla/geckodriver/releases/download/v0.33.0/geckodriver-v0.33.0-linux-aarch64.tar.gz')
                 os.system('tar -xvzf geckodriver-v0.33.0-linux-aarch64.tar.gz')
                 os.system('chmod -xvzf geckodriver')
+                os.system('apt-get install firefox-esr')
                 self.driver_path = './geckodriver'
             elif platform.system() is 'Darwin':
                 os.system('brew install geckodriver')

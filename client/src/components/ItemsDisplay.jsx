@@ -5,9 +5,9 @@ const ItemsDisplay = ({page, onLoadNext, data, setOwner, owners, more}) => {
 
   return (
 
-    <div className='group/display divide-black overflow-auto duration-300 hover:border-2 border-black'>
+    <div className='group/display divide-black overflow-auto duration-300 text-center h-full border'>
         {
-          (data.length === 0) ? <div>No items found. </div> : data.map((i, index) => {return <ItemCard owners={owners} key={index} item={i} setOwner={setOwner} />})
+          (data.length === 0) ? <div className='p-4'>No items found. </div> : data.map((i, index) => {return <ItemCard owners={owners} key={index} item={i} setOwner={setOwner} />})
         }
         
         {

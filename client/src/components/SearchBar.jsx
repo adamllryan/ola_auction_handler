@@ -65,7 +65,7 @@ const SearchBar = ({ submitQuery, ownersData }) => {
   }
   
   return (
-    <div className='col-span-1 left-1/4 right-1/4 -top-1/2 group-hover/header:top-16  absolute p-4 shadow-xl duration-300 ease-in-out z-30 bg-slate-50'>
+    <div className=' left-1/3 right-1/3 rounded-md border border-slate-400 -top-1/2 group-hover/header:top-20 absolute p-4 shadow-xl duration-300 ease-in-out z-30 bg-slate-50'>
 
         {/* Search Terms*/}
 
