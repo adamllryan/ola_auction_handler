@@ -177,7 +177,7 @@ const App = () => {
     <>
       <div className="flex flex-col h-screen max-w-4xl m-auto">
         {/*Left side panel*/}
-        <div className="group/header z-50">
+        <div className="z-50">
           <Header
             refreshPage={refresh}
             progress={progress > 1 ? 0.95 : progress}

@@ -13,12 +13,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 const Header = ({ refreshPage, progress, isRefreshing, newSearch, owners }) => {
   return (
-    <Navbar className="relative w-full p-4 z-50 border border-slate-400">
-      <div className="container inline-flex justify-between items-center items-center justify-between text-blue-gray-900">
-        <Typography variant="h6" className="col-span-2 text-black py-1.5 z-10">
+    <Navbar className="relative w-full p-4 pb-0 z-50 border-0 rounded-none">
+      <div className="container inline-flex justify-between items-center text-blue-gray-900 ">
+        {/* Title */}
+
+        <Typography variant="h6" className="text-black py-1.5 z-10">
           Online Liquidation Auction Handler
         </Typography>
-        <div className="inline-flex gap-x-2">
+        <div className="inline-flex gap-x-2 border border-slate-400 shadow-xl">
+          {/* Toggle Search Button */}
+
           <div className="text-black  left-1/2 z-0 text-center">
             <Menu placement="bottom" dismiss={{ itemPress: false }}>
               <MenuHandler>
@@ -29,7 +33,10 @@ const Header = ({ refreshPage, progress, isRefreshing, newSearch, owners }) => {
               </MenuList>
             </Menu>
           </div>
-          <div className="col-span-2 rounded-lg items-center gap-4">
+
+          {/* Refresh + Refresh Status Button */}
+
+          <div className="">
             <Button
               variant="gradient"
               size="sm"
