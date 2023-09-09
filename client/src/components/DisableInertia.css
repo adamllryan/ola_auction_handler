@@ -1,0 +1,6 @@
+.Disable {
+  -webkit-overflow-scrolling: auto !important;
+  bg: red !important;
+  overflow: auto !important;
+  height: 100% !important;
+}

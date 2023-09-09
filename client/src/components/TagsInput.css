@@ -1,12 +1,30 @@
-
 .rti--container {
-    margin: 4px;
-    --rti-s: .5rem;
-    --rti-bg: "#fff",
-    --rti-border: "#ccc",
-    --rti-main: "#3182ce",
-    --rti-radius: "0rem",
-    --rti-s: "2rem", /* spacing */
-    --rti-tag: "#edf2f7",
-    --rti-tag-remove: "#e53e3e",
-  }
+  margin: 0px !important;
+  --rti-s: 0.5rem !important;
+  --rti-bg: "#fff000" !important;
+  --rti-border: "#abcdef" !important;
+  --rti-main: "#3182ce" !important;
+  --rti-radius: ".0rem" !important;
+  --rti-s: "1rem" !important; /* spacing */
+  --rti-tag: "#adf2f7" !important;
+  --rti-tag-remove: "#e53e3e" !important;
+  width: 20rem !important;
+  box-shadow: 0px 4px 0px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem !important;
+  margin-top: 1rem !important;
+}
+.rti--input {
+  width: stretch !important;
+  border: 1px solid black;
+  margin-top: -1px;
+  margin-left: -1px;
+  border-right: none;
+}
+.rti--tag {
+  background: #ffffff;
+  border: 1px solid black;
+  margin-top: -1px;
+  margin-left: -1px;
+  height: auto;
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
+}

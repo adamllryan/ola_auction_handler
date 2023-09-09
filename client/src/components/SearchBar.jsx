@@ -3,7 +3,7 @@ import { useState } from "react";
 import { TagsInput } from "react-tag-input-component";
 import "./TagsInput.css";
 import OwnerDropdown from "./OwnerDropdown";
-import { Menu, MenuItem } from "@material-tailwind/react";
+import { Menu, MenuItem, Button } from "@material-tailwind/react";
 
 const SearchBar = ({ submitQuery, ownersData }) => {
   // App states
@@ -16,46 +16,28 @@ const SearchBar = ({ submitQuery, ownersData }) => {
   // Format search query string
 
   const onSubmit = () => {
-    // Format key with values arrow function
-
     const formatQuery = (title, list) => {
       return title + "=" + list.join("%25");
     };
 
     let result = [];
-
-    // Format name
-
     if (names.length > 0) {
+      /* Format names */
       result.push(formatQuery("name", names));
     }
-
-    // Format Auctions
-
     if (auctions.length > 0) {
+      /* Format auctions */
       result.push(formatQuery("auction", auctions));
     }
-
     if (conditions.length > 0) {
+      /* Format conditions */
       result.push(formatQuery("condition", conditions));
     }
-
-    // Format Owners
-
     if (ownerId !== 0) {
-      // Remove non-matches
-
-      //let filtered = ownersData.filter((owner) => {return owners.indexOf(owner.name) !== -1})
-
-      // Map owners to their ids
-
-      //filtered = filtered.map((owner) => owner.id)
-
-      //result.push(formatQuery('owner_id', filtered))
+      /* Format owner query */
       result.push("owner_id=" + ownerId);
     }
-
-    // Format for url
+    /* Join all queries */
 
     result = result.join("&").replaceAll(" ", "+");
 
@@ -66,37 +48,40 @@ const SearchBar = ({ submitQuery, ownersData }) => {
     <>
       {/* Search Terms*/}
 
-      <MenuItem color="lightBlue">
+      <MenuItem color="lightBlue" className="p-0 m-0 rounded-none">
         <TagsInput
           className="rounded-none"
           value={names}
           onChange={setNames}
           name="names"
-          placeHolder="Add Keywords e.g. Power Strip"
+          placeHolder="Filter by item name"
         />
       </MenuItem>
 
-      <MenuItem color="lightBlue">
+      <MenuItem color="lightBlue" className="p-0 rounded-none">
         <TagsInput
           className=""
           value={auctions}
           onChange={setAuctions}
           name="auctions"
-          placeHolder="Add Auction keywords e.g. Stow or 3010"
+          placeHolder="Filter by auction location and number"
         />
       </MenuItem>
 
-      <MenuItem color="lightBlue">
+      <MenuItem color="lightBlue" className="p-0 rounded-none">
         <TagsInput
           className=""
           value={conditions}
           onChange={setConditions}
           name="conditions"
-          placeHolder="Add Condition Keywords e.g. New"
+          placeHolder="Filter by item condition"
         />
       </MenuItem>
-      <MenuItem color="lightBlue">
-        <div className="inline-flex items-center gap-x-2 m-2 border border-slate-400 rounded-md p-1 bg-slate-50">
+
+      {/* Owner Dropdown */}
+
+      <MenuItem color="lightBlue" className="p-0">
+        <div className="inline-flex items-center justify-center gap-x-2 border-t border-t-slate-400 w-full">
           <label>Filter by Owner: </label>
           <OwnerDropdown
             owners={ownersData}
@@ -105,15 +90,17 @@ const SearchBar = ({ submitQuery, ownersData }) => {
           />
         </div>
       </MenuItem>
+
       {/* Submit Button */}
-      <MenuItem color="lightBlue">
-        <button
-          type="button"
-          className="w-full text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700"
+
+      <MenuItem color="lightBlue" className="p-0">
+        <Button
+          variant="outlined"
+          className="rounded-none text-black bg-white border-slate-400 border-x-0 border-b-0 w-full"
           onClick={onSubmit}
         >
           Apply
-        </button>
+        </Button>
       </MenuItem>
     </>
   );

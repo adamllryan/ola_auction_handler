@@ -2,31 +2,11 @@ import "./components/Header";
 import "./components/Footer";
 import "./components/ItemsDisplay";
 import ItemsDisplay from "./components/ItemsDisplay";
-import SearchBar from "./components/SearchBar";
 import { useState, useEffect, useRef } from "react";
 import Header from "./components/Header.jsx";
 import { io } from "socket.io-client";
-
+import { sampleItems, sampleOwners } from './sample.js'
 const App = () => {
-  //TODO:
-  //Add Panel under search with post, get, update, delete owners
-
-  // URL bases
-  let url_items = window.location.href
-    .replace("http://", "")
-    .replace("/", "")
-    .split(":");
-  let PORT = "5004";
-  let API_URL = url_items[0];
-
-  if (process.env.NODE_ENV === "production") {
-    //PORT = window._env_.REACT_APP_PORT
-    //API_URL = url_items[0]
-    PORT = url_items[1];
-  }
-  const baseURL = `http://${API_URL}:${PORT}/api/v1`; // Base URL
-  //const baseURL = `http://${API_URL}/api/v1`
-  const wsURL = `ws://${API_URL}:${PORT}`;
 
   // Data States
 
@@ -44,6 +24,21 @@ const App = () => {
   // Websocket Client setup
 
   const client = useRef();
+
+  // URL bases
+  let url_items = window.location.href
+    .replace("http://", "")
+    .replace("/", "")
+    .split(":");
+  let PORT = "5004";
+  let API_URL = url_items[0];
+
+  if (process.env.NODE_ENV === "production") {
+    PORT = url_items[1];
+    setItems(sample)
+  }
+  const baseURL = `http://${API_URL}:${PORT}/api/v1`; // Base URL
+  const wsURL = `ws://${API_URL}:${PORT}`;
 
   // Render away from state
 
@@ -63,14 +58,23 @@ const App = () => {
       }
       setOwners(ownersQuery);
     };
-    getOwners();
+    if (process.env.NODE_ENV === "production") {
+      getOwners();
+    } else {
+      setOwners(sampleOwners)
+    }
 
     // Get items initially
 
     const getItems = async () => {
       await newSearch();
     };
-    getItems();
+
+    if (process.env.NODE_ENV === "production") {
+      getItems();
+    } else {
+      setItems(sampleItems  )
+    }
 
     // Set up websocket the right way
     const URL = process.env.NODE_ENV === "prod" ? undefined : wsURL;
