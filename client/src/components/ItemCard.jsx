@@ -78,13 +78,13 @@ const ItemCard = ({ owners, item, setOwner }) => {
       <CardCarousel className="col-span-1" src={item.src} />
       <div className={` grid grid-rows-2 col-span-3 ${""}`}>
         <a
-          className="text-sm font-semibold leading-none text-gray-900"
+          className="ml-2 text-sm font-semibold leading-none text-gray-900 border border-slate-400"
           href={item.url}
           target="_blank"
         >
           {item.name}
         </a>
-        <div className="grid grid-rows-2 grid-cols-1 text-xs">
+        <div className="grid grid-rows-2 grid-cols-1 text-xs border border-slate-400 ml-2">
           <label>{item.auction}</label>
           <label className={`${lowTime ? "text-red-500" : ""}`}>
             <Countdown
