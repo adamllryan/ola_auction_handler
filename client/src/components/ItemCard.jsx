@@ -76,22 +76,24 @@ const ItemCard = ({ owners, item, setOwner }) => {
   return (
     <div className="border border-t-0 border-slate-400 grid grid-cols-4 bg-slate-50 shadow-xl p-2 ">
       <CardCarousel className="col-span-1" src={item.src} />
-      <div className={` grid grid-rows-2 col-span-3 ${""}`}>
-        <a
-          className="ml-2 text-sm font-semibold leading-none text-gray-900 border border-slate-400"
-          href={item.url}
-          target="_blank"
-        >
-          {item.name}
-        </a>
-        <div className="grid grid-rows-2 grid-cols-1 text-xs border border-slate-400 ml-2">
-          <label>{item.auction}</label>
-          <label className={`${lowTime ? "text-red-500" : ""}`}>
-            <Countdown
-              date={new Date(Date.parse(item.ends_at + " UTC"))}
-              renderer={renderer}
-            />
-          </label>
+      <div className="w-full col-span-3 h-full">
+        <div className={`grid grid-flow-row col-span-3 w-full`}>
+          <a
+            className="ml-2 text-sm font-semibold leading-none text-gray-900 border-b border-slate-400 pb-2"
+            href={item.url}
+            target="_blank"
+          >
+            {item.name}
+          </a>
+          <div className="grid  text-xs ml-2 pt-2">
+            <label>{item.auction}</label>
+            <label className={`${lowTime ? "text-red-500" : ""}`}>
+              <Countdown
+                date={new Date(Date.parse(item.ends_at + " UTC"))}
+                renderer={renderer}
+              />
+            </label>
+          </div>
         </div>
       </div>
     </div>
