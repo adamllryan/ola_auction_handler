@@ -9,6 +9,7 @@ const ItemCard = ({ owners, item, setOwner }) => {
   const [ownerId, setOwnerId] = useState(
     item.owner_id !== null ? item.owner_id : 0
   );
+  const [lowTime, setLowTime] = useState(false);
 
   // Color based on Item Condition
 
@@ -41,7 +42,7 @@ const ItemCard = ({ owners, item, setOwner }) => {
 
   // renderer so we can display push notif
 
-  const renderer = ({ hours, minutes, seconds, completed }) => {
+  const renderer = ({ days, hours, minutes, seconds, completed }) => {
     // get time until
 
     let time = calcTimeDelta(new Date(Date.parse(item.ends_at + " UTC")));
@@ -55,10 +56,12 @@ const ItemCard = ({ owners, item, setOwner }) => {
       time.seconds === 0
     )
       displayNotif();
+    if (time.days === 0 && time.hours === 0 && time.minutes < 30)
+      setLowTime(true);
 
     return (
       <label>
-        {hours}h {minutes}m {seconds}s
+        {days}d {hours}h {minutes}m {seconds}s
       </label>
     );
   };
@@ -70,8 +73,30 @@ const ItemCard = ({ owners, item, setOwner }) => {
 
     setOwnerId(owner_id);
   };
-
-  if (Date.parse(item.ends_at) - Date.now() < 0)
+  return (
+    <div className="border border-t-0 border-slate-400 grid grid-cols-4 bg-slate-50 shadow-xl p-2 ">
+      <CardCarousel className="col-span-1" src={item.src} />
+      <div className={` grid grid-rows-2 col-span-3 ${""}`}>
+        <a
+          className="text-sm font-semibold leading-none text-gray-900"
+          href={item.url}
+          target="_blank"
+        >
+          {item.name}
+        </a>
+        <div className="grid grid-rows-2 grid-cols-1 text-xs">
+          <label>{item.auction}</label>
+          <label className={`${lowTime ? "text-red-500" : ""}`}>
+            <Countdown
+              date={new Date(Date.parse(item.ends_at + " UTC"))}
+              renderer={renderer}
+            />
+          </label>
+        </div>
+      </div>
+    </div>
+  );
+  /*if (Date.parse(item.ends_at) - Date.now() < 0)
     return <div>Auction Ended</div>;
   else
     return (
@@ -137,6 +162,7 @@ const ItemCard = ({ owners, item, setOwner }) => {
         </div>
       </div>
     );
+    */
 };
 
 export default ItemCard;
