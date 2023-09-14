@@ -5,9 +5,8 @@ import ItemsDisplay from "./components/ItemsDisplay";
 import { useState, useEffect, useRef } from "react";
 import Header from "./components/Header.jsx";
 import { io } from "socket.io-client";
-import { sampleItems, sampleOwners } from './sample.js'
+import { sampleItems, sampleOwners } from "./sample.js";
 const App = () => {
-
   // Data States
 
   const [items, setItems] = useState([]); // All items displayed
@@ -35,7 +34,6 @@ const App = () => {
 
   if (process.env.NODE_ENV === "production") {
     PORT = url_items[1];
-    setItems(sample)
   }
   const baseURL = `http://${API_URL}:${PORT}/api/v1`; // Base URL
   const wsURL = `ws://${API_URL}:${PORT}`;
@@ -46,7 +44,7 @@ const App = () => {
     // Get owners initially
 
     const getOwners = async () => {
-      let ownersQuery = [{ id: 0, name: "None", password: null }];
+      let ownersQuery = [{ id: 0, name: "Set Owner", password: null }];
       try {
         const res = await fetch(baseURL + "/users");
         if (!res.ok) {
@@ -61,7 +59,7 @@ const App = () => {
     if (process.env.NODE_ENV === "production") {
       getOwners();
     } else {
-      setOwners(sampleOwners)
+      setOwners(sampleOwners);
     }
 
     // Get items initially
@@ -73,7 +71,7 @@ const App = () => {
     if (process.env.NODE_ENV === "production") {
       getItems();
     } else {
-      setItems(sampleItems  )
+      setItems(sampleItems);
     }
 
     // Set up websocket the right way

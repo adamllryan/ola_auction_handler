@@ -652,7 +652,7 @@ export const sampleItems = [
 ];
 
 export const sampleOwners = [
-  { id: 0, name: "None", password: null },
+  { id: 0, name: "Set Owner", password: null },
   { id: 1, name: "Owner 1", password: null },
   { id: 2, name: "Owner 2", password: null },
   { id: 3, name: "Owner 3", password: null },
