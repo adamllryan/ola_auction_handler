@@ -20,7 +20,7 @@ const OwnerDropdown = ({ owners, owner_id, updateOwner, id }) => {
     <div className="">
       <Listbox value={owner_id} onChange={ownerOnclick}>
         <Listbox.Button
-          className=" w-fit bg-slate-50 border-slate-400 border content-center text-center justify-center p-1 cursor-pointer"
+          className=" w-fit bg-slate-50 border-gray-500 border content-center text-center justify-center p-1 cursor-pointer"
           onClick={() => {
             setIsOpen(!isOpen);
           }}
@@ -40,10 +40,10 @@ const OwnerDropdown = ({ owners, owner_id, updateOwner, id }) => {
           leaveTo="opacity-0"
         >
           <div className="relative">
-            <Listbox.Options className="-translate-y-3/4 absolute bg-slate-50 border-slate-400 border p-2 w-fit">
+            <Listbox.Options className="-translate-y-3/4 absolute bg-white border-gray-500 border p-2 w-fit">
               {owners.map((o, index) => (
                 <Listbox.Option
-                  className="hover:bg-slate-200 duration-300 hover:border-slate-400 text-center cursor-pointer"
+                  className="hover:bg-gray-300 duration-300 hover:border hover:border-gray-500 text-center cursor-pointer"
                   key={o.id}
                   value={index}
                   disabled={false}

@@ -33,16 +33,18 @@ const ItemCard = ({ owners, item, setOwner }) => {
   };
   const getConditionMark = () => {
     if (item.condition === "New") {
-      return <FontAwesomeIcon className="text-lime-500" icon={faCheckDouble} />;
+      return (
+        <FontAwesomeIcon style={{ color: "#00ff11" }} icon={faCheckDouble} />
+      );
     } else if (item.condition === "Open Box, Like New") {
-      return <FontAwesomeIcon className="text-lime-500" icon={faCheck} />;
+      return <FontAwesomeIcon style={{ color: "#00ff11" }} icon={faCheck} />;
     } else if (item.condition === "Open Box, Used") {
       return (
-        <FontAwesomeIcon className="text-amber-600" icon={faExclamation} />
+        <FontAwesomeIcon style={{ color: "#ffea00" }} icon={faExclamation} />
       );
     } else {
       return (
-        <FontAwesomeIcon className="text-orange-600" icon={faCircleQuestion} />
+        <FontAwesomeIcon style={{ color: "ff0000" }} icon={faCircleQuestion} />
       );
     }
   };
@@ -95,12 +97,12 @@ const ItemCard = ({ owners, item, setOwner }) => {
     setOwnerId(owner_id);
   };
   return (
-    <div className="border border-t-0 border-slate-400 grid grid-cols-4 bg-slate-50 shadow-xl p-2 ">
+    <div className="border border-t-0 border-gray-500 grid grid-cols-4 bg-white shadow-md p-2 ">
       <CardCarousel className="col-span-1" src={item.src} />
       <div className="w-full col-span-3 h-full">
-        <div className={`grid grid-flow-row col-span-3 w-full`}>
+        <div className="grid grid-flow-row col-span-3 w-full">
           <a
-            className="ml-2 text-sm font-semibold leading-none text-gray-900 border-b border-slate-400 pb-2"
+            className="ml-2 text-sm font-semibold leading-none text-gray-800 border-b border-gray-500 pb-2"
             href={item.url}
             target="_blank"
           >
@@ -110,7 +112,7 @@ const ItemCard = ({ owners, item, setOwner }) => {
             <label>Listed Retail: ${item.retail_price}</label>
             <label>{item.auction}</label>
             <label>
-              <div className="flex border border-t-0 border-slate-400 gap-1 w-fit items-center px-2 -mt-2">
+              <div className="flex border border-t-0 border-gray-500 gap-1 w-fit items-center px-2 -mt-2">
                 <div className="text-xl rounded-full aspect-square">
                   {getConditionMark()}
                 </div>

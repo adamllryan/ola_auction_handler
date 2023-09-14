@@ -4,7 +4,7 @@ const CardCarousel = ({ src }) => {
   return (
     <div className="aspect-square">
       <Carousel
-        className="rounded-none border border-slate-400 w-full shadow-md"
+        className="rounded-none border border-gray-500 w-full shadow-md"
         navigation={({ setActiveIndex, activeIndex, length }) => (
           <div className="absolute bottom-1 left-2/4 z-50 flex w-3/4 justify-center flex-wrap  -translate-x-2/4 gap-2">
             {new Array(length).fill("").map((_, i) => (
@@ -28,7 +28,7 @@ const CardCarousel = ({ src }) => {
             <img
               src={s}
               key={index}
-              className="object-scale-down"
+              className="object-cover h-full w-full"
               onError={(e) => {
                 e.target.onError = null;
                 e.target.src = "https://via.placeholder.com/300";

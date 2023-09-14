@@ -48,7 +48,10 @@ const SearchBar = ({ submitQuery, ownersData }) => {
     <>
       {/* Search Terms*/}
 
-      <MenuItem color="lightBlue" className="p-0 m-0 rounded-none">
+      <MenuItem
+        color="lightBlue"
+        className="p-0 m-0 rounded-none hover:bg-white hover:cursor-default"
+      >
         <TagsInput
           className="rounded-none"
           value={names}
@@ -58,7 +61,10 @@ const SearchBar = ({ submitQuery, ownersData }) => {
         />
       </MenuItem>
 
-      <MenuItem color="lightBlue" className="p-0 rounded-none">
+      <MenuItem
+        color="lightBlue"
+        className="p-0 rounded-none hover:bg-white hover:cursor-default"
+      >
         <TagsInput
           className=""
           value={auctions}
@@ -68,7 +74,10 @@ const SearchBar = ({ submitQuery, ownersData }) => {
         />
       </MenuItem>
 
-      <MenuItem color="lightBlue" className="p-0 rounded-none">
+      <MenuItem
+        color="lightBlue"
+        className="p-0 rounded-none hover:bg-white hover:cursor-default"
+      >
         <TagsInput
           className=""
           value={conditions}
