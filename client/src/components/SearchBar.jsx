@@ -90,7 +90,7 @@ const SearchBar = ({ submitQuery, ownersData }) => {
       {/* Owner Dropdown */}
 
       <MenuItem color="lightBlue" className="p-0">
-        <div className="inline-flex items-center justify-center gap-x-2 border-t border-t-slate-400 w-full">
+        <div className="inline-flex items-center justify-center gap-x-2 border-t border-t-slate-400 w-full ">
           <label>Filter by Owner: </label>
           <OwnerDropdown
             owners={ownersData}

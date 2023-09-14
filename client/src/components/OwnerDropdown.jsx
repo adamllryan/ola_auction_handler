@@ -17,10 +17,10 @@ const OwnerDropdown = ({ owners, owner_id, updateOwner, id }) => {
   };
 
   return (
-    <div className="">
+    <div className="whitespace-nowrap z-50">
       <Listbox value={owner_id} onChange={ownerOnclick}>
         <Listbox.Button
-          className=" w-fit bg-slate-50 border-gray-500 border content-center text-center justify-center p-1 cursor-pointer"
+          className="whitespace-nowrap w-fit bg-slate-50 border-gray-500 border content-center text-center justify-center p-1 cursor-pointer"
           onClick={() => {
             setIsOpen(!isOpen);
           }}
