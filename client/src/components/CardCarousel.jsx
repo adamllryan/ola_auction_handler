@@ -24,7 +24,17 @@ const CardCarousel = ({ src }) => {
         nextArrow={({ handleNext }) => <></>}
       >
         {src.split(";").map((s, index) => {
-          return <img src={s} key={index} className="object-scale-down " />;
+          return (
+            <img
+              src={s}
+              key={index}
+              className="object-scale-down"
+              onError={(e) => {
+                e.target.onError = null;
+                e.target.src = "https://via.placeholder.com/300";
+              }}
+            />
+          );
         })}
       </Carousel>
     </div>

@@ -2,7 +2,14 @@ import { React, useState } from "react";
 import CardCarousel from "./CardCarousel";
 import Countdown, { calcTimeDelta } from "react-countdown";
 import OwnerDropdown from "./OwnerDropdown";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCheck,
+  faCircleCheck,
+  faCheckDouble,
+  faExclamation,
+  faCircleQuestion,
+} from "@fortawesome/free-solid-svg-icons";
 const ItemCard = ({ owners, item, setOwner }) => {
   // State
 
@@ -24,7 +31,21 @@ const ItemCard = ({ owners, item, setOwner }) => {
       return "bg-orange-600"; //TODO: complete these
     }
   };
-
+  const getConditionMark = () => {
+    if (item.condition === "New") {
+      return <FontAwesomeIcon className="text-lime-500" icon={faCheckDouble} />;
+    } else if (item.condition === "Open Box, Like New") {
+      return <FontAwesomeIcon className="text-lime-500" icon={faCheck} />;
+    } else if (item.condition === "Open Box, Used") {
+      return (
+        <FontAwesomeIcon className="text-amber-600" icon={faExclamation} />
+      );
+    } else {
+      return (
+        <FontAwesomeIcon className="text-orange-600" icon={faCircleQuestion} />
+      );
+    }
+  };
   // Push Notification when 5 minutes remaining
 
   const displayNotif = () => {
@@ -85,14 +106,32 @@ const ItemCard = ({ owners, item, setOwner }) => {
           >
             {item.name}
           </a>
-          <div className="grid  text-xs ml-2 pt-2">
+          <div className="grid grid-rows-2 grid-cols-3 text-xs ml-2 pt-2">
+            <label>Listed Retail: ${item.retail_price}</label>
             <label>{item.auction}</label>
+            <label>
+              <div className="flex border border-t-0 border-slate-400 gap-1 w-fit items-center px-2 -mt-2">
+                <div className="text-xl rounded-full aspect-square">
+                  {getConditionMark()}
+                </div>
+                <div className="align-sub">{item.condition}</div>
+              </div>
+            </label>
+            <label>Recorded price: ${item.last_price}</label>
+
             <label className={`${lowTime ? "text-red-500" : ""}`}>
               <Countdown
                 date={new Date(Date.parse(item.ends_at + " UTC"))}
                 renderer={renderer}
               />
             </label>
+
+            <OwnerDropdown
+              owners={owners}
+              owner_id={ownerId}
+              updateOwner={updateOwnerId}
+              id={item.id}
+            />
           </div>
         </div>
       </div>
