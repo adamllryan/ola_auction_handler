@@ -1,4 +1,4 @@
-
+[!INFO] NOTICE: OLA migrated to a mobile-only application in October 2023. This application is no longer able to scrape listing data. 
 
 This is a full web application used to track Online Liquidation Auction Listings. 
 
