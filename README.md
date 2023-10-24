@@ -2,7 +2,7 @@
 
 This is a full web application used to track Online Liquidation Auction Listings. 
 
-<img width="927" alt="Screenshot 2023-10-24 at 2 18 56 PM" src="https://github.com/adamllryan/ola_auction_handler/assets/22080774/7f8c016b-b280-44d3-afc5-38b60a974ce5">
+<img width="300" alt="Screenshot 2023-10-24 at 2 24 54 PM" src="https://github.com/adamllryan/ola_auction_handler/assets/22080774/6b3cf0c0-ad02-4521-b705-931b039aea25">
 
 This app has the following features:
 - Users, items can be "owned" to prevent bidding over each other
