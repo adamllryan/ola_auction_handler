@@ -22,6 +22,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-vite/database.db
-vite/database.db
-vite/database.db
+api/geckodriver.log
+api/database.db
+*.log
+*.db

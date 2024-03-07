@@ -29,7 +29,7 @@ const SearchButton = ({ newSearch, owners }) => {
       <MenuHandler className="rounded-none border-y-0 border-r-0 text-center">
         <Button variant="outlined">Search</Button>
       </MenuHandler>
-      <MenuList className="z-50 rounded-none border border-slate-400 bg-slate-50 p-0">
+      <MenuList className="z-50 rounded-none border border-gray-500 bg-white p-0">
         <SearchBar
           className="z-50"
           submitQuery={newSearch}
@@ -72,7 +72,7 @@ const RefreshButton = ({ refreshPage, isRefreshing, progress }) => {
 
 const Header = ({ refreshPage, progress, isRefreshing, newSearch, owners }) => {
   return (
-    <Navbar className="w-full pl-4 pr-0 py-0 z-50 border-slate-400 rounded-none">
+    <Navbar className="w-full pl-4 pr-0 py-0 z-50 border border-gray-900 rounded-none ">
       <div className="container inline-flex justify-between items-center text-blue-gray-900 ">
         <HeaderTitle />
         <div className="inline-flex h-full">

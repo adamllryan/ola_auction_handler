@@ -2,7 +2,7 @@ import { React, useState } from "react";
 import CardCarousel from "./CardCarousel";
 import Countdown, { calcTimeDelta } from "react-countdown";
 import OwnerDropdown from "./OwnerDropdown";
-
+import { Carousel } from "@material-tailwind/react"
 const ItemCard = ({ owners, item, setOwner }) => {
   // State
 
@@ -79,32 +79,12 @@ const ItemCard = ({ owners, item, setOwner }) => {
         key={item.id}
         className="flex group/wrap gap-x-6 bg-slate-50 border-b-2 border-black py-2 duration-100 gap-y-2 h-fit ease-in transition-all "
       >
-        <CardCarousel src={item.src} />
+        <CarouselComponent src={item.src} />
 
         <div className=" inline-grid basis-full grid-cols-5 gap-x-2">
-          <div className="min-w-0 flex-auto col-span-4">
-            <a
-              className="text-sm font-semibold leading-none text-gray-900"
-              href={item.url}
-              target="_blank"
-            >
-              {item.name}
-            </a>
-          </div>
-
-          <div
-            className={
-              "mx-2 p-2 mt-1 flex h-fit justify-normal text-sm leading-5 text-gray-900 bg-gray-100 rounded-lg m-8 duration-300 hover:" +
-              getConditionColor()
-            }
-          >
-            <span
-              className={
-                "flex mr-1 w-5 h-5 rounded-full " + getConditionColor()
-              }
-            ></span>
-            {item.condition}
-          </div>
+          
+          <TitleComponent name={item.name} url={item.url} />
+          <ConditionComponent getConditionColor={getConditionColor} condition={item.condition} />
 
           <div className="flex text-xs  text-gray-500">{item.auction}</div>
 
@@ -138,5 +118,49 @@ const ItemCard = ({ owners, item, setOwner }) => {
       </div>
     );
 };
+
+const CarouselComponent = ( {src} ) => {
+  return (
+    <Carousel className="rounded-xl">
+      {src.split(";").map((s, index) => {
+        return <img src={s} key={index} className="object-scale-down" />;
+      })}
+    </Carousel>
+  );
+}
+
+const TitleComponent = ( {url, name} ) => {
+  return (
+    <div className="min-w-0 flex-auto col-span-4">
+            <a
+              className="text-sm font-semibold leading-none text-gray-900"
+              href={url}
+              target="_blank"
+            >
+              {name}
+            </a>
+          </div>
+  )
+}
+
+const ConditionComponent = ( {getConditionColor, condition} ) => {
+  <div
+            className={
+              "mx-2 p-2 mt-1 flex h-fit justify-normal text-sm leading-5 text-gray-900 bg-gray-100 rounded-lg m-8 duration-300 hover:" +
+              getConditionColor()
+            }
+          >
+            <span
+              className={
+                "flex mr-1 w-5 h-5 rounded-full " + getConditionColor()
+              }
+            ></span>
+            {condition}
+          </div>
+}
+
+const DescriptionComponent = () => {
+  
+}
 
 export default ItemCard;
