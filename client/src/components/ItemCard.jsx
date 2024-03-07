@@ -2,21 +2,13 @@ import { React, useState } from "react";
 import CardCarousel from "./CardCarousel";
 import Countdown, { calcTimeDelta } from "react-countdown";
 import OwnerDropdown from "./OwnerDropdown";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheck,
-  faCircleCheck,
-  faCheckDouble,
-  faExclamation,
-  faCircleQuestion,
-} from "@fortawesome/free-solid-svg-icons";
+import { Carousel } from "@material-tailwind/react"
 const ItemCard = ({ owners, item, setOwner }) => {
   // State
 
   const [ownerId, setOwnerId] = useState(
     item.owner_id !== null ? item.owner_id : 0
   );
-  const [lowTime, setLowTime] = useState(false);
 
   // Color based on Item Condition
 
@@ -31,23 +23,7 @@ const ItemCard = ({ owners, item, setOwner }) => {
       return "bg-orange-600"; //TODO: complete these
     }
   };
-  const getConditionMark = () => {
-    if (item.condition === "New") {
-      return (
-        <FontAwesomeIcon style={{ color: "#00ff11" }} icon={faCheckDouble} />
-      );
-    } else if (item.condition === "Open Box, Like New") {
-      return <FontAwesomeIcon style={{ color: "#00ff11" }} icon={faCheck} />;
-    } else if (item.condition === "Open Box, Used") {
-      return (
-        <FontAwesomeIcon style={{ color: "#ffea00" }} icon={faExclamation} />
-      );
-    } else {
-      return (
-        <FontAwesomeIcon style={{ color: "ff0000" }} icon={faCircleQuestion} />
-      );
-    }
-  };
+
   // Push Notification when 5 minutes remaining
 
   const displayNotif = () => {
@@ -65,7 +41,7 @@ const ItemCard = ({ owners, item, setOwner }) => {
 
   // renderer so we can display push notif
 
-  const renderer = ({ days, hours, minutes, seconds, completed }) => {
+  const renderer = ({ hours, minutes, seconds, completed }) => {
     // get time until
 
     let time = calcTimeDelta(new Date(Date.parse(item.ends_at + " UTC")));
@@ -79,12 +55,10 @@ const ItemCard = ({ owners, item, setOwner }) => {
       time.seconds === 0
     )
       displayNotif();
-    if (time.days === 0 && time.hours === 0 && time.minutes < 30)
-      setLowTime(true);
 
     return (
       <label>
-        {days}d {hours}h {minutes}m {seconds}s
+        {hours}h {minutes}m {seconds}s
       </label>
     );
   };
@@ -96,50 +70,8 @@ const ItemCard = ({ owners, item, setOwner }) => {
 
     setOwnerId(owner_id);
   };
-  return (
-    <div className="border border-t-0 border-gray-500 grid grid-cols-4 bg-white shadow-md p-2 ">
-      <CardCarousel className="col-span-1" src={item.src} />
-      <div className="w-full col-span-3 h-full">
-        <div className="grid grid-flow-row col-span-3 w-full">
-          <a
-            className="ml-2 text-sm font-semibold leading-none text-gray-800 border-b border-gray-500 pb-2"
-            href={item.url}
-            target="_blank"
-          >
-            {item.name}
-          </a>
-          <div className="grid grid-rows-2 grid-cols-3 text-xs ml-2 pt-2">
-            <label>Listed Retail: ${item.retail_price}</label>
-            <label>{item.auction}</label>
-            <label>
-              <div className="flex border border-t-0 border-gray-500 gap-1 w-fit items-center px-2 -mt-2">
-                <div className="text-xl rounded-full aspect-square">
-                  {getConditionMark()}
-                </div>
-                <div className="align-sub">{item.condition}</div>
-              </div>
-            </label>
-            <label>Recorded price: ${item.last_price}</label>
 
-            <label className={`${lowTime ? "text-red-500" : ""}`}>
-              <Countdown
-                date={new Date(Date.parse(item.ends_at + " UTC"))}
-                renderer={renderer}
-              />
-            </label>
-
-            <OwnerDropdown
-              owners={owners}
-              owner_id={ownerId}
-              updateOwner={updateOwnerId}
-              id={item.id}
-            />
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-  /*if (Date.parse(item.ends_at) - Date.now() < 0)
+  if (Date.parse(item.ends_at) - Date.now() < 0)
     return <div>Auction Ended</div>;
   else
     return (
@@ -147,32 +79,12 @@ const ItemCard = ({ owners, item, setOwner }) => {
         key={item.id}
         className="flex group/wrap gap-x-6 bg-slate-50 border-b-2 border-black py-2 duration-100 gap-y-2 h-fit ease-in transition-all "
       >
-        <CardCarousel src={item.src} />
+        <CarouselComponent src={item.src} />
 
         <div className=" inline-grid basis-full grid-cols-5 gap-x-2">
-          <div className="min-w-0 flex-auto col-span-4">
-            <a
-              className="text-sm font-semibold leading-none text-gray-900"
-              href={item.url}
-              target="_blank"
-            >
-              {item.name}
-            </a>
-          </div>
-
-          <div
-            className={
-              "mx-2 p-2 mt-1 flex h-fit justify-normal text-sm leading-5 text-gray-900 bg-gray-100 rounded-lg m-8 duration-300 hover:" +
-              getConditionColor()
-            }
-          >
-            <span
-              className={
-                "flex mr-1 w-5 h-5 rounded-full " + getConditionColor()
-              }
-            ></span>
-            {item.condition}
-          </div>
+          
+          <TitleComponent name={item.name} url={item.url} />
+          <ConditionComponent getConditionColor={getConditionColor} condition={item.condition} />
 
           <div className="flex text-xs  text-gray-500">{item.auction}</div>
 
@@ -205,7 +117,50 @@ const ItemCard = ({ owners, item, setOwner }) => {
         </div>
       </div>
     );
-    */
 };
+
+const CarouselComponent = ( {src} ) => {
+  return (
+    <Carousel className="rounded-xl">
+      {src.split(";").map((s, index) => {
+        return <img src={s} key={index} className="object-scale-down" />;
+      })}
+    </Carousel>
+  );
+}
+
+const TitleComponent = ( {url, name} ) => {
+  return (
+    <div className="min-w-0 flex-auto col-span-4">
+            <a
+              className="text-sm font-semibold leading-none text-gray-900"
+              href={url}
+              target="_blank"
+            >
+              {name}
+            </a>
+          </div>
+  )
+}
+
+const ConditionComponent = ( {getConditionColor, condition} ) => {
+  <div
+            className={
+              "mx-2 p-2 mt-1 flex h-fit justify-normal text-sm leading-5 text-gray-900 bg-gray-100 rounded-lg m-8 duration-300 hover:" +
+              getConditionColor()
+            }
+          >
+            <span
+              className={
+                "flex mr-1 w-5 h-5 rounded-full " + getConditionColor()
+              }
+            ></span>
+            {condition}
+          </div>
+}
+
+const DescriptionComponent = () => {
+  
+}
 
 export default ItemCard;

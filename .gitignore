@@ -24,3 +24,5 @@ yarn-error.log*
 
 api/geckodriver.log
 api/database.db
+*.log
+*.db

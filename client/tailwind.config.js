@@ -6,6 +6,7 @@ module.exports = withMT({
     extend: {},
   },
   plugins: [],
+  darkMode: false,
 });
 export default {
   content: [

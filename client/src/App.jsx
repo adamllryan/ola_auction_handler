@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 import Header from "./components/Header.jsx";
 import { io } from "socket.io-client";
 import { sampleItems, sampleOwners } from "./sample.js";
+localStorage.theme = "light";
 const App = () => {
   // Data States
 
